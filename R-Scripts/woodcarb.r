@@ -1,5 +1,5 @@
 ##WOODCARB Excel caluclations
-# a just now
+# b now 
 getwd()
 library(gdata)
 help(WOODCARB.xls)
