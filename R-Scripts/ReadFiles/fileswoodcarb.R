@@ -214,8 +214,8 @@ sfcarb <- function(y,c){
 #######TOTAL CARBON CHECK 1900:2050
 totCarbon <- read.xlsx("checkTotalCarbon.xlsx",1,header=F)
 colnames(totCarbon) <- 1900:2050
-totCcheck <- function(y){
-  return(totCarbon[1,y-1899])
+totCcheck <- function(r,y){
+  return(totCarbon[r,y-1899])
 }
 ##########
 #####check for carbon in solid woof products
@@ -268,3 +268,19 @@ rownames(usaFiberPulp) <- 1998:2013
 # BUcheck <- function(y,c){
 #   return(CalcBUcheck[y-1899,1])
 # }
+woodToLandFills <- read.xlsx("woodToLandFills.xlsx", 1, header=F)
+rownames(woodToLandFills) <- 1900:2050
+woodToLF <- function(y){
+  return(woodToLandFills[y-1899,1])
+}
+########
+woodToDumps <- read.xlsx("woodToDumps.xlsx", 1, header=F)
+rownames(woodToDumps) <- 1900:2050
+woodDumps <- function(y){
+  return(woodToDumps[y-1899,1])
+}
+paperToLandFills <- read.xlsx("paperToLandFills.xlsx",1,header=F)
+rownames(paperToLandFills) <- 1900:2050
+paperToLF <- function(y){
+  return(paperToLandFills[y-1899,1])
+}

@@ -17,4 +17,13 @@ InceQ5 <- 0.900 ## tons insulating board to od tons
 InceR5 <- 0.173913043478261 ##hw veneer, 1000ft^2 to od tons 
 InceV5 <- 13.8649961379827 ##SW roundwood, 1000ft^3 -> od tons
 InceW5 <- 15.9283989668863 ##HW roundwood 1000ft^3 -> od tons
+PRI96 <- 1 #Factor to adjust base MSW not burned for paper and wood
 PRP62 <- 1.00 ##Error in fraction of domestic products from imported wood/pulp
+PRM45 <- .23 #WOOD DECAY LIMIT IN SWDS
+PRM46 <- 0.56#paper decat limit in swds
+PRM50 <- 0.0300063714528115 #Wood waste HL in SWDS, for landfills
+PRM51 <- 0.0478032538317204#Paper waste HL in SWDS, landfills
+PRM57 <- 1 #swtich to be included in the SWDS degradable carbon pool
+PRM60 <- 0.0420089200339361 #Wood waste HL in SWDS, for dumps
+PRM61 <- 0.0840178400678722#Paper waste HL in SWDS, dumps
+PRJ96 <- 1 #Factor to adjust base MSW not burned for paper and wood
