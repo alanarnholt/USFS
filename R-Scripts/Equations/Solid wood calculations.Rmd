@@ -1,0 +1,54 @@
+---
+title: "Variable 1"
+author: "Sami Hlebak"
+date: "Monday, November 02, 2015"
+output: html_document
+---
+
+This is code is used to calculate variable 1.
+
+The code here calculates the percent of carbon lost when the product is placed in use.
+```{r}
+#LPIU= Lost when placed in use
+for (i in 1900:2050){
+  LPIU= #value in base year+(year i-2000)(% increase per year from base)
+} 
+```
+
+The code here will calculate the amount of carbon remaining in use in various end uses by year (million tonnes)
+```{r}
+#ACR=Amount of carbon remaining
+#LPIU= Lost when placed in use
+for (i in ){
+  ACR=#year iexp(-ln(2)/(FIND URL)(year i-(1900-1)(1-LPIU)))
+}
+```
+
+The code here calculates the total carbon stored per year.
+```{r}
+#CPY=carbon per year
+#ACR=Amount of carbon remaining
+#LPIU= Lost when placed in use
+for (i in ){
+  #sum(ACRi:ACRi-1,na.rm)
+}
+```
+
+This code calculates the carbon in solid wood for year i - the carbon in solid wood in year i-1
+```{r}
+#CCSW=Carbon in solid wood
+#CPY=carbon per year
+#ACR=Amount of carbon remaining
+#LPIU= Lost when placed in use
+
+```
+
+This code will calculate the stock change of carbon in metric tons
+```{r}
+#SEMT=stock exchange metric tons
+#CCSW=Carbon in solid wood
+#CPY=carbon per year
+#ACR=Amount of carbon remaining
+#LPIU= Lost when placed in use
+
+```
