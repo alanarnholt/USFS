@@ -15,16 +15,16 @@ C_PAPER_STOCKCHANGE <- function(y){
 #Total carbon in paper for year y in Tg C/yr
 totalC_PAPER <- function(y){
   if (y == 1900){
-    return(exp(-log(2)/PRP10)*CalcBU(y))
+    return(exp(-log(2)/PRP10)*Calc_BU(y))
   }
   else{
-    return(exp(-log(2)/PRP10)*(CalcBU(y)+totalC_PAPER(y-1)))
+    return(exp(-log(2)/PRP10)*(Calc_BU(y)+totalC_PAPER(y-1)))
   }
   
 }
 ###############
 #####Carbon input from paper products, in Tg C/yr
-CalcBU <- function(y){
+Calc_BU <- function(y){
   return(PRO18*((usa_S(y)+usa_U(y)*(a5-1))*(1-usa_BC(y)*PRP62)*(1-usa_BD(y)*PRP62)*((usa_BF(y)-usa_BE(y)+usa_BL(y)/1000)/usa_BF(y))+(usa_AR(y)+usa_AV(y)+usa_AO(y))*a5))
 }
 #################################
