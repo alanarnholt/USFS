@@ -22,7 +22,12 @@ PPCF<-3.90*10^(-7)#from xlsx Parameters&Results $0$18
                   #Paper products carbon factor
                   #Average lifetime
                   #derived conversion coefficent
-
+VIBY<-0.08#from xlsx swcalc b979
+          #tells the values lost when placed in use
+          #same for all
+IPY<-0.01#percent increase per year from base year
+        #from xlsx swcalc b980
+        #same for all
 
 ```
 
@@ -30,9 +35,12 @@ PPCF<-3.90*10^(-7)#from xlsx Parameters&Results $0$18
 The code here calculates the percent of carbon lost when the product is placed in use.
 ```{r}
 #LPIU= Lost when placed in use
+#VIBY= value in base year
 swcalc= read.xlsx("swcalc.xlsx",1,header = F)
+i=0
 for (i in 1900:2050){
-  LPIU= #value in base year+(year i-2000)(% increase per year from base)
+  LPIU= VIBY+(i-2000)(IPY)
+  print(i)
 } 
 ```
 
