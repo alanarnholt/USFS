@@ -1,0 +1,132 @@
+---
+title: "Variable 1B"
+author: "Sami Hlebak"
+date: "Sunday, November 15, 2015"
+output: html_document
+---
+Here are the parameters that are used in these calculations
+```{r}
+WDLSWD<-0.23 #HWP in solid waste disposal
+             #fraction of degradable organic carbon dissimilated
+             #wood decay limit in SWD
+WWL<-0.030#found in xlsx Parameters&Results M50
+          #decay rates of dissimilated C in landfills
+          #Wood waste
+PWL<-0.048#found in xlsx Parameters&Results M51
+          #decay rate of dissimilated C in landfills
+          #paper waste
+WWD<-0.042#found in xlsx Parameters&Results M60
+          #decay rates of dissimilated C in dumbs
+          #Wood waste
+PWD<-0.084#found in Parameters&Results M61
+          #decay rates of dissimilated C in dumbs
+          #paper waste
+SWDC<-4.54*10^(-7)#from xlsx Parameters&Results $O$17
+                  #Derived conversion coefficent
+                  #solid wood products carbon factor
+                  #average life time
+PPHL<-2.53#from xlsx Parameters&Results $P$10
+          #half-life, decay rate for paper products (years)
+PDL<-0.56 #from xlxs Parameters&Results M46
+          #paper decay limit in solid disposable waste sites 
+          #Paper products decay rate (half-life)
+PPCF<-3.90*10^(-7)#from xlsx Parameters&Results $0$18
+                  #Paper products carbon factor
+                  #Average lifetime
+                  #derived conversion coefficent
+VIBY<-0.08#from xlsx swcalc b979
+          #tells the values lost when placed in use
+          #same for all
+IPY<-0.01#percent increase per year from base year
+        #from xlsx swcalc b980
+        #same for all
+
+
+```
+
+```{r}
+Var1b<-function(y)
+  {calcAR(y)*1000}
+calcAR<-function(y)
+  {calcAB(y)+calc(AM(y))}
+calcAB<-function(y)
+  {calcV(y)+calcAA(y)+dumbsF(y)}
+calcV<-function(y)
+  {(1-WDLSWD)*calcQ(y)}
+calcQ<-function(y)
+  {paramresU(y)*1}
+paramresU<-function(y)
+  {URL}
+calcAA<-function(y)
+  {calcY(y)-calcY(y-1)}
+calcY<-function(y)
+  {1/(1+WWL)*(calcy(y-1)+calcX(y))}
+calcX<-function(y)
+  {(WDLSWD)*calcQ(y)}
+dumbsF<-function(y)
+  {dumbsD(y)-dumbsD(y-1)}
+dumbsD<-function(y)
+  {1/(1+(WWD)*(dumdsD(y-1)+dumbsC(y)))}
+dumbsC<-function(y)
+  {(1)*calcG(y)*(url)}#the 1 is because it is included inthe SWDS
+                      #degradable carbon pool (paramres M57)
+                      #url from paramres W150
+calcG<-function(y)
+  {swcalcD(y)}
+swcalcD<-function(y)
+  {swcalcI(y)*(SWDC)}
+swcalcI<-function(y)#Figure out how to code  
+calcAM<-function(y)
+  {calcAG(y)+calcAL(y)+dumpsK(y)}
+calcAG<-function(y)
+  {(1-(PDL))*calcR(y)}
+calcR<-function(y)
+  {(paramresV*1)*calcK(y)}
+paramresV<-function(y)#url from Parameters&Results V122
+  {url}
+calcK<-function(y)
+  {calcJ(y-1)+calcD(y)-calcJ(y)}
+calcJ<-function(y)
+  {exp(-ln(2)/PPHL*(calcD(y)-calcJ(y-1)))}
+calcD<-function(y)
+  {SWDC*controlV(y)*controlAB(y)}
+controlV<-function(y)
+  {controlS(y)+controlT(y)-controlU(y)}
+controlS<-function(y)
+  {(Readin table)*1000*(read in table)}
+controlT<-function(y)
+  {(readin table)*1000*(read in table)}
+controlU<-function(y)
+  {(readintable*1000*(read in table))}
+controlAB<-function(y)
+  {((controlAM(y)+controlAN(y)-controlAO(y))-(controlAI(y)+controlAJ(y)-controlAK(y)))/(controlAM(y)+controlAN(y)-controlAO(y))}
+controlAM<-function(y)
+  {read in table +read in table}
+controlAN<-function(y)
+  {table+table}
+controlAO<-function(y)
+  {table+table}
+controlAI<-function(y)
+  {table}
+controlAJ<-function(y)
+  {table}
+controlAK<-function(y)
+  {table}
+calcAL<-function(y)
+  {calcAJ(y)-calcAJ(y-1)}
+calcAJ<-function(y)
+  {(1/(1+(PWL))*(calcAJ(y-1)+calcAI(y)))}
+calcAI<-function(y)
+  {(PDL)*calcR(y)}
+dumbsK<-function(y)
+  {dumbsI(y)-dumbsI(y-1)}
+dumbsI<-function(y)
+  {(1/(1+(PWD)))*(dumbsI(y)-dumbsI(y-1))}
+
+
+
+
+
+
+
+```

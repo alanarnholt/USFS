@@ -1,0 +1,94 @@
+---
+title: "Solid wood calculations restart"
+author: "Sami Hlebak"
+date: "Tuesday, November 10, 2015"
+output: html_document
+---
+
+Here are the parameters:
+```{r}
+SWDC<-4.54*10^(-7)#from xlsx Parameters&Results $O$17
+                  #Derived conversion coefficent
+                  #solid wood products carbon factor
+                  #average life time
+PPHL<-2.53#from xlsx Parameters&Results $P$10
+          #Paper products decay rate (half-life)
+PPCF<-3.90*10^(-7)#from xlsx Parameters&Results $0$18
+                  #Paper products carbon factor
+                  #Average lifetime
+                  #derived conversion coefficent
+VIBY<-0.08#from xlsx swcalc b979
+          #tells the values lost when placed in use
+          #same for all
+IPY<-0.01#percent increase per year from base year
+        #from xlsx swcalc b980
+        #same for all
+
+```
+
+
+```{r}
+Var1a<-function(y)
+  {CalcO(y)*1000}
+  CalcO<-function(y)
+    {calcH(y)+calcL(y)}
+  calcH<- function(y)
+    {swcalcE(y)}
+  swcalcE<-function(y)
+    {swcalcJ(y)*SWDC}
+  swcalcJ<-function(y)
+    {swcalcH(y)-swcalc(H-1)}
+  swcalcH<-function(y)
+    {swcalcW(y)+swcalcC3140(y)}#find what "offset" does
+  swcalcW<-function(y)
+    {Url*swcalcV(y)}#v is blank
+  swcalcC3149<-function(y)#diferent c's added,figure out how to code
+    {}
+#starting paper poducts
+calcL<-function(y)
+  {calcJ(y)-calcJ(y-1)}
+calcJ<-function(y)
+  {exp(-ln(2)/PPHL*(calcD(y)-calcJ(y-1)))}
+calcD<-function(y)
+  {SWDC*controlV(y)*controlAB(y)}
+controlV<-function(y)
+  {controlS(y)+controlT(y)-controlU(y)}
+controlS<-function(y)
+  {(Readin table)*1000*(read in table)}
+controlT<-function(y)
+  {(readin table)*1000*(read in table)}
+controlU<-function(y)
+  {(readintable*1000*(read in table))}
+controlAB<-function(y)
+  {((controlAM(y)+controlAN(y)-controlAO(y))-(controlAI(y)+controlAJ(y)-controlAK(y)))/(controlAM(y)+controlAN(y)-controlAO(y))}
+controlAM<-function(y)
+  {read in table +read in table}
+controlAN<-function(y)
+  {table+table}
+controlAO<-function(y)
+  {table+table}
+controlAI<-function(y)
+  {table}
+controlAJ<-function(y)
+  {table}
+controlAK<-function(y)
+  {table}
+  
+```
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
