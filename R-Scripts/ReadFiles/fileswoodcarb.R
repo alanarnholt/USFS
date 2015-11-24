@@ -2,7 +2,7 @@ library(xlsx)
 #######DATA FILES
 ###HAIR 1958 TAB 14 TIMBER DATA
 # FROM 1899-1956
-hair1958 = read.xlsx("hair1958.xlsx",1,header = F)
+hair1958 <- read.xlsx("hair1958.xlsx",1,header = F)
 rownames(hair1958) <- 1899:1956
 h8 <- function(y,c){
   return(hair1958[y-1898,c])
