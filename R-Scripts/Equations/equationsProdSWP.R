@@ -43,10 +43,6 @@ c_placed_IU <- function(y,eu){
 }
 
 ################################################
-a5<-1
-
-efinProdSawn(1905)
-u_swp(1963)
 efinProdSawn <- function(y) {
   efinaly <- (bSawn(y) - (1-a5) * dSawn(y)) * ((s_swp(y) + u_swp(y) * a5 - r_swp(y) * PRP62 )/ s_swp(y))
   return(efinaly)                                                                       
