@@ -104,11 +104,13 @@ swcalcC2987<-function(y)
 #____________________________________________________
 #starting paper poducts
 calcL<-function(y)
-  {calcJ(y)-calcJ(y-1)}
+  {calcJ(y)-calcJ(y-1)}#fix this 
+#maybe use y[n]-y[y-1]
+#or diff(y)
 calcJ<-function(y)
-  {exp(-ln(2)/PPHL*(calcD(y)-calcJ(y-1)))}
+  {exp(-ln(2)/PPHL*(calcD(y)-calcJ(y-1)))}#fix the y-1
 calcD<-function(y)
-  {SWDC*controlV(y)*controlAB(y)}
+  {PPCF*controlV(y)*controlAB(y)}
 controlV<-function(y)
   {controlS(y)+controlT(y)-controlU(y)}
 controlS<-function(y)

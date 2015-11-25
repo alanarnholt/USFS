@@ -15,13 +15,14 @@ totalC_SWP <- function(y){
   totalcarbon <- 0
   for (i in 1:16){
     if (i == 4 || i == 9 || i == 13){
-      totalcarbon <- totalcarbon+0
+      totalcarbon <- totalcarbon
     }
     else{
       totalcarbon <- totalcarbon + C_IU_J(y,i)
     }
     
   }
+  ##pre1900() is result of calculation from linked site
   return(totalcarbon + pre1900(y))
 }
 ###C_IU_J calculates total carbon left in year y for eu j in million tonnes of carbon
