@@ -27,7 +27,9 @@ HWP_Contribution_AFOLU_Prod_Approach <- function(y){
   
 }
 
-
+# HWP_Contribution_AFOLU_Prod_Approach(2005)
+# C_STOCKCHANGE_TOTAL_2A(2010)
+# warnings()
 # HWPFINALCHECK <- read.xlsx("HWP_FINAL_CHECK.xlsx",1,header=F)
 # hwpcheck <- numeric(31)
 # for (i in 1990:2020){

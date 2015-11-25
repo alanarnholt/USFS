@@ -9,8 +9,8 @@ h8 <- function(y,c){
 }
 #######################
 #####HAIR 1963 TABLE 2 TIMBER PRODUCT DATA
-hair1963 <- read.xlsx("hair1963tab2.xlsx", 1, header=F,
-                      rowIndex = 6:90, colIndex = 2:39)
+##this table includes numbers results of calcs, needs fix
+hair1963 <- read.xlsx("hair1963tab2.xlsx", 1, header=F)
 rownames(hair1963) <- 1900:1984
 h3 <- function(y,c){
     return(hair1963[y-1899,c])
@@ -219,7 +219,7 @@ totCcheck <- function(r,y){
 }
 ##########
 #####check for carbon in solid woof products
-totalCSWPcheck <- read.xlsx("totalCSWP.xlsx",1,header=F)
+totalCSWPcheck <- read.xlsx("totalCSWPSWCALCP.xlsx",1,header=F)
 rownames(totalCSWPcheck) <- 1900:2050
 CSWPcheck <- function(y,c){
   return(totalCSWPcheck[y-1899,1])
@@ -232,6 +232,7 @@ rownames(swPcorrect) <- 1900:2020
 getSWP <- function(y,c){
   return(swPcorrect[y-1899,c])
 }
+
 ##########LUMBER WOOD IN SF HOUSES 1800-1900
 lumberpre1900 <- read.xlsx("lumberpre1900.xlsx",1,header=F)
 rownames(lumberpre1900) <- 1900:2050

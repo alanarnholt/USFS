@@ -39,10 +39,15 @@ Calc_CX <- function(y){
     return(0)
   }
   else{
-    return(CVtable[y-1899] - CVtable[y-1900])
+    return(Calc_CV(y) - Calc_CV(y-1))
   }
 }
+
 ###########
+###########
+Calc_CU <- function(y){
+  return(PRM46*Calc_CI(y))
+}
 CVtable <- numeric(121)
 for(i in 1900:2020){
   if (i==1900)
@@ -53,17 +58,14 @@ for(i in 1900:2020){
 Calc_CV <- function(y){
   return(CVtable[y-1899])
 }
-###########
-Calc_CU <- function(y){
-  return(PRM46*Calc_CI(y))
-}
+
 ###########
 Dumps_V <- function(y){
   if(y == 1900){
     return(Dumps_T(y))
   }
   else{
-    return(dumpT(y)-Dumps_T(y-1))
+    return(Dumps_T(y)-Dumps_T(y-1))
   }
 }
 ###########
@@ -81,6 +83,7 @@ Dumps_T <- function(y){
 Dumps_S <- function(y){
   return(PRM57*Calc_CB(y)*ParamResults_Q(y))
 }
+
  ########################################
 ########################################
 ########################################
@@ -94,7 +97,15 @@ C_SWP_StockChange_LFDumps <- function(y){
     return((1-PRM45)*ParamResults_O(y)*totalC_Output(y) * PRO17 + (Calc_CN(y) - Calc_CN(y-1)) + (Dumps_O(y) - Dumps_O(y-1)))
   }
 }
+C_SWP_StockChange_LFDumps(2005)
+Calc_CN(2005)
+Dumps_O(2005)
 ##########
+##########
+Calc_CM <- function(y){
+  return(PRM45 * ParamResults_O(y) * totalC_Output(y) * PRO17)
+}
+################
 CNtable <- numeric(121)
 for(i in 1900:2020){
   if (i==1900)
@@ -106,15 +117,12 @@ Calc_CN <- function(y){
   return(CNtable[y-1899])
   
 }
-##########
-Calc_CM <- function(y){
-  return(PRM45 * ParamResults_O(y) * totalC_Output(y) * PRO17)
-}
+
 ###########
 DumpsOtable <- numeric(121)
 for(i in 1900:2020){
   if (i==1900)
-    DumpsOtable[1] <-  (1/(1+PRM60))*Dumps_N(y)
+    DumpsOtable[1] <-  (1/(1+PRM60))*Dumps_N(i)
   else
     DumpsOtable[i-1899] <- (1/(1+PRM60))*(DumpsOtable[i-1900]+Dumps_N(i))
 }
@@ -125,6 +133,7 @@ Dumps_O <- function(y){
 Dumps_N <- function(y){
   return(PRM57*totalC_Output(y) * PRO17*ParamResults_Q(y))
 }
+Dumps_N(2005)
 ############
 ############
 #########returns total carbon stored 
@@ -180,3 +189,4 @@ ParamResults_O <- function(y){
 ParamResults_Q <- function(y){
   return(woodDumps(y))######Calculated from a linked site.
 }
+
