@@ -2,23 +2,23 @@
 #########PRODUCTION APPROACH, PAPER PRODUCTS
 ####################
 ####Carbon stock change for paper production year y in Tg C/yr
-C_PAPER_STOCKCHANGE <- function(y){
+Var2_C_PAPER_STOCKCHANGE <- function(y){
   if (y == 1900){
     return(0)
   }
   else{
-    return(totalC_PAPER(y) - totalC_PAPER(y-1))
+    return(Var2_totalC_PAPER(y) - Var2_totalC_PAPER(y-1))
   }
   
 }
 ##########################
 #Total carbon in paper for year y in Tg C/yr
-totalC_PAPER <- function(y){
+Var2_totalC_PAPER <- function(y){
   if (y == 1900){
     return(exp(-log(2)/PRP10)*Calc_BU(y))
   }
   else{
-    return(exp(-log(2)/PRP10)*(Calc_BU(y)+totalC_PAPER(y-1)))
+    return(exp(-log(2)/PRP10)*(Calc_BU(y)+Var2_totalC_PAPER(y-1)))
   }
   
 }

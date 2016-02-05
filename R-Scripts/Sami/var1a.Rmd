@@ -30,10 +30,14 @@ IPY<-0.01#percent increase per year from base year
 ```{r}
 Var1a<-function(y)
   {CalcO(y)*1000}
-  CalcO<-function(y)
+CalcO<-function(y)
     {calcH(y)+calcL(y)}
-  calcH<- function(y)
+calcH<- function(y)
     {swcalcE(y)}
+  
+  
+  
+  
   swcalcE<-function(y)
     {swcalcJ(y)*SWDC}
   swcalcJ<-function(y)

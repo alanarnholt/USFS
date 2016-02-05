@@ -6,14 +6,14 @@
 #'Annual Change in stock of HWP in use produced from domestic harvest 
 #'Output is in Gg C/yr
 ###
-C_STOCKCHANGE_TOTAL_2A <- function(y){
-  return((C_SWP_STOCKCHANGE(y) + C_PAPER_STOCKCHANGE(y))*1000)
+Var2_C_STOCKCHANGE_TOTAL_2A <- function(y){
+  return((Var2_C_SWP_STOCKCHANGE(y) + Var2_C_PAPER_STOCKCHANGE(y))*1000)
 }
 ####
 #'VAR #2b
 #'Annual Change in stock of HWP in SWDS produced from domestic harvest 
 #'Output in Gg C/yr
-C_STOCKCHANGE_TOTAL_2B <- function(y){
+Var2_C_STOCKCHANGE_TOTAL_2B <- function(y){
   return(1000*(C_SWP_StockChange_LFDumps(y) + C_PAPER_StockChange_LFDumps(y)))
 }
 ###

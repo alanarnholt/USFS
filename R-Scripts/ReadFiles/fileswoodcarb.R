@@ -284,3 +284,16 @@ rownames(paperToLandFills) <- 1900:2050
 paperToLF <- function(y){
   return(paperToLandFills[y-1899,1])
 }
+########
+imports1<-read.xlsx("imports1.xlsx",1,header=FALSE)
+rownames(imports1)<-1965:2050
+i1<-function(y,c){
+  return(imports1[y-1964,c])
+}
+
+
+
+
+
+
+

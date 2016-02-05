@@ -1,24 +1,25 @@
+
 ####################
 #####PRODUCTION APPROACH, SOLID WOOD PRODUCTS CALCULATIONS
 ##########'CALC'CY###SOLID WOOD PRODUCTS STOCK CHANGE in Tg C/yr
 ##########'
-Var2_C_SWP_STOCKCHANGE <- function(y){
+Var1_C_SWP_STOCKCHANGE <- function(y){
   
-  return((Var2_totalC_SWP(y) - Var2_totalC_SWP(y-1))*PRO17)
+  return((Var1_totalC_SWP(y) - Var1_totalC_SWP(y-1))*PRO17)
 }
 
 ######
 #####totalC calculates total carbon left in yr from all end uses in million tonnes of carbon
 ###
 
-Var2_totalC_SWP <- function(y){
+Var1_totalC_SWP <- function(y){
   totalcarbon <- 0
   for (i in 1:16){
     if (i == 4 || i == 9 || i == 13){
       totalcarbon <- totalcarbon
     }
     else{
-      totalcarbon <- totalcarbon + C_IU_J(y,i)
+      totalcarbon <- totalcarbon + Var1_C_IU_J(y,i)
     }
     
   }
@@ -26,52 +27,41 @@ Var2_totalC_SWP <- function(y){
   return(totalcarbon + pre1900(y))
 }
 ###C_IU_J calculates total carbon left in year y for eu j in million tonnes of carbon
-Var2_C_IU_J <- function(y,eu){
+Var1_C_IU_J <- function(y,eu){
   total <- 0
   for(i in 1900:y){
-    total <- total + (c_placed_IU(i,eu)*(exp(-log(2)/HL(i,eu)*((y-i)+1)))*(1-iuLoss(i,eu)))
+    total <- total + (Var1_c_placed_IU(i,eu)*(exp(-log(2)/HL(i,eu)*((y-i)+1)))*(1-iuLoss(i,eu)))
   }
   return(total)
 }
+for(i in 1960:2000){
+  print(Var1_c_placed_IU(i, 1))
+}
 ##################
 #####c_placed_IU calculates carbon placed in use for a given end use in a year in million tonnes of carbon
-Var2_c_placed_IU <- function(y,eu){
+Var1_c_placed_IU <- function(y,eu){
   if (eu == 16){
     return(qOther(y) * 1)
   }
-  return((efinProdSawn(y) * fsw(y,eu)) +(ifinProdSP(y)*fsp(y,eu)) +(mfinProdNSP(y)*fnsp(y,eu))) 
+  return((Var1_eSawn(y) * fsw(y,eu)) +(Var1_iSP(y)*fsp(y,eu)) +(Var1_mNSP(y)*fnsp(y,eu))) 
 }
 
-################################################
-efinProdSawn <- function(y) {
-  efinaly <- (bSawn(y) - (1-a5) * dSawn(y)) * ((s_swp(y) + u_swp(y) * a5 - r_swp(y) * PRP62 )/ s_swp(y))
-  return(efinaly)                                                                       
+
+
+Var1_eSawn<-function(y){
+  return(bSawn(y)+cSawn(y)-dSawn(y))
 }
-ifinProdSP <- function(y){
-  ifin <- (fSP(y)-(1-a5)*hSP(y))*((s_swp(y)+u_swp(y)*a5-r_swp(y)*PRP62)/s_swp(y))
-  return(ifin)
+
+Var1_iSP<-function(y){
+  return(fSP(y)+gSP(y)-hSP(y))
 }
-mfinProdNSP <- function(y){
-  mfin <- (jNSP(y)-(1-a5)*lNSP(y))*((s_swp(y)+u_swp(y)*a5-r_swp(y)*PRP62)/s_swp(y))
-  return(mfin)
+
+Var1_mNSP<-function(y){
+  return(jNSP(y)+kNSP(y)-lNSP(y))
 }
-qOther <- function(y){
-  return(nOther(y)-(1-a5)*pOther(y))
-}
-nOther <- function(y){
-  if (y > 1899 && y < 1950){
-    return(h3(y,37)*InceN5*1000)
-  }
-  if (y > 1949 && y < 1965){
-    return(u4(y,19)*InceN5*1000)
-  }
-  if (y > 1964 && y < 2021){
-    return(h5(y,19)*InceN5*1000)
-  }
-}
-pOther <- function(y){
-  return(0)
-}
+
+######################
+
 bSawn <- function(y){
   cavg <- (h8(1904,2)-h8(1899,2))/5
   davg <- (h8(1904,3)-h8(1899,3))/5
@@ -103,36 +93,7 @@ dSawn <- function(y){
     return( ((h28(y,8)*1000*InceF5)+(h28(y,9)*1000*InceG5))*1000)
   }
 }
-s_swp <- function(y){
-  if(y < 1950){
-    return((h3(y,28)+h3(y,31))*(InceV5*0.8+InceW5*0.2)*1000)
-  }
-  if(y > 1949 && y < 1965){
-    return(1000*((u5(y,7)+u5(y,14))*InceV5+(u6(y,9)+u6(y,14))*InceW5))
-  }
-  if (y > 1964 && y < 2021){
-    return(1000*((h6(y,7)+h6(y,11))*InceV5+(h7(y,7)+h7(y,11))*InceW5))
-  }
-}
-u_swp <- function(y){
-  if(y < 1965){
-    return((h3(y,8)*InceV5+h3(y,10)*InceW5)*1000)
-  }
-  if(y<2021 && y > 1964){
-    return( (h6(y,21)*InceV5+h7(y,21)*InceW5)*1000)
-  }
-}
-r_swp <- function(y){
-  if(y<1950){
-    return(0)
-  }
-  if (y < 1965&&y>1949){
-    return(1000*(u5(y,20)*InceV5+u6(y,25)*InceW5))
-  }
-  if(y > 1964 && y < 2021){
-    return(1000*(h6(y,20)*InceV5+h7(y,20)*InceW5))
-  }
-}
+
 fSP <- function(y){
   if(y < 1950){
     return(((inc1(y,1)*InceB5))*1000)
@@ -201,36 +162,140 @@ lNSP <- function(y){
 }
 
 
-
-perError <- function(correct,y){
-  
-  if( correct == 0 && y != 0){
-    
-    return(1000000)
+cSawn<-function(y){
+  if(y > 1899 && y < 1918){
+    return(h8(y,4)*InceF5*1000)
   }
-  if(correct == 0 && y == 0){
+  if(y>1917 && y < 1950){
+    return(((h8(y,5)+h8(y,7)*InceF5)+(h8(y,6)*InceF5))*1000)
+  }
+  if(y > 1949 && y < 1965){
+   return(((u29(y,6)*1000*InceF5)+(u29(y,7)*InceG5*1000))*1000)
+  }#not working for all values
+  if(y>1964 && y< 2021){
+    return(((h28(y,5)*1000*InceF5)+(h28(y,6)*InceG5*1000))*1000)
+  }
+  if(y>2019 && y< 2051){
+    return(((i1(y,4)*InceF5)+(i1(y,5)*InceG5))*1000)
+  }
+}
+
+gSP<-function(y){
+  if (y>1889 &&y<1950){
     return(0)
   }
-  return(100*((y-correct)/correct))
+  if(y>1949 && y<1965){
+    return((u36(y,6)*InceB5)*1000)
+  }#not working 
+  if (y>1964 && y<1980){
+    return((h37(y,5)*InceB5)*1000)
+  }
+  if (y>1979 && y<2021){
+    return(((h37(y,5)*InceB5)+(h38(y,6)*InceC5))*1000)
+  }
+  if(y>2019 && y<2051){
+    return(((inc1(y,1)*InceB5)+(inc1(y,2)*InceC5))*1000)
+  }
 }
-####################
-#####END-USES:
-####SINGLE FAMILY HOUSING - 1
-####MULTIFAMILY HOUSING - 2
-####MOBILE HOME HOUSING - 3
-#### TOTAL HOUSING - 4
-####TOTAL RESIDENTIAL UPKEEP/IMPROVEMENT - 5
-#### ALL NONRES CONSTRUCTION EX RAILROADS - 6
-####RAILROAD TIES - 7
-####RAILCAR REPAIR - 8
-####TOTAL NONRES CONSTRUCTION - 9
-####HOUSEHOLD FURNITURE - 10
-####COMMERICAL FURNITURE - 11
-####Manufacturing-other - 12
-####manufacturing total - 13
-#####SHIPPING TOTAL - 14
-#####OTHER USES LUMBER/PANELS - 15
-###USES FOR OTHER INDUSTRIAL PRODUCTS - 16
-####EXPORTS - 17
+
+kNSP<-function(y){
+  if(y>1889 && y<1927){
+    return(0)
+  }
+  if(y>1926 && y<1935){
+    return(((h3t21(y,1)/1000)*InceR5)*1000)
+  }#for some reason they multiply and divide by 1000
+  if(y>1934 && y<1950){
+    return((((h3t20(y,3)*InceE5)+(h3t21(y,1)*InceR5))/1000)*1000)
+  }
+  if(y>1949 && y<1954){
+    return(u36(y,7)*InceE5*1000)
+  }
+  if(y>1953 && y<1963){
+    return(((u36(y,6)*InceE5)+(u54(y,2)*InceJ5)+(u53(y,2)*InceO5))*1000) 
+  } 
+  if(y>1962 && y< 1965){
+    return(((u36(y,6)*InceE5)+(u52(y,4)*InceI5)+(u54(y,2)*InceJ5)+(u53(y,2)*InceO5))*1000)
+  }
+  if(y>1964&& y<2021){
+    return(((h37(y,6)*InceE5)+(h53(y,4)*InceI5)+(h56(y,2)*InceJ5)+(h55(y,2)*InceQ5))*1000)
+  } 
+}
+
+
+
+
+
+
+
+
+
+
+###############################
+#############FINAL VARIABLES
+#############woodcarb 'IPCC 06'
 ##############
-##################
+#'VAR #2a
+#'Annual Change in stock of HWP in use produced from domestic harvest 
+#'Output is in Gg C/yr
+###
+Var1_C_STOCKCHANGE_TOTAL_2A <- function(y){
+  return((Var1_C_SWP_STOCKCHANGE(y) + Var1_C_PAPER_STOCKCHANGE(y))*1000)
+}
+####
+#'VAR #2b
+#'Annual Change in stock of HWP in SWDS produced from domestic harvest 
+#'Output in Gg C/yr
+Var1_C_STOCKCHANGE_TOTAL_2B <- function(y){
+  return(1000*(C_SWP_StockChange_LFDumps(y) + C_PAPER_StockChange_LFDumps(y)))
+}
+###
+HWP_Contribution_AFOLU_Prod_Approach <- function(y){
+  if (y < 1900 || y > 2050){
+    return(0)
+  }
+  else{
+    return((-1*C_STOCKCHANGE_TOTAL_2A(y)-C_STOCKCHANGE_TOTAL_2B(y))*(44/12))# + "Gg C/yr in emmissions/removals")
+  }
+  
+}
+
+# HWP_Contribution_AFOLU_Prod_Approach(2005)
+# C_STOCKCHANGE_TOTAL_2A(2010)
+# warnings()
+# HWPFINALCHECK <- read.xlsx("HWP_FINAL_CHECK.xlsx",1,header=F)
+# hwpcheck <- numeric(31)
+# for (i in 1990:2020){
+#   print(round(HWPFINALCHECK[i-1989,1],0) - round(HWP_Contribution_AFOLU_Prod_Approach(i)))
+# }
+# 
+# for (i in 1990:2020){
+#   total <- total + system.time(HWP_Contribution_AFOLU_Prod_Approach(i))
+# }
+# total
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
