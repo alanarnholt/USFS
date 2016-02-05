@@ -18,7 +18,7 @@ Var2_totalC_SWP <- function(y){
       totalcarbon <- totalcarbon
     }
     else{
-      totalcarbon <- totalcarbon + C_IU_J(y,i)
+      totalcarbon <- totalcarbon + Var2_C_IU_J(y,i)
     }
     
   }
@@ -29,7 +29,7 @@ Var2_totalC_SWP <- function(y){
 Var2_C_IU_J <- function(y,eu){
   total <- 0
   for(i in 1900:y){
-    total <- total + (c_placed_IU(i,eu)*(exp(-log(2)/HL(i,eu)*((y-i)+1)))*(1-iuLoss(i,eu)))
+    total <- total + (Var2_c_placed_IU(i,eu)*(exp(-log(2)/HL(i,eu)*((y-i)+1)))*(1-iuLoss(i,eu)))
   }
   return(total)
 }

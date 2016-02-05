@@ -279,7 +279,7 @@ rownames(woodToDumps) <- 1900:2050
 woodDumps <- function(y){
   return(woodToDumps[y-1899,1])
 }
-paperToLandFills <- read.xlsx("paperToLandFills.xlsx",1,header=F)
+paperToLandFills <- read.xlsx("paperToLandFIlls.xlsx",1,header=F)
 rownames(paperToLandFills) <- 1900:2050
 paperToLF <- function(y){
   return(paperToLandFills[y-1899,1])

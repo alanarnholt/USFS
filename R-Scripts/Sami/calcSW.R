@@ -11,7 +11,6 @@ Var1_C_SWP_STOCKCHANGE <- function(y){
 ######
 #####totalC calculates total carbon left in yr from all end uses in million tonnes of carbon
 ###
-
 Var1_totalC_SWP <- function(y){
   totalcarbon <- 0
   for (i in 1:16){
@@ -26,6 +25,11 @@ Var1_totalC_SWP <- function(y){
   ##pre1900() is result of calculation from linked site
   return(totalcarbon + pre1900(y))
 }
+#test for carbon stored in sw calc (var1)
+carbonstoredtest <- read.csv("swcalccarbonstored.csv", header = FALSE, sep=",", col.names = FALSE)
+for (i in 1900:2000){
+  print(perError(carbonstoredtest[i-1899,1], Var1_totalC_SWP(i) - pre1900(i)))
+}
 ###C_IU_J calculates total carbon left in year y for eu j in million tonnes of carbon
 Var1_C_IU_J <- function(y,eu){
   total <- 0
@@ -34,9 +38,7 @@ Var1_C_IU_J <- function(y,eu){
   }
   return(total)
 }
-for(i in 1960:2000){
-  print(Var1_c_placed_IU(i, 1))
-}
+
 ##################
 #####c_placed_IU calculates carbon placed in use for a given end use in a year in million tonnes of carbon
 Var1_c_placed_IU <- function(y,eu){
@@ -47,21 +49,21 @@ Var1_c_placed_IU <- function(y,eu){
 }
 
 
-
+##e column in SWCALC
 Var1_eSawn<-function(y){
   return(bSawn(y)+cSawn(y)-dSawn(y))
 }
-
+##I column in SWCALC
 Var1_iSP<-function(y){
   return(fSP(y)+gSP(y)-hSP(y))
 }
-
+##m column in SWCALC
 Var1_mNSP<-function(y){
   return(jNSP(y)+kNSP(y)-lNSP(y))
 }
 
 ######################
-
+##b column in swcalc
 bSawn <- function(y){
   cavg <- (h8(1904,2)-h8(1899,2))/5
   davg <- (h8(1904,3)-h8(1899,3))/5
@@ -79,6 +81,7 @@ bSawn <- function(y){
   }
 }
 a5 <- 1##Swithc
+##d column in swcalc
 dSawn <- function(y){
   if(y < 1911){
     return(h8(y,13) * InceF5 * 1000)
@@ -93,7 +96,7 @@ dSawn <- function(y){
     return( ((h28(y,8)*1000*InceF5)+(h28(y,9)*1000*InceG5))*1000)
   }
 }
-
+##f column in swcalc
 fSP <- function(y){
   if(y < 1950){
     return(((inc1(y,1)*InceB5))*1000)
@@ -108,6 +111,7 @@ fSP <- function(y){
     return(((h37(y,2)*InceB5)+(h38(y,3)*InceC5))*1000)
   }
 }
+##h column in swcalc
 hSP <- function(y){
   if(y < 1927){
     return(0)
@@ -125,6 +129,7 @@ hSP <- function(y){
     return(((h37(y,8)*InceB5)+(h38(y,9)*InceC5))*1000)
   }
 }
+##j column in swcalc
 jNSP <- function(y){
   if(y < 1950){
     return(((inc1(y,4)*InceE5)+(inc1(y,9)*InceJ5)+(inc1(y,13)*InceO5))*1000)
@@ -137,6 +142,7 @@ jNSP <- function(y){
   }
   
 }
+##l column in swcalc
 lNSP <- function(y){
   if (y<1916){
     return(0)
@@ -161,7 +167,7 @@ lNSP <- function(y){
   }
 }
 
-
+##c column in swcalc
 cSawn<-function(y){
   if(y > 1899 && y < 1918){
     return(h8(y,4)*InceF5*1000)
@@ -179,7 +185,7 @@ cSawn<-function(y){
     return(((i1(y,4)*InceF5)+(i1(y,5)*InceG5))*1000)
   }
 }
-
+##g column in swcalc
 gSP<-function(y){
   if (y>1889 &&y<1950){
     return(0)
@@ -197,7 +203,7 @@ gSP<-function(y){
     return(((inc1(y,1)*InceB5)+(inc1(y,2)*InceC5))*1000)
   }
 }
-
+##k column in sw calc
 kNSP<-function(y){
   if(y>1889 && y<1927){
     return(0)
