@@ -1,16 +1,10 @@
 ####################
-#####PRODUCTION APPROACH, SOLID WOOD PRODUCTS CALCULATIONS
-##########'CALC'CY###SOLID WOOD PRODUCTS STOCK CHANGE in Tg C/yr
-##########'
+#####Var 2PRODUCTION APPROACH, SOLID WOOD PRODUCTS CALCULATIONS
 Var2_C_SWP_STOCKCHANGE <- function(y){
   
   return((Var2_totalC_SWP(y) - Var2_totalC_SWP(y-1))*PRO17)
 }
-
-######
 #####totalC calculates total carbon left in yr from all end uses in million tonnes of carbon
-###
-
 Var2_totalC_SWP <- function(y){
   totalcarbon <- 0
   for (i in 1:16){
@@ -41,7 +35,6 @@ Var2_c_placed_IU <- function(y,eu){
   }
   return((efinProdSawn(y) * fsw(y,eu)) +(ifinProdSP(y)*fsp(y,eu)) +(mfinProdNSP(y)*fnsp(y,eu))) 
 }
-
 ################################################
 efinProdSawn <- function(y) {
   efinaly <- (bSawn(y) - (1-a5) * dSawn(y)) * ((s_swp(y) + u_swp(y) * a5 - r_swp(y) * PRP62 )/ s_swp(y))
