@@ -1,11 +1,11 @@
 ####
-#'VAR 1b
+#'VAR 1b - not working 
 #'Annual Change in stock of HWP in SWDS produced from domestic harvest 
 #'Output in Gg C/yr
 Var1_C_STOCKCHANGE_TOTAL_2B <- function(y){
   return(1000*(C_SWP_StockChange_LFDumps(y) + C_PAPER_StockChange_LFDumps(y)))
 }
-#'VAR #1a
+#'VAR #1a - working 
 #'Annual Change in stock of HWP in use produced from domestic harvest 
 #'Output is in Gg C/yr
 ###
@@ -17,7 +17,7 @@ finalcheck <- read.xlsx("finaLIpcctable.xlsx",1,header=FALSE)
 # for(i in 1990:2020){
 #   print(perError(finalcheck[i-1989,1], VAR1_STOCKCHANGE_TOTAL(i)))
 # }
-
+perError(finalcheck[2000-1989,1], VAR1_STOCKCHANGE_TOTAL(2000))
 Var1_C_SWP_STOCKCHANGE <- function(y){
   
   return((var1_totalC(y) - var1_totalC(y-1))*PRO17)

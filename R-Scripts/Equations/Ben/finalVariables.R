@@ -22,7 +22,7 @@ HWP_Contribution_AFOLU_Prod_Approach <- function(y){
     return(0)
   }
   else{
-    return((-1*C_STOCKCHANGE_TOTAL_2A(y)-C_STOCKCHANGE_TOTAL_2B(y))*(44/12))# + "Gg C/yr in emmissions/removals")
+    return((-1*Var2_C_STOCKCHANGE_TOTAL_2A(y)-Var2_C_STOCKCHANGE_TOTAL_2B(y))*(44/12))# + "Gg C/yr in emmissions/removals")
   }
   
 }

@@ -114,7 +114,7 @@ C_SWP_StockChange_LFDumps <- function(y){
 ############
 #########returns total carbon stored 
 carbonStored <- function(y){
-  return(totalC_SWP(y) - pre1900(y))
+  return(Var2_totalC_SWP(y) - pre1900(y))
 }
 ##############################
 #######returns the carbon stored in a year, from that year. 
@@ -125,8 +125,7 @@ carbonStoredSameYear <- function(y){
       totalcarbon <- totalcarbon+0
     }
     else{
-      totalcarbon <- totalcarbon + (c_placed_IU(y,i)*(exp(-log(2)/HL(y,i)*((0)+1)))*(1-iuLoss(y,i)))
-    }
+      totalcarbon <- totalcarbon + (Var2_c_placed_IU(y,i)*(exp(-log(2)/HL(y,i)*((0)+1)))*(1-iuLoss(y,i)))
   }
   return(totalcarbon)
 }
@@ -139,7 +138,7 @@ C_placed_Iu_total <- function(y){
       totalcarbon <- totalcarbon+0
     }
     else{
-      totalcarbon <- totalcarbon + c_placed_IU(y,i)
+      totalcarbon <- totalcarbon + Var2_c_placed_IU(y,i)
     }
     
   }
