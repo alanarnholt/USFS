@@ -58,8 +58,21 @@ usa_L <- function(year){
     return(((u36(year, 6)*InceB5)+(u36(year, 7)*InceE5))*1000)
   }
   if (year > 1953 && year < 1956){
-    return(((u36(year, 6)*InceB5)+(u36(year,7)*InceE)+('Ulrich_Table 54_adj'!C46*'Ince_Table 4'!J$5)+('Ulrich_Table 53_adj'!C38*'Ince_Table 4'!O$5))*1000)
+    return(((u36(year, 6)*InceB5)+(u36(year,7)*InceE)+(u54(year,2)*InceJ5)+(u53(year,2)*InceO5))*1000)
   }
-  if (year < )
+  if (year > 1955 && year < 1963){
+    if (year == 1956 || year == 1959){
+      return(((u36(year, 7)*InceE5)+(u54(year, 2)*InceJ5)+(u53(year, 2)*InceO5))*1000)
+    }
+    else {
+      return(((u36(year, 6)*InceB5)+(u36(year, 7)*InceE5)+(u54(year, 2)*InceJ5)+(u53(year, 2)*InceO5))*1000)
+    }
+  }
+  if (year > 1962 && year < 1965){
+    return(((u36(year, 6)*InceB5)+(u36(year, 7)*InceE5)+(u52(year, 4)*InceI5)+(u54(year, 2)*InceJ5)+(u53(year, 2)*InceO5))*1000)
+  }
+  if (year > 1964 && year < 1980){
+    ((h37(y,5)*InceB5)+(h37(year,6)*InceE5)+(h53(year,4)*InceI5)+(h56(year,2)*InceJ5)+h55(year,2)*InceQ5)*1000###InceP23 doesnt make sense**, Q5 does.
+  }
 }
 

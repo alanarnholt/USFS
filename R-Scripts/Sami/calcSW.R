@@ -2,14 +2,14 @@
 #'VAR 1b - not working 
 #'Annual Change in stock of HWP in SWDS produced from domestic harvest 
 #'Output in Gg C/yr
-Var1_C_STOCKCHANGE_TOTAL_2B <- function(y){
+Var1a_C_STOCKCHANGE_TOTAL <- function(y){
   return(1000*(C_SWP_StockChange_LFDumps(y) + C_PAPER_StockChange_LFDumps(y)))
 }
 #'VAR #1a - working 
 #'Annual Change in stock of HWP in use produced from domestic harvest 
 #'Output is in Gg C/yr
 ###
-Var1_STOCKCHANGE_TOTAL <- function(y){
+Var1a_STOCKCHANGE_TOTAL <- function(y){
   return((Var1_C_SWP_STOCKCHANGE(y) + Var1_C_PAPER_STOCKCHANGE(y))*1000)
 }
 
@@ -17,7 +17,7 @@ finalcheck <- read.xlsx("finaLIpcctable.xlsx",1,header=FALSE)
 # for(i in 1990:2020){
 #   print(perError(finalcheck[i-1989,1], VAR1_STOCKCHANGE_TOTAL(i)))
 # }
-perError(finalcheck[2000-1989,1], VAR1_STOCKCHANGE_TOTAL(2000))
+# perError(finalcheck[2000-1989,1], VAR1_STOCKCHANGE_TOTAL(2000))
 Var1_C_SWP_STOCKCHANGE <- function(y){
   
   return((var1_totalC(y) - var1_totalC(y-1))*PRO17)
@@ -180,7 +180,7 @@ cSawn<-function(y){
   }
   if(y > 1949 && y < 1965){
    return(((u29(y,5)*1000*InceF5)+(u29(y,6)*InceG5*1000))*1000)
-  }#not working for all values
+  }
   if(y>1964 && y< 2021){
     return(((h28(y,5)*1000*InceF5)+(h28(y,6)*InceG5*1000))*1000)
   }

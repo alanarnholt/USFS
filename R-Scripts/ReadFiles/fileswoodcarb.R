@@ -218,7 +218,7 @@ totCcheck <- function(r,y){
 }
 ##########
 #####check for carbon in solid woof products
-totalCSWPcheck <- read.xlsx("totalCSWPSWCALCP.xlsx",1,header=FALSE)
+totalCSWPcheck <- read.xlsx("totalCSWP.xlsx",1,header=FALSE)
 rownames(totalCSWPcheck) <- 1900:2050
 CSWPcheck <- function(y,c){
   return(totalCSWPcheck[y-1899,1])
