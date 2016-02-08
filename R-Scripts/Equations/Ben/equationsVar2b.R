@@ -1,4 +1,4 @@
-####
+#####takes 3.6 min to source
 ###return stock change from paper in dumps
 C_PAPER_StockChange_LFDumps <- function(y){
   return(Calc_CS(y)+Calc_CX(y)+Dumps_V(y))
@@ -11,22 +11,31 @@ Calc_CS <- function(y){
 Calc_CI <- function(y){
   return(ParamResults_P(y)*Calc_CB(y))
 }
-Calc_CB <- function(y){
+Calc_CAtable <- numeric(121)
+for (y in 1900:2020){
   if (y == 1900){
-    return(Calc_BU(y) - Calc_CA(y))
+    Calc_CAtable[1] <- exp(-log(2)/PRP10)*(Calc_BU(y))
   }
   else{
-    return(Calc_CA(y-1)+Calc_BU(y)-Calc_CA(y))
+    Calc_CAtable[y-1899] <- exp(-log(2)/PRP10)*(Calc_BU(y)+Calc_CAtable[y-1900])
   }
 }
 Calc_CA <- function(y){
+  Calc_CAtable[y-1899]
+}
+Calc_CBtable <- numeric(121)
+for(y in 1900:2020){
   if (y == 1900){
-    return(exp(-log(2)/PRP10)*(Calc_BU(y)))
+    Calc_CBtable[y-1899] <- Calc_BU(y) - Calc_CA(y)
   }
   else{
-    return(exp(-log(2)/PRP10)*(Calc_BU(y)+Calc_CA(y-1)))
+    Calc_CBtable[y-1899] <- Calc_CA(y-1)+Calc_BU(y)-Calc_CA(y)
   }
 }
+Calc_CB <- function(y){
+  return(Calc_CBtable[y-1899])
+}
+
 ParamResults_P <- function(y){
   return(ParamResults_V(y) * PRI96)
 }
@@ -116,6 +125,12 @@ C_SWP_StockChange_LFDumps <- function(y){
 carbonStored <- function(y){
   return(Var2_totalC_SWP(y) - pre1900(y))
 }
+tst <- function(){
+  vector<-numeric(21)
+  for ( i in 1980:2000){
+    print(system.time(carbonStored(i)))
+  }
+}
 ##############################
 #######returns the carbon stored in a year, from that year. 
 carbonStoredSameYear <- function(y){
@@ -126,6 +141,7 @@ carbonStoredSameYear <- function(y){
     }
     else{
       totalcarbon <- totalcarbon + (Var2_c_placed_IU(y,i)*(exp(-log(2)/HL(y,i)*((0)+1)))*(1-iuLoss(y,i)))
+    }
   }
   return(totalcarbon)
 }
@@ -145,13 +161,17 @@ C_placed_Iu_total <- function(y){
   return(totalcarbon)
 }
 ###Calculates total carbon outputted for year y in od tons
-totalC_Output <- function(y){
+totalC_outputtable <- numeric(121)
+for (y in 1900:2020){
   if (y == 1900){
-    return(C_placed_Iu_total(y) - carbonStored(1900))
+    totalC_outputtable[1] <- C_placed_Iu_total(y) - carbonStored(1900)
   }
   else{
-    return(carbonStored(y-1)-(carbonStored(y)-carbonStoredSameYear(y)) + (C_placed_Iu_total(y)-carbonStoredSameYear(y))+(pre1900(y-1)-pre1900(y)))
+    totalC_outputtable[y-1899] <- carbonStored(y-1)-(carbonStored(y)-carbonStoredSameYear(y)) + (C_placed_Iu_total(y)-carbonStoredSameYear(y))+(pre1900(y-1)-pre1900(y))
   }
+}
+totalC_Output <- function(y){
+  return(totalC_outputtable[y-1899])
 }
 ##########
 Calc_CM <- function(y){
@@ -210,7 +230,7 @@ Calc_CL <- function(year){
 }
 ###############
 
-CalcCTtable <- numeric(121   )
+CalcCTtable <- numeric(121)
 for(i in 1900:2020){
   if(i == 1900)
     CalcCTtable[1] <- Calc_CS(i)
@@ -220,3 +240,5 @@ for(i in 1900:2020){
 Calc_CT <- function(year){
   return(CalcCTtable[year-1899])
 }
+
+
