@@ -4,10 +4,23 @@ testWood <- function(y,c){
   return(testWoodcarb[y-1899,c])
   
 }
-testfunc <- function(usfsfunc, years = NULL)
+colnames(testWoodcarb) ##gives all functions that can be tested. 
+testfunc <- function(rnge, usfsfunc)
 {
-  correctCol <- testWood(years,deparse(substitute(x)))
-  return(perError(correctCol, usfsfunc(years)))
+  testvector <- numeric(length(rnge)-1)
+  minyr <- min(rnge)
+  maxyr <- max(rnge)
+  funcstring <- deparse(substitute(usfsfunc))
+  for (i in minyr:maxyr){
+    testvector[i - (minyr-1)] <- perError(testWood(i, funcstring), usfsfunc(i))
+  }
+  return(testvector)
 }
   
-testfunc(usa_S,1905:1910)
+tst<-function(x,y,func){
+  for(i in x:y){
+    
+    print(paste("Hello", deparse(substitute(func)), sep=" "))
+  }
+  # mean(c(x,y))
+}

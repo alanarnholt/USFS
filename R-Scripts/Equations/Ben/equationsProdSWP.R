@@ -2,10 +2,11 @@
 #####Var 2PRODUCTION APPROACH, SOLID WOOD PRODUCTS CALCULATIONS
 Var2_C_SWP_STOCKCHANGE <- function(y){
   
-  return((Var2_totalC_SWP(y) - Var2_totalC_SWP(y-1))*PRO17)
+  return((Var2_totalC(y) - Var2_totalC(y-1))*PRO17)
 }
 #####totalC calculates total carbon left in yr from all end uses in million tonnes of carbon
-Var2_totalC_SWP <- function(y){
+Var2_totalC_SWPtable <- numeric(121)
+for(y in 1900:2020){
   totalcarbon <- 0
   for (i in 1:16){
     if (i == 4 || i == 9 || i == 13){
@@ -14,11 +15,15 @@ Var2_totalC_SWP <- function(y){
     else{
       totalcarbon <- totalcarbon + Var2_C_IU_J(y,i)
     }
-    
+  
   }
   ##pre1900() is result of calculation from linked site
-  return(totalcarbon + pre1900(y))
+  Var2_totalC_SWPtable[y-1899] <- totalcarbon + pre1900(y)
 }
+Var2_totalC <- function(y){
+  return(Var2_totalC_SWPtable[y-1899])
+}
+######################################
 ###C_IU_J calculates total carbon left in year y for eu j in million tonnes of carbon
 Var2_C_IU_J <- function(y,eu){
   total <- 0
@@ -101,7 +106,7 @@ s_swp <- function(y){
     return((h3(y,28)+h3(y,31))*(InceV5*0.8+InceW5*0.2)*1000)
   }
   if(y > 1949 && y < 1965){
-    return(1000*((u5(y,7)+u5(y,14))*InceV5+(u6(y,9)+u6(y,14))*InceW5))
+    return(1000*((u5(y,7)+u5(y,11))*InceV5+(u6(y,9)+u6(y,14))*InceW5))
   }
   if (y > 1964 && y < 2021){
     return(1000*((h6(y,7)+h6(y,11))*InceV5+(h7(y,7)+h7(y,11))*InceW5))
