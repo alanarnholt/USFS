@@ -126,6 +126,7 @@ carbonStoredSameYear <- function(y){
     }
     else{
       totalcarbon <- totalcarbon + (Var2_c_placed_IU(y,i)*(exp(-log(2)/HL(y,i)*((0)+1)))*(1-iuLoss(y,i)))
+    }
   }
   return(totalcarbon)
 }
@@ -210,13 +211,14 @@ Calc_CL <- function(year){
 }
 ###############
 
-CalcCTtable <- numeric(121   )
+CalcCTtable <- numeric(121)
 for(i in 1900:2020){
   if(i == 1900)
     CalcCTtable[1] <- Calc_CS(i)
   else
     CalcCTtable[i-1899] <- CalcCTtable[i-1900] + Calc_CS(i)
 }
+
 Calc_CT <- function(year){
   return(CalcCTtable[year-1899])
 }
