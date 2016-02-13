@@ -254,7 +254,6 @@ apiFiber <- function(y,c){
 apiTotalWoodPulp <- read.xlsx("apiTotalWoodPulp.xlsx",1,header=FALSE)
 rownames(apiTotalWoodPulp) <- c(1869,1879,1889,1899:1972)
 apiTotal <- function(y,c){
-  
   return(apiTotalWoodPulp[y-1895,c])
 }
 usaFiberPulp <- read.xlsx("usaFiberPulpCG.xlsx",1,header=FALSE)
@@ -290,6 +289,8 @@ rownames(imports1)<-1965:2050
 i1<-function(y,c){
   return(imports1[y-1964,c])
 }
+#########
+recFibPulpUSA <- read.xlsx("recFibPulpusa.xlsx", 1, header=TRUE)
 
 
 

@@ -1,4 +1,5 @@
-#test function for reproduced columns in woodcarb, not working yet
+#test function for reproduced columns in woodcarb
+#only allows 75 columns 
 testWoodcarb <- read.xlsx("testWoodcarb.xlsx",1,header=TRUE)
 testWood <- function(y,c){
   return(testWoodcarb[y-1899,c])
