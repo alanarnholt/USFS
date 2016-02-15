@@ -21,3 +21,7 @@ Documents that provide guidance on how to document forestry and forest products:
 ](http://www.ipcc-nggip.iges.or.jp/public/gpglulucf/gpglulucf.html)
 
 * [ 2006 IPCC Guidelines on National Greenhouse Gas Inventories (see chapter 12 for harvested wood products)](http://www.ipcc-nggip.iges.or.jp/public/2006gl/vol4.html)
+
+----------
+
+* [Paper detailing calculations in spreadsheet](http://www.fpl.fs.fed.us/documnts/pdf2008/fpl_2008_skog001.pdf)
