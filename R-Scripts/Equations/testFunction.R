@@ -24,3 +24,6 @@ tst<-function(x,y,func){
   }
   # mean(c(x,y))
 }
+
+
+errors<-testfunc(1900:2020, Var1_totalC_Output)
