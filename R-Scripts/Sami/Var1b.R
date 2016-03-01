@@ -1,7 +1,27 @@
 
 
+Var1b_STOCKCHANGE_TOTAL<-function(y){
+  return((Total_stock_change_LD(y)+Total_paper_stock_change_LD(y))*1000)
+}
+#this caclulates calcAm
 Total_paper_stock_change_LD<- function(y){
   return(Calc_AG(y)+Calc_AL(y)+Dumps_K(y))
+}
+
+Calc_AJ<-function(y){
+  if (y<1901){
+    return((1/(1+PRM51))*Calc_AI(y))
+  }
+  if(y>1900){
+    return((1/(1+PRM51))*(Calc_AJ(y-1)+Calc_AI(y)))
+  }
+}
+#Calc_AJ<-function(y){
+ # return((1/(1+PRM51))*(Calc_AJ(y)+Calc_AI(y)))
+#}
+
+Calc_AI<-function(y){
+  return(PRM46*Calc_R(y))
 }
 
 Calc_AL<-function(y){
@@ -11,10 +31,6 @@ Calc_AL<-function(y){
   if (y>1900){
     return(Calc_AJ(y)-Calc_AJ(y-1))
   }
-}
-
-Calc_AJ<-function(y){
-  return(PRM46*Calc_R(y))
 }
 
 Dumps_K<-function(y){
@@ -36,7 +52,12 @@ Calc_R<-function(y){
 
 
 Dumps_I<-function(y){
+  if(y<1901){
   return((1/(1+PRM61))*Dumps_H(y))
+  }
+  if (y>1900){
+    return((1/(1+PRM61))*(Dumps_I(y-1)+Dumps_H(y)))
+  }
 }
 
 Dumps_H<-function(y){
@@ -65,7 +86,7 @@ Calc_D<-function(y){
   return((PRO18*usa_AB(y)*usa_V(y)))
 }
 
-
+#this calculates Calc AB
 Total_stock_change_LD<-function(y){
   return(CalcAA(y)+CalcV(y)+Dumps_F(y))
 }
@@ -94,8 +115,9 @@ CalcX<-function(y){
   return(PRM45*CalcQ(y))
 }
 
+
 CalcQ<-function(y){
-  return(paperToLF(y)*PRJ96*Var1_outputs(y))
+  return(woodToLF(y)*PRJ96*Var1_outputs(y))
 }
 
 
@@ -122,7 +144,7 @@ Dumps_C <- function(y){
   return(PRM57*Var1_outputs(y) * ParamResults_Q(y))
 }
 
-
+#calculates SWCALC G
 Var1_outputs<-function(y){
   return(Var1_totalC_Output(y)*PRO17)
 }
