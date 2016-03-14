@@ -15,6 +15,8 @@ InceL5 <- 0.970873786407767 ##Pulp/paper 1000tons -> od tons
 InceN5 <- 14.89675 #### pulpwood (other industrial products) 1000ft^3 to od tons
 InceO5 <- 0.425724637681159 ##insulating board 1000 ft, 1/2 inch
 InceQ5 <- 0.900 ## tons insulating board to od tons
+InceS5 <- 13.8649961379827 #softwood roundwood 1000 Cu ft to od tons
+InceT5 <- 15.9283989668863#hardwood roundwood 1001 Cu ft to od tons
 InceR5 <- 0.173913043478261 ##hw veneer, 1000ft^2 to od tons 
 InceV5 <- 13.8649961379827 ##SW roundwood, 1000ft^3 -> od tons
 InceW5 <- 15.9283989668863 ##HW roundwood 1000ft^3 -> od tons
