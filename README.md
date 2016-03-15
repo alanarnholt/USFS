@@ -26,4 +26,4 @@ Documents that provide guidance on how to document forestry and forest products:
 
 * [Paper detailing calculations in spreadsheet](http://www.fpl.fs.fed.us/documnts/pdf2008/fpl_2008_skog001.pdf)
 
-* [Read this paper for March 21, 2016 meeting](../Papers/USFS_1127_gmd.doc)
+* Read the `USFS_1127_gmd.doc` paper for March 21, 2016 meeting (in the `Papers` directory)
