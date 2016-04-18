@@ -164,7 +164,6 @@ for(i in 1:15){ ##use testthat to check these values with spreadsheet.
 placeIU$V17 <- swpcalcdata$`Other Products Production Special`
 write.csv2(swpcalcdata, "swpcalcdata.csv")
 Var2_C_SWP_STOCKCHANGE <- function(y){
-  
   return((Var2_totalC(y) - Var2_totalC(y-1))*PRO17)
 }
 #####totalC calculates total carbon left in yr from all end uses in million tonnes of carbon
