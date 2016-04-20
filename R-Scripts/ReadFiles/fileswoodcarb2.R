@@ -1,4 +1,4 @@
-library(xlsx)
+
 #######DATA FILES
 ###HAIR 1958 TAB 14 TIMBER DATA
 # FROM 1899-1956
