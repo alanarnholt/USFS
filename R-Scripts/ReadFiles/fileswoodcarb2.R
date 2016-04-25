@@ -1,10 +1,10 @@
-library(xlsx)
+
 #######DATA FILES
 ###HAIR 1958 TAB 14 TIMBER DATA
 # FROM 1899-1956
 
 
-hair1958 <- readxl::read_excel("./Data/hair1958.xlsx",1,col_names = FALSE)
+hair1958 <- readxl::read_excel(".Data/hair1958.xlsx",1,col_names = FALSE)
 head(hair1958)
 rownames(hair1958) <- 1899:1956
 h8 <- function(y,c){

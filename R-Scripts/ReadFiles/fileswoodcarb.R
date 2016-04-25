@@ -1,4 +1,5 @@
 library(xlsx)
+library(rJava)
 #######DATA FILES
 ###HAIR 1958 TAB 14 TIMBER DATA
 # FROM 1899-1956
@@ -119,7 +120,7 @@ h28 <- function(y,c){
 howard37 <- read.xlsx("./Data/howard37.xlsx",1,header=FALSE)
 rownames(howard37) <- 1965:2020
 h37 <- function(y,c){
-      return(howard37[y-1964,c])
+      return(howard37[y-3,c])
 }
 #####HOWARD 38 production structural panels 1980-2020
 howard38 <- read.xlsx("./Data/howard38.xlsx",1,header=FALSE)
@@ -227,10 +228,10 @@ apiFiber <- function(y,c){
 apiTotalWoodPulp <- read.xlsx("./Data/apiTotalWoodPulp.xlsx",1,header=FALSE)
 rownames(apiTotalWoodPulp) <- c(1869,1879,1889,1899:1972)
 apiTotal <- function(y,c){
-  return(apiTotalWoodPulp[y-1895,c])
+  return(apiTotalWoodPulp[y-1894,c])
 }
 usaFiberPulp <- read.xlsx("./Data/usaFiberPulpCG.xlsx",1,header=FALSE)
-rownames(usaFiberPulp) <- 1998:2013
+rownames(usaFiberPulp) <- 1999:2013
 #####
 # usaCheck <- read.xlsx("usaCheck.xlsx",1,header=F)
 # usCheck <- function(y,c){
