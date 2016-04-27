@@ -123,7 +123,7 @@ C_SWP_StockChange_LFDumps <- function(y){
 ############
 #########returns total carbon stored 
 carbonStored <- function(y){
-  return(Var2_totalC_SWP(y) - pre1900(y))
+  return(Var2_totalC(y) - pre1900(y))
 }
 tst <- function(){
   vector<-numeric(21)
