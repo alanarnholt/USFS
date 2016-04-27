@@ -1,6 +1,6 @@
 ####################
 library(DT)
-a5 <- 1##Switch..for what?
+a5 <- 1##Switch to include exports, for production or use of wood 
 #####Var 2PRODUCTION APPROACH, SOLID WOOD PRODUCTS CALCULATIONS
 
 ###############
@@ -153,8 +153,8 @@ swpcalcdata$NSP.Exports <- sapply(yrs, function(y){##lNSP
 ######################
 swpcalcdata$`Other Products Production Special` <- swpcalcdata$`Other Products Production` - (1-a5)*swpcalcdata$`Other Products Exports`
 swpcalcdata$`Sawnwood Prod Special` <- (swpcalcdata$`Sawnwood Production` - (1-a5) * swpcalcdata$`Sawnwood Exports`) * ((swpcalcdata$`Roundwood consumed for lumber and panels`+swpcalcdata$`Log Exports`*a5-swpcalcdata$`Imported logs for lumber and panels`*PRP62)/swpcalcdata$`Roundwood consumed for lumber and panels`)
-swpcalcdata$`SP Prod Special` <- (swpcalcdata$SP.Production-(1-a5)*swpcalcdata$SP.Exports)*((swpcalcdata$`Roundwood consumed for lumber and panels`+swpcalcdata$`Log Exports`*a5-swpcalcdata$`Imported logs for lumber and panels`*PRP62)/swpcalcdata$`Roundwood consumed for lumber and panels`)
-swpcalcdata$`NSP Prod Special` <- (swpcalcdata$NSP.Production-(1-a5)*swpcalcdata$NSP.Exports)*((swpcalcdata$`Roundwood consumed for lumber and panels`+swpcalcdata$`Log Exports`*a5-swpcalcdata$`Imported logs for lumber and panels`*PRP62)/swpcalcdata$`Roundwood consumed for lumber and panels`)   
+swpcalcdata$`SP Prod Special` <- (swpcalcdata$SP.Production-(1-a5)*swpcalcdata$SP.Exports)*((swpcalcdata$`Roundwood consumed for lumber and panels`+a5*swpcalcdata$`Log Exports`-swpcalcdata$`Imported logs for lumber and panels`*PRP62)/swpcalcdata$`Roundwood consumed for lumber and panels`)
+swpcalcdata$`NSP Prod Special` <- (swpcalcdata$NSP.Production-(1-a5)*swpcalcdata$NSP.Exports)*((swpcalcdata$`Roundwood consumed for lumber and panels`+a5*swpcalcdata$`Log Exports`-swpcalcdata$`Imported logs for lumber and panels`*PRP62)/swpcalcdata$`Roundwood consumed for lumber and panels`)   
 
 
 placeIU <- data.frame(Years = yrs)
@@ -163,9 +163,7 @@ for(i in 1:15){ ##use testthat to check these values with spreadsheet.
 }
 placeIU$V17 <- swpcalcdata$`Other Products Production Special`
 write.csv2(swpcalcdata, "swpcalcdata.csv")
-Var2_C_SWP_STOCKCHANGE <- function(y){
-  return((Var2_totalC(y) - Var2_totalC(y-1))*PRO17)
-}
+
 #####totalC calculates total carbon left in yr from all end uses in million tonnes of carbon
 
 Var2_totalC <- function(y){
@@ -174,6 +172,11 @@ Var2_totalC <- function(y){
 ######################################
 
 ###C_IU_J calculates total carbon left in year y for eu j in million tonnes of carbon
+
+
+
+
+##################table for total carbon values
 Var2_C_IU_J <- function(y,eu){
   total <- 0
   for(i in 1900:y){
@@ -181,10 +184,6 @@ Var2_C_IU_J <- function(y,eu){
   }
   return(total)
 }
-
-
-
-##################table for total carbon values
 Var2_totalC_SWPtable <- numeric(121)
 for(y in 1900:2020){
   totalcarbon <- 0
@@ -195,9 +194,7 @@ for(y in 1900:2020){
     else{
       totalcarbon <- totalcarbon + Var2_C_IU_J(y,i)
     }
-  }
-  ##pre1900() is result of calculation from linked site
-  
+  }##pre1900() is result of calculation from linked site
   Var2_totalC_SWPtable[y-1899] <- totalcarbon + pre1900(y)
 }###
 testcarbf <- function(){

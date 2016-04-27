@@ -1,5 +1,6 @@
 
 ##conversions 
+#od - oven dry 
 PRO17 <- 0.0000004535925 ##SWP, odt -> Tg/c
 PRO18 <- 0.00000039008955 ##PAPer, odt -> Tg/C
 PRP10 <- 2.53087281800454 ###half life of paper in yrs
@@ -11,7 +12,7 @@ InceG5 <- 1.327375 ##HW lumber, 1000bdft -> od tons
 InceI5 <- 1.12702865157283 ##hw particle board prod.1000 ft to od tons
 InceJ5 <- 0.271739130434783 ##hardboard prodcution 1000 ft, 1/8 in to od tons
 InceK5 <- 1.24007936507936 ##pulp/paper, mdf prod.
-InceL5 <- 0.970873786407767 ##Pulp/paper 1000tons -> od tons
+InceL5 <- 0.970873786407767 ##Pulp/paper 1000tons -> oven dry tons
 InceN5 <- 14.89675 #### pulpwood (other industrial products) 1000ft^3 to od tons
 InceO5 <- 0.425724637681159 ##insulating board 1000 ft, 1/2 inch
 InceQ5 <- 0.900 ## tons insulating board to od tons

@@ -13,14 +13,17 @@ Var2_C_PAPER_STOCKCHANGE <- function(y){
 }
 ##########################
 #Total carbon in paper for year y in Tg C/yr
-Var2_totalC_PAPER <- function(y){
-  if (y == 1900){
-    return(exp(-log(2)/PRP10)*Calc_BU(y))
+var2papertab <- numeric(121)
+for(i in 1900:2020){
+  if(i == 1900){
+    var2papertab[i-1899] <- exp(-log(2)/PRP10)*Calc_BU(y)
   }
   else{
-    return(exp(-log(2)/PRP10)*(Calc_BU(y)+Var2_totalC_PAPER(y-1)))
+    var2papertab[i-1899] <- exp(-log(2)/PRP10)*(Calc_BU(y)+var2papertab[i-1900])
   }
-  
+}
+Var2_totalC_PAPER <- function(y){
+  var2papertab[y-1899]
 }
 ###############
 #####Carbon input from paper products, in Tg C/yr
@@ -35,6 +38,7 @@ usa_S <- function(y){
 }
 usa_U <- function(y){
   return(getIncePap(y,3)*1000*InceL5)
+  
 }
 usa_AD <- function(y){
   return(usa_AM(y)-usa_AI(y))
