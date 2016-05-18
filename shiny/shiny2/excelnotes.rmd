@@ -1,0 +1,10 @@
+#excel notes 
+
+lumber production in howard 6 table:
+
+years 2014-2020:
+LumberProd(2006)/(SoftwoodProduction_Howard_Table28(2006)*SoftwoodProdhoward28(year) 
+
+softwoodprodhoward28(year):
+2014: 2020 - 2010 / 10 + lastyear 
+2015: 2020 - 2010 / 10 + lastyear 
