@@ -58,14 +58,25 @@ swpcalcdata$`Sawnwood Exports` <- sapply(yrs, function(y){
 swpcalcdata$`Roundwood consumed for lumber and panels` <- sapply(yrs, function(y){
   if(y < 1950){
     return((h3(y,28)+h3(y,31))*(InceV5*0.8+InceW5*0.2)*1000)
-  }
+  } #sawlog domestic prod + veneer logs domestic production 
   if(y < 1965){
     return(1000*((u5(y,7)+u5(y,11))*InceV5+(u6(y,9)+u6(y,14))*InceW5))
-  }
+  } #J,O.. Lumber Production + plywood/veneer production, for HW and SW 
   if (y < 2021){
     return(1000*((h6(y,7)+h6(y,11))*InceV5+(h7(y,7)+h7(y,11))*InceW5))
   }
 })
+##if unique values in dfs 
+rndcon <- function(dfs,...){
+  #columns to look for in dfs 
+  
+  #look for columns and save values 
+  
+  #if not unique, choose one 
+  
+  #do calculation 
+}
+
 swpcalcdata$`Log Exports` <- sapply(yrs, function(y){
   if(y < 1965){
     return((h3(y,8)*InceV5+h3(y,10)*InceW5)*1000)
@@ -87,9 +98,11 @@ swpcalcdata$`Imported logs for lumber and panels` <- sapply(yrs, function(y){
 })
 swpcalcdata$SP.Production <- sapply(yrs, function(y){
   if(y < 1950){
+    #softwood plywood million ft^2 
     return(((inc1(y,1)*InceB5))*1000)
   }
   if(y < 1965){
+    
     return(((u36(y,2)*InceB5))*1000)
   }
   if(y<1980){

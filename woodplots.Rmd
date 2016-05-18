@@ -1,0 +1,33 @@
+---
+title: "woodplots"
+author: "Ben Jones"
+date: "5/10/2016"
+output: html_document
+---
+
+```{r}
+library(ggvis)
+library(ggplot2)
+library(dplyr)
+
+str(swpcalcdata) ## seems to be new data up to and including 2013, so use 2003-2013 for predictions 
+swpdf <- tbl_df(swpcalcdata)
+ 
+newestyr <- 2013
+predrangeyrs <- (newestyr - 10):newestyr
+
+
+swpdf$Predicted <- ifelse(swpcalcdata$Years > 2013, 1, 0)
+
+nsppred <- "~NSP.Production"
+
+swpdf %>%
+  group_by(as.factor(Predicted)) %>%
+  ggvis(~Years, ~NSP.Production, stroke = ~as.factor(Predicted)) %>%
+  layer_smooths()
+
+lapply(swpcalcdata, function(df){
+  
+})
+```
+

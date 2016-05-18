@@ -49,8 +49,8 @@ u5 <- function(y,c){
 }
 ########################
 ###### ULRICH TABLE 6
-ulrich6 <- readxl::read_excel("./Data/UlrichTable6.xlsx", 1, col_names = FALSE,
-                     rowIndex = 11:48, colIndex = 2:29)
+ulrich6 <- readxl::read_excel("./Data/UlrichTable6.xlsx", 1, col_names = FALSE)
+ulrich6 <- ulrich6[1:38,]
 rownames(ulrich6) <- 1950:1987
 u6 <- function(y,c){
   
@@ -189,7 +189,7 @@ fsp <- function(y,c){
 }
 ######fraction of nonstructural panel used in various end uses 1900-2050
 fracnonstrpanels <- readxl::read_excel("./Data/fracnonstrpanels.xlsx", 1,
-                              col_names = FALSE, colIndex = 2:20)
+                              col_names = FALSE)
 rownames(fracnonstrpanels) <- 1900:2050
 fnsp <- function(y,c){
   return(fracnonstrpanels[y-1899,c])
@@ -243,18 +243,18 @@ rownames(usaFiberPulp) <- 1998:2013
 # BUcheck <- function(y,c){
 #   return(CalcBUcheck[y-1899,1])
 # }
-woodToLandFills <- readxl::read_excel("./Data/woodToLandFills.xlsx", 1, header=F)
+woodToLandFills <- readxl::read_excel("./Data/woodToLandFills.xlsx", 1, col_names = FALSE)
 rownames(woodToLandFills) <- 1900:2050
 woodToLF <- function(y){
   return(woodToLandFills[y-1899,1])
 }
 ########
-woodToDumps <- readxl::read_excel("./Data/woodToDumps.xlsx", 1, header=F)
+woodToDumps <- readxl::read_excel("./Data/woodToDumps.xlsx", 1, col_names = FALSE)
 rownames(woodToDumps) <- 1900:2050
 woodDumps <- function(y){
   return(woodToDumps[y-1899,1])
 }
-paperToLandFills <- readxl::read_excel("./Data/paperToLandFIlls.xlsx",1,header=F)
+paperToLandFills <- readxl::read_excel("./Data/paperToLandFIlls.xlsx",1,col_names = FALSE)
 rownames(paperToLandFills) <- 1900:2050
 paperToLF <- function(y){
   return(paperToLandFills[y-1899,1])
