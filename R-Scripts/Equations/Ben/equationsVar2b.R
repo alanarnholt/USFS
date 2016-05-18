@@ -1,5 +1,6 @@
 #####takes 3.6 min to source
 ###return stock change from paper in dumps
+## Calculates column Calc CY
 C_PAPER_StockChange_LFDumps <- function(y){
   return(Calc_CS(y)+Calc_CX(y)+Dumps_V(y))
 }
