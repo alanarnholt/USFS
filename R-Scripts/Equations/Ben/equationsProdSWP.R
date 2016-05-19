@@ -190,12 +190,38 @@ Var2_totalC <- function(y){
 
 
 ##################table for total carbon values
-Var2_C_IU_J <- function(y,eu){
+Var2_C_IU_J <- function(y,eu, distribution = 'exp'){
   total <- 0
   for(i in 1900:y){
     total <- total + (placeIU[i-1899,eu]*(exp(-log(2)/HL(i,eu)*((y-i)+1)))*(1-iuLoss(i,eu)))
   }
   return(total)
+}
+Var2_C_IU_J <- function(y,eu){
+  ps <- numeric(y - 1900 + 1)
+  ks <- numeric(y - 1900 + 1)
+  p <- numeric(y - 1900 + 1)
+  for(j in 1900:y){
+    ks[j-1899] <- findKforGamma(HL = HL(j, eu), theta = 1)
+  }
+  for (l in 1:length(ps)){
+    k=ks[l]
+    h=1
+    p[1]<-0
+    p[l+1]<-p[l]+1
+    g<-function(x) {((x^(k-1))*(exp(1)^(-x/h)))/(gamma(k)*(h^k))}
+    ps[l]<-(1-integrate(g, lower=0, upper=p[l])$value)
+  }
+  total <- 0
+  for(i in 1900:y){
+    total <- total + (placeIU[i-1899,eu]*(ps[i-1899])*(1-iuLoss(i,eu)))
+  }
+  return(total)
+}
+l <- HL(1940, 1)
+findKforGamma(HL = l, theta = 1)
+for(i in 1900:1940){
+  print(findKforGamma(HL = HL(i, 1)))
 }
 Var2_totalC_SWPtable <- numeric(121)
 for(y in 1900:2020){

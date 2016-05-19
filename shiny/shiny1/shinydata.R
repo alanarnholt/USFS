@@ -50,9 +50,30 @@ swpcalcdata %>%
   layer_lines()
 
 # Plot the results
-mtcars %>% compute_model_prediction(mpg ~ wt) %>%
+mtcars %>%
+  compute_smooth(mpg ~ wt,
+                           span = sliderInput("slid",
+                                              "Span Slider",
+                                              min = 0.1,
+                                              max = 2, 
+                                              value = .5)) %>%
   ggvis(~pred_, ~resp_) %>%
   layer_paths()
 mtcars %>% ggvis() %>%
   compute_model_prediction(mpg ~ wt) %>%
   layer_paths(~pred_, ~resp_)
+
+mtcars %>%
+  ggvis(~mpg, ~wt) %>%
+  layer_points() %>%
+  layer_smooths(span = input_slider(.2,2), domain = c(10.4, 50))
+  
+mtcars %>%
+  ggvis(~mpg, ~wt) %>%
+  layer_points() %>%
+  layer_model_predictions(model = "lm", domain = c(10.4, 50))
+
+mtcars %>%
+  ggvis(~mpg, ~wt) %>%
+  layer_points() %>%
+  layer_model_predictions(model = "loess", domain = c(10.4, 50))

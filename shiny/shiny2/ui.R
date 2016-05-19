@@ -22,7 +22,12 @@ shinyUI(fluidPage(
                        label = "Range of interest:",
                        min = 1900, max = 2020, 
                        value = c(2000,2020),
-                       sep="")
+                       sep=""),
+           sliderInput("span", "Span for LOESS Fit",
+                       min = 0.1, max = 2,
+                       value = .5),
+           selectInput("fitm", "Type of Fit", choices = c("lm", "loess"),
+                       selected = "lm")
            ##inputs to get variable, years to use to predict, years ahead to predict with actionbuttion or submitbutton 
           ),
     column(8, ##plot graph thats made in newserver.r,,could add interactivity here or to ggvis plot 
