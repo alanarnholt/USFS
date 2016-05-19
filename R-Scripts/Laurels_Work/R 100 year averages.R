@@ -1,11 +1,59 @@
 #testing the integration by defining gamma with brute force
 n=100
 k=1
-h=144.25
+h=144.2695 ##144.25
 g<-function(x) {((x^(k-1))*(exp(1)^(-x/h)))/(gamma(k)*(h^k))}
 decay<-integrate(g, lower=0, upper=n)
 #the above works!
-
+k <- .5
+g <- function(x){
+  ((x^(1 - 1)) * (exp(-x/k))) / (gamma(1) * (k^1))
+}
+decay<-integrate(g, lower=0, upper=100)
+decayval <- as.numeric(decay[1])
+##Returns proper k for given Hl and theta 
+counter <- 0 
+findKforGamma <- function(HL = 100, theta = 1){
+  k <- HL * 1.5
+  g <- function(x){
+    ((x^(theta - 1)) * (exp(-x/k))) / (gamma(theta) * (k^theta))
+  }
+  decay<-integrate(g, lower=0, upper=HL)
+  decayval <- as.numeric(decay[1])
+  
+  while(abs(decayval - 0.5) > 1e-16){
+    l <- decayval / 0.5 
+    k <- k * l
+    g <- function(x){
+      ((x^(theta - 1)) * (exp(-x/k))) / (gamma(theta) * (k^theta))
+    }
+    decay<-integrate(g, lower=0, upper=HL)
+    decayval <- as.numeric(decay[1])
+  }
+  return(k)
+}
+system.time(findKforGamma(HL = 100, theta = 1))
+k <- 150#HL * 1.5 
+theta <- 1 
+HL <- 100
+g <- function(x){
+  ((x^(theta - 1)) * (exp(-x/k))) / (gamma(theta) * (k^theta))
+}
+decay<-integrate(g, lower=0, upper=100)
+decayval <- as.numeric(decay[1])
+counter=0
+while(abs(decayval - 0.5) > 1e-16){
+  l <- decayval / 0.5 
+  k <- k * l
+  g <- function(x){
+    ((x^(theta - 1)) * (exp(-x/k))) / (gamma(theta) * (k^theta))
+  }
+  decay<-integrate(g, lower=0, upper=HL)
+  decayval <- as.numeric(decay[1])
+  #print(decayval)
+  counter = counter + 1
+} 
+counter 
 #Calculates the 100 year average for a distribution, giving k and theta values, assuming x(0)=1
 p<-0
 for (i in 1:101){
