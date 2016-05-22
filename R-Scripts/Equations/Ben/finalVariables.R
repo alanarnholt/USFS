@@ -2,10 +2,17 @@
 #############FINAL VARIABLES
 #############woodcarb 'IPCC 06'
 ##############
+minyr <- 1900 
+maxyr <- 2020
+yrs <- minyr:maxyr
 #'VAR #2a
 #'Annual Change in stock of HWP in use produced from domestic harvest 
 #'Output is in Gg C/yr
 ###
+FinalVariable <- data.frame(Years = yrs)
+FinalVariable$`2A` <- sapply(yrs, function(y){
+  return((Var2_C_SWP_STOCKCHANGE(y) + Var2_C_PAPER_STOCKCHANGE(y))*1000)
+})
 Var2a_STOCKCHANGE_TOTAL <- function(y){
   return((Var2_C_SWP_STOCKCHANGE(y) + Var2_C_PAPER_STOCKCHANGE(y))*1000)
 }

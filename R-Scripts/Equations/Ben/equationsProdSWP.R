@@ -26,13 +26,14 @@ pOther <- function(y){#other products exports, swpcalcP
 }
 swpcalcdata$`Other Products Exports` <- 0
 swpcalcdata$`Sawnwood Production` <- sapply(yrs, function(y){
+  ###CHECK THIS, why are errors x*10^-8? shouldnt error be 10^16 
   cavg <- (h8(1904,2)-h8(1899,2))/5
   davg <- (h8(1904,3)-h8(1899,3))/5
   if(y < 1904){
-    return((((h8(1899,2) +((y-1899)*(round(cavg,1))))* InceF5)+((h8(1899,3)+((y-1899)*(round(davg,1))))* InceG5))*1000)
+    return((((h8(1899,2) +((y-1899)*cavg))* InceF5)+(h8(1899,3)+(y-1899)*davg)* InceG5)*1000)
   }
   if(y < 1950){
-    return(((h8(y,2)*InceF5)+(h8(y,3)*InceG5))*1000)
+    return((h8(y,2)*InceF5+h8(y,3)*InceG5)*1000)
   }
   if(y < 1965){
     return((u29(y,1)*1000*(((u29(y,2)/u29(y,1))*InceF5)+((u29(y,3)/u29(y,1))*InceG5)))*1000)
@@ -59,8 +60,10 @@ swpcalcdata$`Roundwood consumed for lumber and panels` <- sapply(yrs, function(y
   if(y < 1950){
     return((h3(y,28)+h3(y,31))*(InceV5*0.8+InceW5*0.2)*1000)
   } #sawlog domestic prod + veneer logs domestic production 
+ 
   if(y < 1965){
-    return(1000*((u5(y,7)+u5(y,11))*InceV5+(u6(y,9)+u6(y,14))*InceW5))
+    #u5$j, u5$o...u6$j, u6$o
+    return(1000*((u5(y,7)+u5(y,11))*InceV5+(u6(y,8)+u6(y,12))*InceW5))
   } #J,O.. Lumber Production + plywood/veneer production, for HW and SW 
   if (y < 2021){
     return(1000*((h6(y,7)+h6(y,11))*InceV5+(h7(y,7)+h7(y,11))*InceW5))
@@ -90,7 +93,8 @@ swpcalcdata$`Imported logs for lumber and panels` <- sapply(yrs, function(y){
     return(0)
   }
   if (y < 1965){
-    return(1000*(u5(y,20)*InceV5+u6(y,25)*InceW5))
+    #u5$Y, u6$z
+    return(1000*(u5(y,20)*InceV5+u6(y,21)*InceW5))
   }
   if(y < 2021){
     return(1000*(h6(y,20)*InceV5+h7(y,20)*InceW5))
@@ -177,45 +181,78 @@ for(i in 1:15){ ##use testthat to check these values with spreadsheet.
 placeIU$V17 <- swpcalcdata$`Other Products Production Special`
 write.csv2(swpcalcdata, "swpcalcdata.csv")
 
+#b170, b334, b496 
+swpcalcdata[["Sawnwood Prod Special"]] * fracsawnwood[1:121,1] + swpcalcdata[["SP Prod Special"]] * fracstrpanels[1:121,1] + swpcalcdata[["NSP Prod Special"]] * fracnonstrpanels[1:121,1]
+
+
+
+drops <- c("Years", "V5","V10", "V14")
+placeiu2 <- placeIU[,!(names(placeIU) %in% drops)]
+Errordf <- data.frame(Years = yrs)
+for(i in 1:13){
+  for(j in 1:121){
+    Errordf[j,paste(i,"h",sep="")] <- checkplacediu[j,i]- placeiu2[j,i]
+  }
+}
+lapply(Errordf, max )
+
+
+
 #####totalC calculates total carbon left in yr from all end uses in million tonnes of carbon
 
 Var2_totalC <- function(y){
   return(Var2_totalC_SWPtable[y-1899])
+}
+Var2_C_SWP_STOCKCHANGE <- function(year){
+  return((Var2_totalC(year) - Var2_totalC(year-1)) * PRO17)
 }
 ######################################
 
 ###C_IU_J calculates total carbon left in year y for eu j in million tonnes of carbon
 
 
-
+for(i in 1:ncol(placeIU)){
+  print(sum(placeIU[,i]))
+}
 
 ##################table for total carbon values
-Var2_C_IU_J <- function(y,eu, distribution = 'exp'){
+Var2_C_IU_J <- function(y,eu){
   total <- 0
-  for(i in 1900:y){
-    total <- total + (placeIU[i-1899,eu]*(exp(-log(2)/HL(i,eu)*((y-i)+1)))*(1-iuLoss(i,eu)))
-  }
+  minyr <- 1900 
+  decays <- exp(-log(2)/halfLives[1:(y-minyr+1),1]*((y-minyr+1):1))
+
+  total <- sum(placeIU[1:(y-minyr+1),(eu+1)]*decays*(1-lossIU[1:(y-minyr+1),eu]))
+  
   return(total)
 }
 Var2_C_IU_J <- function(y,eu){
-  ps <- numeric(y - 1900 + 1)
-  ks <- numeric(y - 1900 + 1)
-  p <- numeric(y - 1900 + 1)
-  for(j in 1900:y){
-    ks[j-1899] <- findKforGamma(HL = HL(j, eu), theta = 1)
+  total <- 0
+  for(i in 1900:y){
+    total <- total + placeIU[i-1899,(eu+1)]*exp(-log(2)/HL(i,eu)*((y-i)+1))*(1-iuLoss(i,eu))
   }
-  for (l in 1:length(ps)){
+  return(total)
+}
+# (y - i) + 1 = (y-1900+1):1
+Var2_C_IU_J <- function(y,eu){
+  minyr <- 1900 
+  percentleft <- numeric(y - minyr + 1)
+  
+  ks <- numeric(y - minyr + 1)
+  for(j in minyr:y){
+    ks[j-(minyr-1)] <- findKforGamma(HL = HL(j, eu), theta = 1)
+  }
+  p <- numeric(y - minyr + 1)
+  for (l in 1:length(percentleft)){
     k=ks[l]
     h=1
     p[1]<-0
     p[l+1]<-p[l]+1
     g<-function(x) {((x^(k-1))*(exp(1)^(-x/h)))/(gamma(k)*(h^k))}
-    ps[l]<-(1-integrate(g, lower=0, upper=p[l])$value)
+    percentleft[l]<-(1-integrate(g, lower=0, upper=p[l])$value)
   }
-  total <- 0
-  for(i in 1900:y){
-    total <- total + (placeIU[i-1899,eu]*(ps[i-1899])*(1-iuLoss(i,eu)))
-  }
+ 
+  total <- sum(placeIU[1:(y-minyr-1),eu]*percentleft*(1-lossIU[1:(y-minyr-1),eu]))
+
   return(total)
 }
 l <- HL(1940, 1)
@@ -223,20 +260,25 @@ findKforGamma(HL = l, theta = 1)
 for(i in 1900:1940){
   print(findKforGamma(HL = HL(i, 1)))
 }
-Var2_totalC_SWPtable <- numeric(121)
-for(y in 1900:2020){
-  totalcarbon <- 0
-  for (i in 1:16){
-    if (i == 4 || i == 9 || i == 13){
-      totalcarbon <- totalcarbon
-    }
-    else{
-      totalcarbon <- totalcarbon + Var2_C_IU_J(y,i)
-    }
-  }##pre1900() is result of calculation from linked site
-  Var2_totalC_SWPtable[y-1899] <- totalcarbon + pre1900(y)
-}###
-testcarbf <- function(){
+functhhhh <- function(){
+  minyr <- 1900
+  decays <- exp(-log(2)/halfLives[1:(y-minyr+1),1]*((y-minyr+1):1))
+  Var2_totalC_SWPtable <- numeric(121)
+    totalcarbon <- 0
+    for (eu in 1:16){
+      if (eu == 4 || eu == 9 || eu == 13){
+        totalcarbon <- totalcarbon
+      }
+      else{
+        totalcarbon <- totalcarbon + sum(placeIU[1:(y-minyr+1),eu]*decays*(1-lossIU[1:(y-minyr+1),eu]))
+      }
+    }##pre1900() is result of calculation from linked site
+    Var2_totalC_SWPtable[y-1899] <- totalcarbon + pre1900(y)
+  ###
+    Var2_totalC_SWPtable
+}
+functh <- function(){
+  Var2_totalC_SWPtable <- numeric(121)
   for(y in 1900:2020){
     totalcarbon <- 0
     for (i in 1:16){
@@ -246,10 +288,42 @@ testcarbf <- function(){
       else{
         totalcarbon <- totalcarbon + Var2_C_IU_J(y,i)
       }
+    }##pre1900() is result of calculation from linked site
+    Var2_totalC_SWPtable[y-1899] <- totalcarbon + pre1900(y)
+  }###
+  Var2_totalC_SWPtable
+}
+Var2_totalC_SWPtable <- numeric(121)
+skipEU <- c(4,9,13)
+for(y in 1900:2020){
+  totalcarbon <- 0
+  for (i in 1:16){
+    if (i %in% skipEU){
+      totalcarbon <- totalcarbon
     }
-  }
+    else{
+      totalcarbon <- totalcarbon + Var2_C_IU_J(y,i)
+    }
+  }##pre1900() is result of calculation from linked site
+  Var2_totalC_SWPtable[y-1899] <- totalcarbon + pre1900(y)
+}###
+
+for(i in 1:121){
+  print(perError(checkswp[i,26], Var2_totalC_SWPtable[i]))
 }
 
+####SHOW DR. A this (after totalC matches spreadsheet):
+checkswp[1,26] - Var2_totalC_SWPtable[1]
+checkswp[121,26] - Var2_totalC_SWPtable[121]
+
+testcarbf <- function(checkcolum, testcolumn ){
+  errs <- numeric(121)
+  for(i in 1:121){
+    errs[i] <- perError(checkswp[i,checkcolum], swpcalcdata[i,testcolumn])
+  }
+  return(errs)
+};testcarbf()
+#  (swpcalcdata$SP.Production-(1-a5)*swpcalcdata$SP.Exports)*((swpcalcdata$`Roundwood consumed for lumber and panels`+a5*swpcalcdata$`Log Exports`-swpcalcdata$`Imported logs for lumber and panels`*PRP62)/swpcalcdata$`Roundwood consumed for lumber and panels`)
 perError <- function(correct,y){
   
   if( correct == 0 && y != 0){
@@ -261,6 +335,7 @@ perError <- function(correct,y){
   }
   return(100*((y-correct)/correct))
 }
+
 ####################
 #####END-USES:
 ####SINGLE FAMILY HOUSING - 1
@@ -282,3 +357,10 @@ perError <- function(correct,y){
 ####EXPORTS - 17
 ##############
 ##################table for total carbon values
+checkswp <- read.csv("./Data/checkswp.csv", header=FALSE)
+checkplacediu <- read.csv("./Data/checkplacedIU.csv", header=TRUE)
+identical(swpcalcdata$`Sawnwood Production`, 
+          checkswp[1:121,2])
+swpcalcdata$`Sawnwood Production` - checkswp[1:121,2]
+
+

@@ -47,8 +47,7 @@ u5 <- function(y,c){
 }
 ########################
 ###### ULRICH TABLE 6
-ulrich6 <- read.xlsx("./Data/UlrichTable6.xlsx", 1, header=FALSE,
-                     rowIndex = 11:48, colIndex = 2:29)
+ulrich6 <- read.xlsx("./Data/UlrichTable6.xlsx", 1, header=FALSE)
 rownames(ulrich6) <- 1950:1987
 u6 <- function(y,c){
   
@@ -120,7 +119,7 @@ h28 <- function(y,c){
 howard37 <- read.xlsx("./Data/howard37.xlsx",1,header=FALSE)
 rownames(howard37) <- 1965:2020
 h37 <- function(y,c){
-      return(howard37[y-3,c])
+      return(howard37[y-1964,c])
 }
 #####HOWARD 38 production structural panels 1980-2020
 howard38 <- read.xlsx("./Data/howard38.xlsx",1,header=FALSE)
@@ -187,7 +186,7 @@ fsp <- function(y,c){
 }
 ######fraction of nonstructural panel used in various end uses 1900-2050
 fracnonstrpanels <- read.xlsx("./Data/fracnonstrpanels.xlsx", 1,
-                              header = FALSE, colIndex = 2:20)
+                              header = FALSE)
 rownames(fracnonstrpanels) <- 1900:2050
 fnsp <- function(y,c){
   return(fracnonstrpanels[y-1899,c])
@@ -231,7 +230,7 @@ apiTotal <- function(y,c){
   return(apiTotalWoodPulp[y-1894,c])
 }
 usaFiberPulp <- read.xlsx("./Data/usaFiberPulpCG.xlsx",1,header=FALSE)
-rownames(usaFiberPulp) <- 1999:2013
+rownames(usaFiberPulp) <- 1998:2013
 #####
 # usaCheck <- read.xlsx("usaCheck.xlsx",1,header=F)
 # usCheck <- function(y,c){
