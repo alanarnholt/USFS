@@ -13,7 +13,7 @@ Var1a_STOCKCHANGE_TOTAL <- function(y){
   return((Var1_C_SWP_STOCKCHANGE(y) + Var1_C_PAPER_STOCKCHANGE(y))*1000)
 }
 
-finalcheck <- read.xlsx("finaLIpcctable.xlsx",1,header=FALSE)
+#finalcheck <- read.xlsx("finaLIpcctable.xlsx",1,header=FALSE)
 # for(i in 1990:2020){
 #   print(perError(finalcheck[i-1989,1], VAR1_STOCKCHANGE_TOTAL(i)))
 # }

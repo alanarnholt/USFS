@@ -25,7 +25,7 @@ Var1_totalC <- function(y){
 ########################################################
 Var1_c_placed_IU <- function(y,eu){
   if (eu == 16){
-    return(qOther(y) * 1)
+    #return(qOther(y) * 1)
   }
   return((Var1_eSawn(y) * fsw(y,eu)) +(Var1_iSP(y)*fsp(y,eu)) +(Var1_mNSP(y)*fnsp(y,eu))) 
 }
