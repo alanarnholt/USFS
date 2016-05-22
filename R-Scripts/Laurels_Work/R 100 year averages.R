@@ -3,7 +3,7 @@ n=100
 k=1
 h=144.2695 ##144.25
 g<-function(x) {((x^(k-1))*(exp(1)^(-x/h)))/(gamma(k)*(h^k))}
-decay<-integrate(g, lower=0, upper=HL(1940,1))
+decay<-integrate(g, lower=0, upper=n)
 #the above works!
 k <- .5
 g <- function(x){
@@ -14,23 +14,18 @@ decayval <- as.numeric(decay[1])
 ##Returns proper k for given Hl and theta 
 counter <- 0 
 findKforGamma <- function(HL = 100, theta = 1){
-  k <- HL * 1.5
   g <- function(x){
     ((x^(theta - 1)) * (exp(-x/k))) / (gamma(theta) * (k^theta))
   }
-  decay<-integrate(g, lower=0, upper=HL)
-  decayval <- as.numeric(decay[1])
-  
+  k <- 1
+  decayval <- 1
   while(abs(decayval - 0.5) > 1e-14){
-    l <- decayval / 0.5 
-    k <- k * l
-    g <- function(x){
-      ((x^(theta - 1)) * (exp(-x/k))) / (gamma(theta) * (k^theta))
-    }
-    decay<-integrate(g, lower=0, upper=HL)
-    decayval <- as.numeric(decay[1])
+      l <- decayval / 0.5 
+      k <- k * l
+      
+      decayval<-integrate(g, lower=0, upper=HL)$value
   }
-  return(k)
+  k
 }
 system.time(findKforGamma(HL = 100, theta = 1))
 k <- 150#HL * 1.5 
