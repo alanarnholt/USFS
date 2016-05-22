@@ -3,52 +3,64 @@ n=100
 k=1
 h=144.2695 ##144.25
 g<-function(x) {((x^(k-1))*(exp(1)^(-x/h)))/(gamma(k)*(h^k))}
-decay<-integrate(g, lower=0, upper=n)
+decay<-integrate(g, lower=0, upper=n);decay
 #the above works!
-k <- .5
-g <- function(x){
-  ((x^(1 - 1)) * (exp(-x/k))) / (gamma(1) * (k^1))
-}
-decay<-integrate(g, lower=0, upper=100)
-decayval <- as.numeric(decay[1])
-##Returns proper k for given Hl and theta 
-counter <- 0 
-findKforGamma <- function(HL = 100, theta = 1){
+n=100
+k=.5
+h=144.2695 ##144.25
+g<-function(x) {((x^(k-1))*(exp(1)^(-x/h)))/(gamma(k)*(h^k))}
+decay<-integrate(g, lower=0, upper=n)
+
+
+#' Finds missing parameter for a Gamma Distribution. 
+#'
+#' HL is required. Theta and k are each optional but one must be specified.  
+#'
+#' @param HL halflife for gamma distribution. This value must be specified 
+#' @param theta paramater for gamma distribution 
+#' @param k paramater for gamma distribution  
+#'
+#' @return correct value for missing parameter. If theta is passed then k will be 
+#' returned and vice versa. 
+#' @export
+#'
+#' @examples
+#' findKorTHETAforGamma(HL = 100, theta = 1)
+#' findKorTHETAforGamma(HL = 100, k = 144.2695) 
+#' system.time(findKorTHETAforGamma(HL = 100, theta = 1))
+findKorTHETAforGamma <- function(HL = 100, theta, k){
   g <- function(x){
     ((x^(theta - 1)) * (exp(-x/k))) / (gamma(theta) * (k^theta))
   }
-  k <- 1
   decayval <- 1
-  while(abs(decayval - 0.5) > 1e-14){
+  if(missing(k)){
+    k <- 1
+    
+    while(abs(decayval - 0.5) > 1e-14){
       l <- decayval / 0.5 
       k <- k * l
       
       decayval<-integrate(g, lower=0, upper=HL)$value
+    }
+    return(k)
   }
-  k
-}
-system.time(findKforGamma(HL = 100, theta = 1))
-k <- 150#HL * 1.5 
-theta <- 1 
-HL <- 100
-g <- function(x){
-  ((x^(theta - 1)) * (exp(-x/k))) / (gamma(theta) * (k^theta))
-}
-decay<-integrate(g, lower=0, upper=HL(1940,1))
-decayval <- as.numeric(decay[1])
-counter=0
-while(abs(decayval - 0.5) > 1e-14){
-  l <- decayval / 0.5 
-  k <- k * l
-  g <- function(x){
-    ((x^(theta - 1)) * (exp(-x/k))) / (gamma(theta) * (k^theta))
+  if(missing(theta)){
+    theta <- 1.2
+
+    while(abs(decayval - 0.5) > 1e-14){
+      l <- decayval / 0.5 
+      theta <- theta * l
+      
+      decayval<-integrate(g, lower=0, upper=HL)$value
+    }
+    theta
   }
-  decay<-integrate(g, lower=0, upper=HL(1940,1))
-  decayval <- as.numeric(decay[1])
-  print(decayval)
-  #counter = counter + 1
-} 
-counter 
+}
+
+
+
+
+
 #Calculates the 100 year average for a distribution, giving k and theta values, assuming x(0)=1
 p<-0
 for (i in 1:101){
