@@ -1,9 +1,9 @@
 #testing the integration by defining gamma with brute force
 n=100
-k=1
-h=144.2695 ##144.25
+k=270
+h=2##144.25
 g<-function(x) {((x^(k-1))*(exp(1)^(-x/h)))/(gamma(k)*(h^k))}
-decay<-integrate(g, lower=0, upper=n);decay
+decay<-integrate(g, lower=0, upper=n)$value;decay
 #the above works!
 n=100
 k=.5
@@ -28,7 +28,7 @@ decay<-integrate(g, lower=0, upper=n)
 #' findKorTHETAforGamma(HL = 100, theta = 1)
 #' findKorTHETAforGamma(HL = 100, k = 144.2695) 
 #' system.time(findKorTHETAforGamma(HL = 100, theta = 1))
-findKorTHETAforGamma <- function(HL = 100, theta, k){
+findKorTHETAforGamma <- function(halflife = 100, theta, k){
   g <- function(x){
     ((x^(theta - 1)) * (exp(-x/k))) / (gamma(theta) * (k^theta))
   }
@@ -40,33 +40,27 @@ findKorTHETAforGamma <- function(HL = 100, theta, k){
       l <- decayval / 0.5 
       k <- k * l
       
-      decayval<-integrate(g, lower=0, upper=HL)$value
+      decayval<-integrate(g, lower=0, upper=halflife)$value
     }
     return(k)
   }
   if(missing(theta)){
     theta <- 1.2
-
     while(abs(decayval - 0.5) > 1e-14){
       l <- decayval / 0.5 
       theta <- theta * l
       
-      decayval<-integrate(g, lower=0, upper=HL)$value
+      decayval<- integrate(g, lower=0, upper=halflife)$value
     }
-    theta
+    return(theta)
   }
 }
-
-
-
-
 
 #Calculates the 100 year average for a distribution, giving k and theta values, assuming x(0)=1
 p<-0
 for (i in 1:101){
   k=70.333
   h=1
-  p[1]<-0
   p[i+1]<-p[i]+1
   g<-function(x) {((x^(k-1))*(exp(1)^(-x/h)))/(gamma(k)*(h^k))}
   decay[i]<-integrate(g, lower=0, upper=p[i])$value

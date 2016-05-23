@@ -181,41 +181,75 @@ for(i in 1:15){ ##use testthat to check these values with spreadsheet.
 placeIU$V17 <- swpcalcdata$`Other Products Production Special`
 write.csv2(swpcalcdata, "swpcalcdata.csv")
 
-#b170, b334, b496 
-swpcalcdata[["Sawnwood Prod Special"]] * fracsawnwood[1:121,1] + swpcalcdata[["SP Prod Special"]] * fracstrpanels[1:121,1] + swpcalcdata[["NSP Prod Special"]] * fracnonstrpanels[1:121,1]
-
-
-
-drops <- c("Years", "V5","V10", "V14")
-placeiu2 <- placeIU[,!(names(placeIU) %in% drops)]
-Errordf <- data.frame(Years = yrs)
-for(i in 1:13){
-  for(j in 1:121){
-    Errordf[j,paste(i,"h",sep="")] <- checkplacediu[j,i]- placeiu2[j,i]
+swpcarbontotal <- function(Yrs = 1990:2015, distribution = c("exp", "gamma"), THETA, K){
+  type <- match.arg(distribution) 
+  
+  minyr <- 1900
+  yrrange <- minyr:2020
+  
+  Var2_totalC_SWP <- data.frame(Years = yrrange)
+  skipEU <- c(4,9,13)
+  
+  for(year in 1900:maxyr){
+    yearrange <- 1:(year - minyr + 1)
+    for (eu in 1:16) {
+      
+      if (type == "exp") {
+        decays <- exp(-log(2)/halfLives[yearrange,eu]*rev(yearrange))
+      }
+      
+      if (type == "gamma") {
+        p<-0 #not exactly sure what this is 
+        
+        decays <- numeric(length(yearrange))
+        for (i in yearrange){
+          if (missing(K)){
+            K <- findKorTHETAforGamma(halflife = halfLives[i - 1899, eu], theta = THETA)
+          }
+          
+          if(missing(THETA)) {
+            THETA <- findKorTHETAforGamma(halflife = halfLives[i - 1899, eu], k = K)
+          }
+          
+          p[i+1]<-p[i]+1 ##this part still confused about, why not just use i instead of setting first val to 0. Signifies no years passed?
+          g <- function(x){
+            ((x^(THETA - 1)) * (exp(-x/K))) / (gamma(THETA) * (K^THETA))
+          }
+          decays[i]<- 1 - integrate(g, lower=0, upper=p[i])$value
+        }
+      }
+      
+      Var2_totalC_SWP[(year-(minyr-1)),paste("EU",eu,sep="")] <- ifelse(eu %in% skipEU, 0, 
+                                                                        sum(placeIU[yearrange,(eu+1)]*decays*(1-lossIU[yearrange,eu])))
+      
+    }
   }
+  Var2_totalC_SWP[,"LumberPre1900"] <- lumberpre1900[yearrange,]
+  Var2_totalC_SWP[,"Total Carbon"] <- rowSums(Var2_totalC_SWP[,-1])
+  return(Var2_totalC_SWP)
+  
 }
-lapply(Errordf, max )
 
+testdatexp <- swpcarbontotal(Yrs = 1900:2020, distribution = "exp")
+testdatgamme <- swpcarbontotal(Yrs = 1900:2020, distribution = "gamma",
+                               THETA = 1)
 
+testdatexp$id <- "Exponential"
+testdatgamme$id <- "Gamma"
+df4 <- rbind(testdatexp, testdatgamme)
+df4$id <- as.factor(df4$id)
+library(ggvis)
+df4 %>%
+  ggvis(~Years, ~`Total Carbon`, stroke = ~id) %>%
+  layer_lines() %>%
+  add_legend('stroke', orient="center", title = "Distributions")
 
-#####totalC calculates total carbon left in yr from all end uses in million tonnes of carbon
-
-Var2_totalC <- function(y){
-  return(Var2_totalC_SWPtable[y-1899])
-}
 Var2_C_SWP_STOCKCHANGE <- function(year){
-  return((Var2_totalC(year) - Var2_totalC(year-1)) * PRO17)
+  return((swpcarbontotal(year)$`Total Carbon` - swpcarbontotal(year-1)$`Total Carbon`) * PRO17)
 }
 ######################################
 
-###C_IU_J calculates total carbon left in year y for eu j in million tonnes of carbon
-
-
-for(i in 1:ncol(placeIU)){
-  print(sum(placeIU[,i]))
-}
-
-##################table for total carbon values
+###Var2_C_IU_J calculates total carbon left in year y for eu j in million tonnes of carbon
 Var2_C_IU_J <- function(y,eu){
   total <- 0
   minyr <- 1900 
@@ -225,105 +259,37 @@ Var2_C_IU_J <- function(y,eu){
   
   return(total)
 }
-Var2_C_IU_J <- function(y,eu){
-  total <- 0
-  for(i in 1900:y){
-    total <- total + placeIU[i-1899,(eu+1)]*exp(-log(2)/HL(i,eu)*((y-i)+1))*(1-iuLoss(i,eu))
+
+
+findKorTHETAforGamma <- function(halflife = 100, theta, k){
+  g <- function(x){
+    ((x^(theta - 1)) * (exp(-x/k))) / (gamma(theta) * (k^theta))
   }
-  return(total)
-}
-# (y - i) + 1 = (y-1900+1):1
-Var2_C_IU_J <- function(y,eu){
-  minyr <- 1900 
-  percentleft <- numeric(y - minyr + 1)
   
-  ks <- numeric(y - minyr + 1)
-  for(j in minyr:y){
-    ks[j-(minyr-1)] <- findKforGamma(HL = HL(j, eu), theta = 1)
-  }
-  p <- numeric(y - minyr + 1)
-  for (l in 1:length(percentleft)){
-    k=ks[l]
-    h=1
-    p[1]<-0
-    p[l+1]<-p[l]+1
-    g<-function(x) {((x^(k-1))*(exp(1)^(-x/h)))/(gamma(k)*(h^k))}
-    percentleft[l]<-(1-integrate(g, lower=0, upper=p[l])$value)
-  }
- 
-  total <- sum(placeIU[1:(y-minyr-1),eu]*percentleft*(1-lossIU[1:(y-minyr-1),eu]))
-
-  return(total)
-}
-l <- HL(1940, 1)
-findKforGamma(HL = l, theta = 1)
-for(i in 1900:1940){
-  print(findKforGamma(HL = HL(i, 1)))
-}
-functhhhh <- function(){
-  minyr <- 1900
-  decays <- exp(-log(2)/halfLives[1:(y-minyr+1),1]*((y-minyr+1):1))
-  Var2_totalC_SWPtable <- numeric(121)
-    totalcarbon <- 0
-    for (eu in 1:16){
-      if (eu == 4 || eu == 9 || eu == 13){
-        totalcarbon <- totalcarbon
-      }
-      else{
-        totalcarbon <- totalcarbon + sum(placeIU[1:(y-minyr+1),eu]*decays*(1-lossIU[1:(y-minyr+1),eu]))
-      }
-    }##pre1900() is result of calculation from linked site
-    Var2_totalC_SWPtable[y-1899] <- totalcarbon + pre1900(y)
-  ###
-    Var2_totalC_SWPtable
-}
-functh <- function(){
-  Var2_totalC_SWPtable <- numeric(121)
-  for(y in 1900:2020){
-    totalcarbon <- 0
-    for (i in 1:16){
-      if (i == 4 || i == 9 || i == 13){
-        totalcarbon <- totalcarbon
-      }
-      else{
-        totalcarbon <- totalcarbon + Var2_C_IU_J(y,i)
-      }
-    }##pre1900() is result of calculation from linked site
-    Var2_totalC_SWPtable[y-1899] <- totalcarbon + pre1900(y)
-  }###
-  Var2_totalC_SWPtable
-}
-Var2_totalC_SWPtable <- numeric(121)
-skipEU <- c(4,9,13)
-for(y in 1900:2020){
-  totalcarbon <- 0
-  for (i in 1:16){
-    if (i %in% skipEU){
-      totalcarbon <- totalcarbon
+  if(missing(k)){
+    k <- 1
+    decayval <- 1
+    while(abs(decayval - 0.5) > 1e-14){
+      l <- decayval / 0.5 
+      k <- k * l
+      
+      decayval<-integrate(g, lower=0, upper=halflife)$value
     }
-    else{
-      totalcarbon <- totalcarbon + Var2_C_IU_J(y,i)
+    return(k)
+  }
+  if(missing(theta)){
+    theta <- 1.2
+    decayval <- 1
+    while(abs(decayval - 0.5) > 1e-14){
+      l <- decayval / 0.5 
+      theta <- theta * l
+      
+      decayval<-integrate(g, lower=0, upper=halflife)$value
     }
-  }##pre1900() is result of calculation from linked site
-  Var2_totalC_SWPtable[y-1899] <- totalcarbon + pre1900(y)
-}###
-
-for(i in 1:121){
-  print(perError(checkswp[i,26], Var2_totalC_SWPtable[i]))
+    theta
+  }
 }
 
-####SHOW DR. A this (after totalC matches spreadsheet):
-checkswp[1,26] - Var2_totalC_SWPtable[1]
-checkswp[121,26] - Var2_totalC_SWPtable[121]
-
-testcarbf <- function(checkcolum, testcolumn ){
-  errs <- numeric(121)
-  for(i in 1:121){
-    errs[i] <- perError(checkswp[i,checkcolum], swpcalcdata[i,testcolumn])
-  }
-  return(errs)
-};testcarbf()
-#  (swpcalcdata$SP.Production-(1-a5)*swpcalcdata$SP.Exports)*((swpcalcdata$`Roundwood consumed for lumber and panels`+a5*swpcalcdata$`Log Exports`-swpcalcdata$`Imported logs for lumber and panels`*PRP62)/swpcalcdata$`Roundwood consumed for lumber and panels`)
 perError <- function(correct,y){
   
   if( correct == 0 && y != 0){
@@ -358,7 +324,18 @@ perError <- function(correct,y){
 ##############
 ##################table for total carbon values
 checkswp <- read.csv("./Data/checkswp.csv", header=FALSE)
+
+###CHECK FOR PLACE IU 
 checkplacediu <- read.csv("./Data/checkplacedIU.csv", header=TRUE)
+drops <- c("Years", "V5","V10", "V14")
+placeiu2 <- placeIU[,!(names(placeIU) %in% drops)]
+Errordf <- data.frame(Years = yrs)
+for(i in 1:13){
+  for(j in 1:121){
+    Errordf[j,paste(i,"h",sep="")] <- checkplacediu[j,i]- placeiu2[j,i]
+  }
+}
+lapply(Errordf, max )
 identical(swpcalcdata$`Sawnwood Production`, 
           checkswp[1:121,2])
 swpcalcdata$`Sawnwood Production` - checkswp[1:121,2]
