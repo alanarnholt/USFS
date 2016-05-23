@@ -235,7 +235,7 @@ testdatgamme <- swpcarbontotal(Yrs = 1900:2020, distribution = "gamma",
                                THETA = 1)
 
 testdatexp$id <- "Exponential"
-testdatgamme$id <- "Gamma"
+testdatgamme$id <- "Gamma with Theta = 1"
 df4 <- rbind(testdatexp, testdatgamme)
 df4$id <- as.factor(df4$id)
 library(ggvis)
