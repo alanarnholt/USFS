@@ -240,9 +240,10 @@ df4 <- rbind(testdatexp, testdatgamme)
 df4$id <- as.factor(df4$id)
 library(ggvis)
 df4 %>%
-  ggvis(~Years, ~`Total Carbon`, stroke = ~id) %>%
+  ggvis(~Years, ~`Total Carbon`, stroke = ~id, strokeWidth := 3) %>%
   layer_lines() %>%
-  add_legend('stroke', orient="center", title = "Distributions")
+  add_legend('stroke', orient="center", title = "Distributions") %>%
+  add_axis("x", format = "####")
 
 Var2_C_SWP_STOCKCHANGE <- function(year){
   return((swpcarbontotal(year)$`Total Carbon` - swpcarbontotal(year-1)$`Total Carbon`) * PRO17)

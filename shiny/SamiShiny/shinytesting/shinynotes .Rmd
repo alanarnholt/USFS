@@ -1,0 +1,31 @@
+---
+title: "shiny notes"
+author: "Ben"
+date: "February 28, 2016"
+output: html_document
+---
+
+Endless examples to learn from:
+http://shiny.rstudio.com/gallery/
+
+
+#notes
+render function	creates
+renderImage	images (saved as a link to a source file)
+renderPlot	plots
+renderPrint	any printed output
+renderTable	data frame, matrix, other table like structures
+renderText	character strings
+renderUI	a Shiny tag object or HTML
+
+You can make the text reactive by asking Shiny to call a widget value when it builds the text
+
+#html tags :
+
+tags glossary: http://shiny.rstudio.com/articles/tag-glossary.html 
+hr() - horizontal line
+
+
+##Action buttons 
+
+http://shiny.rstudio.com/articles/action-buttons.html
