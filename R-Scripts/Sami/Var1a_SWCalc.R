@@ -21,13 +21,18 @@ Var1_totalC <- function(y){
     }
   }
   return(total + pre1900(y))
-
+}
 ########################################################
 Var1_c_placed_IU <- function(y,eu){
   if (eu == 16){
-    #return(qOther(y) * 1)
+    #return(0)
+    return(qOther(y) * 1)
   }
   return((Var1_eSawn(y) * fsw(y,eu)) +(Var1_iSP(y)*fsp(y,eu)) +(Var1_mNSP(y)*fnsp(y,eu))) 
+} 
+
+qOther<-function(y){
+  return(0)
 }
 ########################################################
 Var1_iSP<-function(y){
@@ -313,4 +318,3 @@ usa_T<-function(y){
   return(getIncePap(y,2)*1000*InceL5)
 }
 
-}
