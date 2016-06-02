@@ -52,22 +52,22 @@ usa_G <- function(year){
 ##########
 #DN= bark carbon 
 Calc_DN <- function(year){
-  PRO17*(PRM19*usa_BO+PRM20*usa_BP)
+  PRO17*((PRM19*usa_BO)+(PRM20*usa_BP))
 }
 usa_BO <- function(year){
   if (year < 1950){
-    return(h3(year, 6)* InceV5) *1000
+    return(h3(year, 5)* InceV5) *1000
   }
   if (year < 1965){
-    return(u5(year, 5) * InceV5) *1000
+    return(u5(year, 4) * InceV5) *1000
   }
   if (year < 2014){
     return(h6(year, 4) * InceV5) * 1000
   }
-  if (year < 2051)
+  if (year < 2051){
     return(i3(year, 11)* InceV5) *1000
   }
-
+}
 
 usa_BP <- function(year){
   (usa_C - usa_BO)
@@ -82,8 +82,9 @@ usa_C <- function(year){
   if (year < 2014){
     return(h6(year, 4) * InceV5 + h7(year, 4) * InceW5) * 1000
   }
-  if (year < 2051)
+  if (year < 2051){
     return((i3(year, 11)* InceV5) + i3(year, 10) * InceW5) *1000
+  }
 }
 
 
