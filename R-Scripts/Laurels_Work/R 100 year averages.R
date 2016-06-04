@@ -1,7 +1,7 @@
 #testing the integration by defining gamma with brute force
 n=100
-k=270
-h=2##144.25
+k=
+h=50##144.25
 g<-function(x) {((x^(k-1))*(exp(1)^(-x/h)))/(gamma(k)*(h^k))}
 decay<-integrate(g, lower=0, upper=n)$value;decay
 #the above works!
