@@ -242,9 +242,10 @@ df4 <- rbind(testdatexp, testdatgamme, testdatgamma2)
 df4$id <- as.factor(df4$id)
 library(ggvis)
 df4 %>%
-  ggvis(~Years, ~`Total Carbon`, stroke = ~id) %>%
+  ggvis(~Years, ~`Total Carbon`, stroke = ~id, strokeWidth := 3) %>%
   layer_lines() %>%
   add_legend('stroke', orient="center", title = "Distributions") %>%
+<<<<<<< HEAD
   add_title(x_lab = "Years", title = "Decay Distributions Effect on Total Carbon", fontsize = 20,
            format = "####")
 
@@ -263,6 +264,9 @@ add_title <- function(vis, ..., x_lab = "X units", title = "Plot Title", fontsiz
 abs(mean(testdatgamme$`Total Carbon` - testdatgamma2$`Total Carbon`))
 ##mean diff from theta = 1 to theta = 2: 154,000
 abs(mean(testdatexp$`Total Carbon` - testdatgamma2$`Total Carbon`))
+=======
+  add_axis("x", format = "####")
+>>>>>>> 56d8083891c7d732574419b5faa3571480183f7e
 
 Var2_C_SWP_STOCKCHANGE <- function(year){
   return((swpcarbontotal(year)$`Total Carbon` - swpcarbontotal(year-1)$`Total Carbon`) * PRO17)

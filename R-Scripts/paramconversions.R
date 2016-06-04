@@ -31,3 +31,5 @@ PRM57 <- 1 #swtich to be included in the SWDS degradable carbon pool
 PRM60 <- 0.0420089200339361 #Wood waste HL in SWDS, for dumps
 PRM61 <- 0.0840178400678722#Paper waste HL in SWDS, dumps
 PRJ96 <- 1 #Factor to adjust base MSW not burned for paper and wood
+PRM19 <- .183 #carbon content in dry matter, bark percent softwoods 
+PRM20 <- .209 #carbon content in dry matter, bark percent hardwoods
