@@ -184,14 +184,18 @@ write.csv2(swpcalcdata, "swpcalcdata.csv")
 swpcarbontotal <- function(Yrs = 1990:2015, distribution = c("exp", "gamma"), THETA, K){
   type <- match.arg(distribution) 
   
+  
+  g <- function(x){ ##gamma function 
+    ((x^(THETA - 1)) * (exp(-x/K))) / (gamma(THETA) * (K^THETA))
+  }
+  
   minyr <- 1900
-  yrrange <- minyr:2020
   
-  Var2_totalC_SWP <- data.frame(Years = yrrange)
-  skipEU <- c(4,9,13)
+  Var2_totalC_SWP <- data.frame(Years = Yrs)
+  totalEUs <- c(4,9,13) ##these are totals 
   
-  for(year in 1900:maxyr){
-    yearrange <- 1:(year - minyr + 1)
+  for(year in Yrs){
+    yearrange <- 1:(year - minyr + 1) #number of years from 1900 to year 
     for (eu in 1:16) {
       
       if (type == "exp") {
@@ -212,19 +216,16 @@ swpcarbontotal <- function(Yrs = 1990:2015, distribution = c("exp", "gamma"), TH
           }
           
           p[i+1]<-p[i]+1 ##this part still confused about, why not just use i instead of setting first val to 0. Signifies no years passed?
-          g <- function(x){
-            ((x^(THETA - 1)) * (exp(-x/K))) / (gamma(THETA) * (K^THETA))
-          }
           decays[i]<- 1 - integrate(g, lower=0, upper=p[i])$value
         }
       }
       
-      Var2_totalC_SWP[(year-(minyr-1)),paste("EU",eu,sep="")] <- ifelse(eu %in% skipEU, 0, 
+      Var2_totalC_SWP[Var2_totalC_SWP$Year == year, paste("EU",eu,sep="")] <- ifelse(eu %in% totalEUs, 0, 
                                                                         sum(placeIU[yearrange,(eu+1)]*decays*(1-lossIU[yearrange,eu])))
       
     }
   }
-  Var2_totalC_SWP[,"LumberPre1900"] <- lumberpre1900[yearrange,]
+  Var2_totalC_SWP[,"LumberPre1900"] <- lumberpre1900[Yrs - minyr + 1,]
   Var2_totalC_SWP[,"Total Carbon"] <- rowSums(Var2_totalC_SWP[,-1])
   return(Var2_totalC_SWP)
   
@@ -233,17 +234,39 @@ swpcarbontotal <- function(Yrs = 1990:2015, distribution = c("exp", "gamma"), TH
 testdatexp <- swpcarbontotal(Yrs = 1900:2020, distribution = "exp")
 testdatgamme <- swpcarbontotal(Yrs = 1900:2020, distribution = "gamma",
                                THETA = 1)
-
+testdatgamma2 <- swpcarbontotal(Yrs = 1900:2020, distribution = "gamma", THETA = 2)
 testdatexp$id <- "Exponential"
 testdatgamme$id <- "Gamma with Theta = 1"
-df4 <- rbind(testdatexp, testdatgamme)
+testdatgamma2$id <- "Gamma with Theta = 2"
+df4 <- rbind(testdatexp, testdatgamme, testdatgamma2)
 df4$id <- as.factor(df4$id)
 library(ggvis)
 df4 %>%
   ggvis(~Years, ~`Total Carbon`, stroke = ~id, strokeWidth := 3) %>%
   layer_lines() %>%
   add_legend('stroke', orient="center", title = "Distributions") %>%
+<<<<<<< HEAD
+  add_title(x_lab = "Years", title = "Decay Distributions Effect on Total Carbon", fontsize = 20,
+           format = "####")
+
+
+add_title <- function(vis, ..., x_lab = "X units", title = "Plot Title", fontsize = 16) 
+{
+  add_axis(vis, "x", title = x_lab) %>% 
+    add_axis("x", orient = "top", ticks = 0, title = title,
+             properties = axis_props(
+               axis = list(stroke = "white"),
+               title = list(fontSize = fontsize),
+               labels = list(fontSize = 0)
+             ), ...)
+}
+
+abs(mean(testdatgamme$`Total Carbon` - testdatgamma2$`Total Carbon`))
+##mean diff from theta = 1 to theta = 2: 154,000
+abs(mean(testdatexp$`Total Carbon` - testdatgamma2$`Total Carbon`))
+=======
   add_axis("x", format = "####")
+>>>>>>> 56d8083891c7d732574419b5faa3571480183f7e
 
 Var2_C_SWP_STOCKCHANGE <- function(year){
   return((swpcarbontotal(year)$`Total Carbon` - swpcarbontotal(year-1)$`Total Carbon`) * PRO17)
@@ -342,3 +365,6 @@ identical(swpcalcdata$`Sawnwood Production`,
 swpcalcdata$`Sawnwood Production` - checkswp[1:121,2]
 
 
+for(i in 1900){
+  print(i)
+}
