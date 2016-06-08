@@ -1,85 +1,92 @@
-#CONSTANTS
-INCE4SoftwoodPlywood = (1000/32)*(35/2000)*(1/(1+.15))*(1+(1+.045))*1
-INCE4OSBWaferboard = (1000/32)*(40/2000)*(1/(1+.15))*(1+(1+.035))*1
-INCE4LaminatedVeneerLumber = (1000)*(35/2000)*(1/(1+.15))*(1+(1+.05))*1
-INCE4HardwoodPlywoodAndVeneer = (1000/32)*(42/2000)*(1/(1+.15))*(1+(1+.05))*1
-INCE4SoftwoodLumber = (60)*(31.9/2000)*(1/(1+.15))*(1+(1+0))*1
-INCE4HardwoodLumber = (1000/12)*(36.6/2000)*(1/(1+.15))*(1+(1+0))*1
-INCE4LumberMadeAtPalletPlants = (1000/12)*(36.6/2000)*(1/(1+.15))*(1+(1+0))*1
-INCE4ParticaleBoardProduction = (1000/16)*(45/2000)*(1/(1+.15))*(1+(1+0.085))*1
-INCE4HardBoardProduction = (1000/96)*(60/2000)*(1/(1+.15))*(1+(1+0))*1
-INCE4MDFProduction = (1000/16)*(45/2000)*(1/(1+.05))*(1+(1+0.08))*1
-INCE4PulpPaperAndBoard = (1/(1+.03))*1
-INCE4Pulp = (1/(1+.1))*1
-INCE4OtherIndustrialProducts = 1000*(34.3/2000)*(1/(1+.15))*(1/(1+0))*1
-INCE4InsulationBoard = (1000/24)*(23.5/2000)*(1/(1+.15))*(1/(1+0))*1
-INCE4Pulpwood = (81300)*(34.3/2000)*(1/(1+.15))*(1/(1+0))*1
-INCE4InsulationBoardTON = .9*1
-INCE4HardwoodVeneer = .2*(1/(1+.15))*1
-INCE4SoftwoodRoundwood = 1000*(31.9/2000)*(1/(1+.15))*(1/(1+0))*1
-INCE4HardwoodRoundwood = 1000*(36.6/2000)*(1/(1+.15))*(1/(1+0))*1
+##change tables to fit with other rscripts, then THIS variable is complete
 
 
-SolidWoodProducts = (.907185*.5)/(10^6)
-PaperProducts = (.907185*.43)/(10^6)
 
 
-#Main Equation
-
-Variable4<- function(x){return(1000*((SolidWoodProducts*RoundwoodExports(year))*(SolidWoodProducts*SawnwoodExports(year))*
-                                (SolidWoodProducts*WoodBasedPanelExports(year))*(PaperProducts*PaperAndPaperboardExports(year))*
-                                (PaperProducts*TotalFibreFurnishExports(year))))}
+Var4<- function(x){return(1000*((PRO17*RoundwoodExports(year))*(PRO17*SawnwoodExports(year))*
+                                (PRO17*WoodBasedPanelExports(year))*(PRO18*PaperAndPaperboardExports(year))*
+                                (PRO18*TotalFibreFurnishExports(year))))}
 
 #Parts of Main Equation
 
 RoundwoodExports <- function(year){
-  if(year < 1950){
-    return(1000*((hair1963t2SoftWoodLogAndChipExport * INCE4SoftwoodRoundwood) + 
-                   (hair1963t2HardWoodLogAndChipExport * INCE4HardwoodRoundwood)))}
+  if(year = 1900 && year = 1920 && year = 1930 && eyar = 1940){
+    return(1000*((hair1963t2SoftwoodChipexport*InceS5) + (hair1963t2HardlogChipexport*InceT5)))
+  }
   
-  if(year < 1965){
-  return(1000 * ((U5logexports * INCE4SoftwoodRoundwood) + (U5logexports * INCE4HardwoodRoundwood)))}
+  if(year = 1950 && year > 1959 && year < 1965){
+    return(1000 * ((U5logexports * InceS5) + (U5logexports * InceT5)))}
   
-  if(year < 1990){
-    return(1000 * ((H6aLogExports*INCE4SoftwoodRoundwood) + (H7aPlywoodAndVeneerExports * INCE4HardwoodRoundwood)
-                   + ((H5aPulpwoodChipExports*INCE4SoftwoodRoundwood)*(154/(154+117))) 
-                   + ((H5aPulpwoodChipsExport*INCE4HardwoodRoundwood)*(117/(154+117)))))}
-  if(year < 2021){
-    return(1000*((H6aLogExports * INCE4SoftwoodRoundwood) + (H7aPlywoodAndVeneerExports * INCE4HardwoodRoundwood)
-                 + (H6aPulpwoodChipExports * INCE4SoftwoodRoundwood) + (H7aPulpwoodChipExports * INCE4HardwoodRoundwood)))}
-  if(year < 2051){
-    return(1000*((Exportt3HardRoundWoodEquivofLogAndChipExports * INCE4HardwoodRoundwood) 
-                 + (Exportt3SoftRoundWoodEquivLogAndChipExports * INCE4SoftwoodRoundwood)))}
+  
+  
+  if(year >1964 && year < 1971 && year = 1980){
+    return(1000 * ((H6aLogExports*InceS5) + (H7aPlywoodAndVeneerExports * InceT5)
+                   + ((H5aPulpwoodChipExports*InceS5)*(154/(154+117))) 
+                   + ((H5aPulpwoodChipsExport*InceT5)*(117/(154+117)))))}
+  
+  if(year > 1989 && year < 2021){
+    return(1000 * ((H6aLogExports*InceS5) + (H7aPlywoodAndVeneerExports * InceT5)
+                   + ((H5aPulpwoodChipExports*InceS5)) 
+                   + ((H5aPulpwoodChipsExport*InceT5))))}
+  
+  
+  if(year > 2020 && year < 2051){
+    return(1000*((Exportt3HardRoundWoodEquivofLogAndChipExports * InceT5) 
+                 + (Exportt3SoftRoundWoodEquivLogAndChipExports * InceS5)))}
   }
 
 
 
 
 SawnwoodExports <- function(year){
-  if (year < 1920){
-    return(1000*(hair1958t14TotalExports * INCE4SoftwoodLumber))}
+  if (year = 1900){
+    return(1000*(hair1958t14TotalExports * InceF5))}
   
-  if(year < 1965){
-    return(1000*((U29SoftWoodExports * 1000 * INCE4SoftwoodLumber) + (U29HardWoodExports * 1000 * INCE4HardwoodLumber)))}
+  if(year > 1919 && year < 1965){
+    return(1000*((U29SoftWoodExports * 1000 * InceF5) + (U29HardWoodExports * 1000 * InceG5)))}
   
-  if(year < 2021){
-    return(1000*((H28SoftWoodExport * 1000 * INCE4SoftwoodLumber) + (H28HardWoodExport * 1000 * INCE4HardwoodLumber)))}
+  if(year > 1964 && year < 2021){
+    return(1000*((H28SoftWoodExport * 1000 * InceF5) + (H28HardWoodExport * 1000 * InceG5)))}
   
-  if(year < 2051){
-    return(1000*((Exportt1SoftWoodLumberExport * INCE4SoftwoodLumber) + (Exportt1HardWoodLumberExport * INCE4HardwoodLumber)))}
+  if(year > 2020 && year < 2051){
+    return(1000*((Exportt1SoftWoodLumberExport * InceF5) + (Exportt1HardWoodLumberExport * InceG5)))}
   }
 
 
 
 WoodBasedPanelExports <- function(year){
-  if(year < 1920){
-    return(1000*)
+  if(year = 1920){
+    return(1000*Ulrich54*InceJ5)
+  }
+  
+  if(year = 1930 && year = 1940){
+    return(1000*(((Hair1963t20*InceB5)) + (((Hair1963t20*InceE5) + (Hair1963t21*InceR5))/1000)
+    + (Ulrich54*InceJ5) + (Ulrich53*InceO5)))
+  }
+  
+  if(year > 1949 && year < 1965){
+    return(1000*((Ulrich36*InceB5) + (Ulrich36*InceE5) + (Ulrich54*InceJ5) + (Ulrich53*InceO5)))
+  }
+  
+  if(year > 1964 && year < 1991){
+    return(1000*((H37*InceB5) + (H37*E5) + (H53*InceI5) + (H56*InceJ5) + (H55*InceO5)))
+  }
+  
+  if(year > 1990 && year < 2021){
+    return(1000*((H37*InceB5) + (H38*InceC5) + (H37*InceE5) + (H53*InceI5) + (H56*InceJ5) + (H55*InceO5)))
+  }
+  
+  if(year > 2020 && year < 2051){
+   return(1000*((Exportt1Softwood*InceB5) + (Exportt1OSBWaferboard*InceC5) + (Exportt1Hardwood*InceE5)
+                + (Exportt1Particleboard*InceI5) + (Exportt1Hardwood*InceJ5) + (Exportt1Insulatingboard*InceO5))) 
   }
 }
 
 
 
-PaperAndPaperboardExports <- function(year){return(1000*((INCE4PulpPaperAndBoard*INCEPaperAndPaperBoardPaperAndBoardExports)))}
+PaperAndPaperboardExports <- function(year){
+  if(year > 1900 && year < 2050){return(1000*((InceL5*PaperAndBoardExports)))}
+  }
 
 
 
