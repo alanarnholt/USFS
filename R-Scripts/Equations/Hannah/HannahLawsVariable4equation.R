@@ -11,23 +11,23 @@ Var4<- function(x){return(1000*((PRO17*RoundwoodExports(year))*(PRO17*SawnwoodEx
 
 RoundwoodExports <- function(year){
   if(year = 1900 && year = 1920 && year = 1930 && eyar = 1940){
-    return(1000*((hair1963t2SoftwoodChipexport*InceS5) + (hair1963t2HardlogChipexport*InceT5)))
+    return(1000*((h3(year, 8)*InceS5) + (h3(year, 10)*InceT5)))
   }
   
   if(year = 1950 && year > 1959 && year < 1965){
-    return(1000 * ((U5logexports * InceS5) + (U5logexports * InceT5)))}
+    return(1000 * ((u5(year, 26) * InceS5) + (u5(year, 26) * InceT5)))}
   
   
   
   if(year >1964 && year < 1971 && year = 1980){
-    return(1000 * ((H6aLogExports*InceS5) + (H7aPlywoodAndVeneerExports * InceT5)
-                   + ((H5aPulpwoodChipExports*InceS5)*(154/(154+117))) 
-                   + ((H5aPulpwoodChipsExport*InceT5)*(117/(154+117)))))}
+    return(1000 * ((h6(year, 21)*InceS5) + (h7(year, 13) * InceT5)
+                   + ((h5(year, 23)*InceS5)*(154/(154+117))) 
+                   + ((h5(year, 23)*InceT5)*(117/(154+117)))))}
   
   if(year > 1989 && year < 2021){
-    return(1000 * ((H6aLogExports*InceS5) + (H7aPlywoodAndVeneerExports * InceT5)
-                   + ((H5aPulpwoodChipExports*InceS5)) 
-                   + ((H5aPulpwoodChipsExport*InceT5))))}
+    return(1000 * ((h6(year, 21)*InceS5) + (h7(year, 13) * InceT5)
+                   + ((h5(year, 23)*InceS5)) 
+                   + ((h5(year, 23)*InceT5))))}
   
   
   if(year > 2020 && year < 2051){
@@ -40,13 +40,13 @@ RoundwoodExports <- function(year){
 
 SawnwoodExports <- function(year){
   if (year = 1900){
-    return(1000*(hair1958t14TotalExports * InceF5))}
+    return(1000*(h8(year, 13) * InceF5))}
   
   if(year > 1919 && year < 1965){
-    return(1000*((U29SoftWoodExports * 1000 * InceF5) + (U29HardWoodExports * 1000 * InceG5)))}
+    return(1000*((u29(year, 10) * 1000 * InceF5) + (u29(year, 11) * 1000 * InceG5)))}
   
   if(year > 1964 && year < 2021){
-    return(1000*((H28SoftWoodExport * 1000 * InceF5) + (H28HardWoodExport * 1000 * InceG5)))}
+    return(1000*((h28(year, 8) * 1000 * InceF5) + (h28(year, 9) * 1000 * InceG5)))}
   
   if(year > 2020 && year < 2051){
     return(1000*((Exportt1SoftWoodLumberExport * InceF5) + (Exportt1HardWoodLumberExport * InceG5)))}
@@ -56,24 +56,24 @@ SawnwoodExports <- function(year){
 
 WoodBasedPanelExports <- function(year){
   if(year = 1920){
-    return(1000*Ulrich54*InceJ5)
+    return(1000*u54(year, 3)*InceJ5)
   }
   
   if(year = 1930 && year = 1940){
-    return(1000*(((Hair1963t20*InceB5)) + (((Hair1963t20*InceE5) + (Hair1963t21*InceR5))/1000)
-    + (Ulrich54*InceJ5) + (Ulrich53*InceO5)))
+    return(1000*(((h3t20(year, 7)*InceB5)) + (((h3t20(year, 8)*InceE5) + (h3t21(year, 4)*InceR5))/1000)
+    + (u54(year, 3)*InceJ5) + (u53(year, 3)*InceO5)))
   }
   
   if(year > 1949 && year < 1965){
-    return(1000*((Ulrich36*InceB5) + (Ulrich36*InceE5) + (Ulrich54*InceJ5) + (Ulrich53*InceO5)))
+    return(1000*((u36(year, 10)*InceB5) + (u36(year, 11)*InceE5) + (u54(year, 3)*InceJ5) + (u53(year, 3)*InceO5)))
   }
   
   if(year > 1964 && year < 1991){
-    return(1000*((H37*InceB5) + (H37*E5) + (H53*InceI5) + (H56*InceJ5) + (H55*InceO5)))
+    return(1000*((h37(year, 8)*InceB5) + (h37(year, 9)*E5) + (h53(year, 5)*InceI5) + (h56(year, 3)*InceJ5) + (h55(year, 3)*InceO5)))
   }
   
   if(year > 1990 && year < 2021){
-    return(1000*((H37*InceB5) + (H38*InceC5) + (H37*InceE5) + (H53*InceI5) + (H56*InceJ5) + (H55*InceO5)))
+    return(1000*((h37(year, 8)*InceB5) + (h38(year, 9)*InceC5) + (h37(year, 9)*InceE5) + (h53(year, 5)*InceI5) + (h56(year, 3)*InceJ5) + (h55(year, 3)*InceO5)))
   }
   
   if(year > 2020 && year < 2051){
@@ -85,7 +85,7 @@ WoodBasedPanelExports <- function(year){
 
 
 PaperAndPaperboardExports <- function(year){
-  if(year > 1900 && year < 2050){return(1000*((InceL5*PaperAndBoardExports)))}
+  if(year > 1900 && year < 2050){return(1000*((InceL5*IncePaper(year, 3))))}
   }
 
 
