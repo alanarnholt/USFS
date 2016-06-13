@@ -1,15 +1,19 @@
 ##change tables to fit with other rscripts, then THIS variable is complete
+##need to find/create Export tables from WOODCARB.xlsx
+
+
+
+Var4<- function(x){return(1000*((PRO17*usa_E(year))*(PRO17*usa_J(year))*
+                                (PRO17*usa_M(year))*(PRO18*usa_U(year))*
+                                (PRO18*usa_Y(year))))}
 
 
 
 
-Var4<- function(x){return(1000*((PRO17*RoundwoodExports(year))*(PRO17*SawnwoodExports(year))*
-                                (PRO17*WoodBasedPanelExports(year))*(PRO18*PaperAndPaperboardExports(year))*
-                                (PRO18*TotalFibreFurnishExports(year))))}
 
 #Parts of Main Equation
 
-RoundwoodExports <- function(year){
+usa_E <- function(year){
   if(year = 1900 && year = 1920 && year = 1930 && eyar = 1940){
     return(1000*((h3(year, 8)*InceS5) + (h3(year, 10)*InceT5)))
   }
@@ -38,7 +42,10 @@ RoundwoodExports <- function(year){
 
 
 
-SawnwoodExports <- function(year){
+
+
+
+usa_J <- function(year){
   if (year = 1900){
     return(1000*(h8(year, 13) * InceF5))}
   
@@ -54,7 +61,10 @@ SawnwoodExports <- function(year){
 
 
 
-WoodBasedPanelExports <- function(year){
+
+
+
+usa_M <- function(year){
   if(year = 1920){
     return(1000*u54(year, 3)*InceJ5)
   }
@@ -84,13 +94,93 @@ WoodBasedPanelExports <- function(year){
 
 
 
-PaperAndPaperboardExports <- function(year){
+
+
+
+usa_U <- function(year){
   if(year > 1900 && year < 2050){return(1000*((InceL5*IncePaper(year, 3))))}
   }
 
 
 
-TotalFibreFurnishExports <- function(year){return(USAWoodPulpForPaperExports + RecoveredPaperExports + RecoveredFibrePulpExports)}
+
+
+USA_AK <- function(year){
+  if(year >1899 && year <1965){
+    return(apiTotalWoodPulp(year,9))
+  }
+  
+  if(year > 1964 && year < 2014){
+    return(1000*h46(year,13))
+  }
+  
+  if(year > 2013 && year < 2021){
+    return(1000*h46(2007,13))
+  }
+  
+  if(year > 2019 && year < 2051){
+    return(1000*h46(2002,13))
+  }
+}
+
+
+
+
+
+
+USA_AO <- function(year){
+  if(year > 1899 && year < 1965){
+    return(apiTotalWoodPulp(year,3) + apiTotalWoodPulp(year,13))
+  }
+  
+  if(year > 1964 && year < 2021){
+    return(1000*(h49(year,4) + h46(year,13)))
+  }
+  
+  if(year > 2020 && year < 2051){
+    return(1000*(h49(2002,4) + h46(2002 ,13)))
+  }
+}
+
+
+
+
+usa_AF <- function(year){
+  return(USA_AK(year) - USA_AO(year))
+}
+
+
+
+
+usa_AV <- function(year){
+  if(year > 1899 && year < 1965){
+    return(apiTotalWoodPulp(year,10))
+  }
+  
+  if(year > 1964 && year < 2021){
+    return(1000*(h47(year,4)))
+  }
+  
+  if(year > 2020 && year < 2051){
+    return(1000*(h47(2002,4)))
+  }
+}
+
+
+
+
+usa_AR <- function(year){
+  if(year > 1997 && year < 2014){
+    return(0.90718 * recFibPulpUSA(year, 3))
+  }
+  
+  if(year > 2013 && year < 2021){
+    return(0.90718 * recFibPulpUSA(2007, 3))
+  }
+}
+
+
+usa_Y <- function(year){return(usa_AF + usa_AV + usa_AR)}
 
 
 
