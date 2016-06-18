@@ -87,16 +87,16 @@ usa_M <- function(year){
   }
   
   if(year > 2020 && year < 2051){
-   return(1000*((1000*InceB5) + (0*InceC5) + (Exportt1Hardwoodplywood*InceE5)
-                + (Exportt1Particleboard*InceI5) + (Exportt1Hardboard*InceJ5) + (Exportt1Insulatingboard*InceO5))) 
+   return(1000*((1000*InceB5) + (0*InceC5) + ((year-2021+330)*InceE5)
+                + ((year-2021+408)*InceI5) + (Exportt1Hardboard*InceJ5) + (Exportt1Insulatingboard*InceO5))) 
   }
 }
 
 
 #1000 for Exportt1Softwoodplywood years 2021 - 2050
 #0 for Exportt1OSBWaferboard years 2021 - 2050
-
-
+#year - 2021 + 330 for Exportt1Hardwoodplywood
+#year - 2021 + 408 for Exportt1Particleboard
 
 
 usa_U <- function(year){
