@@ -45,7 +45,7 @@ for (i in 1:years)
   {
     h <- 1
     decayval <- 1
-    while(abs(decayval - 0.5) > 1e-14) #finding h for each half life
+    while(abs(decayval - 0.5) > 1e-14) #finding h given each half life
     {
       m <- decayval / 0.5
       h <- h * m
@@ -68,8 +68,9 @@ for (i in 1:years)
   {
     k <- 1.2
     decayval <- 1
-    while(abs(decayval - 0.5) > 1e-1) #finding k for each half life
+    while(abs(decayval - 0.5) > 1e-1) #finding k given each half life
                                       #needs greater precision?
+                                      #divergent integral?
     {
       m <- decayval / 0.5
       k <- k * m
