@@ -403,39 +403,35 @@ thing<-for(i in 1:length(year)){
 }
 thing
 
+
 ############################################
-############################################
+#### Below gives us what we want!! just need to figure out how to loop properly!!
 
-###################################array for production
-prod <- array(NA, dim=c(1,14,151))
+production <- c(swcalcdata$`Structural Panel Production`, swcalcdata$`Nonstructural Panels Production`,swcalcdata$`Sawn Wood Production`)
+imports<-c(swcalcdata$`Structural Panel Imports`,swcalcdata$`Nonstructural Panels Imports`,swcalcdata$`Sawn Wood Imports`)
+exports<-c(swcalcdata$`Structural Panel Exports`,swcalcdata$`Nonstructural Panels Exports`,swcalcdata$`Sawn Wood Exports`)
+year<-1900:2020
 
-  prod[1,1,1:121] <- swcalcdata$`Sawn Wood Production` 
-  prod[1,2,1:121] <- swcalcdata$`Structural Panel Production`
-  prod[1,3,1:121] <- swcalcdata$`Nonstructural Panels Production`
-  prod[1,4,1:121] <- swpcalcdata$`Other Products Production`
-  
-
-
-##############################array for imports
-  imports <- array(NA, dim=c(1,14,151))
-  
-  imports[1,1,1:121] <- swcalcdata$`Sawn Wood Imports`
-  imports[1,2,1:121] <- swcalcdata$`Structural Panel Imports`
-  imports[1,3,1:121] <- swcalcdata$`Nonstructural Panels Imports`
-  imports[1,4,1:121] <- 0
+import.mat<-matrix(c( year, imports),nrow=121, ncol = 4)
+export.mat<-matrix(c( year, exports),nrow=121, ncol = 4)
+prod.mat<-matrix(c( year, production),nrow=121, ncol = 4)
+mat.p<-matrix(subset(prod.mat, year==1900))
+mat.i<-matrix(subset(import.mat, year==1900))
+mat.e<-matrix(subset(export.mat, year==1900))
+mat.p
+mat.i
+mat.e
 
 
 
-#########################array for exports
-  exports <- array(NA, dim=c(1,14,151))
-  
-  exports[1,1,1:121] <- swcalcdata$`Sawn Wood Exports`
-  exports[1,2,1:121] <- swcalcdata$`Structural Panel Exports`
-  exports[1,3,1:121] <- swcalcdata$`Nonstructural Panels Exports`
-  exports[1,4,1:121] <- 0
-  
-  
-  
+
+
+
+
+
+
+
+
 
 
 
