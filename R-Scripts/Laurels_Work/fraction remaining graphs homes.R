@@ -16,6 +16,7 @@ for (i in 1:101){
 fre
 mean(fre)
 
+
 #k2
 p<-0
 decay<-0
