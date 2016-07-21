@@ -9,7 +9,7 @@ halflives <- halflives[-c(4, 9, 13)]
 ##creating blank four-dimensional array to fill
 ##look-up array:
 ##1. Decay Type (1 = exponential, 2 = k=2, 3 = chi-squared)
-##2. End Use (refer to spreadsheet - will specify later)
+##2. End Use (1 = Single Family Housing, 2 = Multifamily Housing, 3 = Mobile Homes, 4 = Residential Upkeep and Improvement, 5 = All Construction Excluding Railroads, 6 = Railroad Ties, 7 = Railcar Repair, 8 = Household Furniture, 9 = Commercial Furniture, 10 = Other Manufacturing, 11 = Shipping, 12 = Other Uses, 13 = Uses for Other Industrial Products)
 ##3. Year Put in Use (1 = 1900)
 ##4. Year (1 = 1900)
 ##Example: decay_array[1, 3, 51, 101] will produce percentage carbon left after exponential decay of mobile homes built in 1950 at year 2000
@@ -125,7 +125,7 @@ for (i in 1:years)
 }
 
 ##example and plots
-##creating test vector of product input
+##creating test vector of product input (100 for each input)
 decay_test <- rep(100, times = enduses)
 
 ##multiplying by exponential decay values for year 2016
@@ -135,9 +135,9 @@ exponential_test2016 <- decay_test * decay_array[1, c(1:enduses), 117, c(117:yea
 k2_test2016 <- decay_test * decay_array[2, c(1:enduses), 117, c(117:years)]
 
 ##multiplying by chi-squared decay values for year 2016
-k3_test2016 <- decay_test * decay_array[3, c(1:enduses), 117, c(117:years)]
+chi_test2016 <- decay_test * decay_array[3, c(1:enduses), 117, c(117:years)]
 
-##plots for exponential vs k=2 amount stored in mobile homes built in 2016 - end year
+##plots for exponential, k=2, chi-squared amount stored in mobile homes built in 2016 - end year
 plot(x = c(117:years), y = exponential_test2016[3,],
      type = "l",
      col = "red",
@@ -148,7 +148,7 @@ plot(x = c(117:years), y = exponential_test2016[3,],
 lines(x = c(117:years), y = k2_test2016[3,],
       col = "blue",
       lwd = 3)
-lines(x = c(117:years), y = k3_test2016[3,],
+lines(x = c(117:years), y = chi_test2016[3,],
       col = "green",
       lwd = 3)
 legend("bottomleft", c("exp", "k=2", "chi^2"),
@@ -265,3 +265,11 @@ for (i in 1:years)
     print(decayval)
   }
 }
+
+
+
+test <- 10639742
+print(test*decay_array[1,1,1,1])
+
+
+
