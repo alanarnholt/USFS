@@ -183,3 +183,26 @@ lines(x = c(1:years), y = chi_railcar_repair1900,
 legend("bottomleft", c("exp", "k=2", "chi^2"),
        col = c("red", "blue", "green"),
        lwd = 3)
+
+##railcar repair in 2000
+railcar_repair2000 <- 91367
+exp_railcar_repair2000 <- railcar_repair2000 * decay_array[1,5,101,c(101:years)] * loss_array[101]
+k2_railcar_repair2000 <- railcar_repair2000 * decay_array[2,5,101,c(101:years)] * loss_array[101]
+chi_railcar_repair2000 <- railcar_repair2000 * decay_array[3,5,101,c(101:years)] * loss_array[101]
+plot(x = c(101:years), y = exp_railcar_repair2000,
+     type = "l",
+     col = "red",
+     lwd = 3,
+     main = "Decay of Carbon in Wood Used in Railcar Repair in 2000",
+     xlab = "Years (Since 1900)",
+     ylab = "Amount of Carbon Stored",
+     ylim = c(0, railcar_repair2000))
+lines(x = c(101:years), y = k2_railcar_repair2000,
+      col = "blue",
+      lwd = 3)
+lines(x = c(101:years), y = chi_railcar_repair2000,
+      col = "green",
+      lwd = 3)
+legend("bottomleft", c("exp", "k=2", "chi^2"),
+       col = c("red", "blue", "green"),
+       lwd = 3)
