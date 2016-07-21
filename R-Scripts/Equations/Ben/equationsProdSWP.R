@@ -3,6 +3,19 @@ library(DT)
 a5 <- 1##Switch to include exports, for production or use of wood 
 #####Var 2PRODUCTION APPROACH, SOLID WOOD PRODUCTS CALCULATIONS
 
+enduses <- c("SingleFam", "MultiFam", "MobileHomes",
+             "TotalHomes", "ResidentialUpkeep", "AllRailroads",
+             "Railroadties", "RailcairRepair", "TotalnonResidential", 
+             "HouseFurniture", "CommercialFurniture", "OtherManufacturing", 
+             "Total Manufacturing", "Shipping", "OtherUses", "OtherIndustrial",
+             "Exports") 
+totalEUs <- c(4,9,13, 17) ##total end uses to not count in carbon totals 
+primaryclasses <- c("Sawnwood", 
+     
+                   "StructuralPanels", 
+                    "NonStructuralPanels", 
+                    "OtherIndustrial")
+
 ###############
 minyr <- 1900
 maxyr <- 2020
@@ -179,6 +192,7 @@ for(i in 1:15){ ##use testthat to check these values with spreadsheet.
   placeIU[,i+1]  <- swpcalcdata[["Sawnwood Prod Special"]] * fracsawnwood[1:121,i] + swpcalcdata[["SP Prod Special"]] * fracstrpanels[1:121,i] + swpcalcdata[["NSP Prod Special"]] * fracnonstrpanels[1:121,i]
 }
 placeIU$V17 <- swpcalcdata$`Other Products Production Special`
+
 write.csv2(swpcalcdata, "swpcalcdata.csv")
 
 swpcarbontotal <- function(Yrs = 1990:2015, distribution = c("exp", "gamma"), THETA, K){
@@ -231,6 +245,9 @@ swpcarbontotal <- function(Yrs = 1990:2015, distribution = c("exp", "gamma"), TH
   
 }
 
+system.time(swpcarbontotal(Yrs = 1900:2020, distribution = "exp"))
+system.time(swpcarbontotal(Yrs = 1900:2020, distribution = "gamma", THETA = 2))
+
 testdatexp <- swpcarbontotal(Yrs = 1900:2020, distribution = "exp")
 testdatgamme <- swpcarbontotal(Yrs = 1900:2020, distribution = "gamma",
                                THETA = 1)
@@ -245,7 +262,7 @@ df4 %>%
   ggvis(~Years, ~`Total Carbon`, stroke = ~id, strokeWidth := 3) %>%
   layer_lines() %>%
   add_legend('stroke', orient="center", title = "Distributions") %>%
-<<<<<<< HEAD
+  add_axis("x", format = "####")
   add_title(x_lab = "Years", title = "Decay Distributions Effect on Total Carbon", fontsize = 20,
            format = "####")
 
@@ -264,9 +281,9 @@ add_title <- function(vis, ..., x_lab = "X units", title = "Plot Title", fontsiz
 abs(mean(testdatgamme$`Total Carbon` - testdatgamma2$`Total Carbon`))
 ##mean diff from theta = 1 to theta = 2: 154,000
 abs(mean(testdatexp$`Total Carbon` - testdatgamma2$`Total Carbon`))
-=======
-  add_axis("x", format = "####")
->>>>>>> 56d8083891c7d732574419b5faa3571480183f7e
+
+  
+
 
 Var2_C_SWP_STOCKCHANGE <- function(year){
   return((swpcarbontotal(year)$`Total Carbon` - swpcarbontotal(year-1)$`Total Carbon`) * PRO17)
@@ -349,8 +366,15 @@ perError <- function(correct,y){
 ##################table for total carbon values
 checkswp <- read.csv("./Data/checkswp.csv", header=FALSE)
 
+identical(checkswp[,5], swpcalcdata$`Sawnwood Prod Special`)
+
 ###CHECK FOR PLACE IU 
 checkplacediu <- read.csv("./Data/checkplacedIU.csv", header=TRUE)
+for(i in 1:13){
+  print(max(checkplacediu[1:121,i] - placeIU[,i+1]))
+}
+
+
 drops <- c("Years", "V5","V10", "V14")
 placeiu2 <- placeIU[,!(names(placeIU) %in% drops)]
 Errordf <- data.frame(Years = yrs)
