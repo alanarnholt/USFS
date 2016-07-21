@@ -125,7 +125,7 @@ for (i in 1:years)
 }
 
 ##example and plots
-##creating test vector of product input
+##creating test vector of product input (100 for each input)
 decay_test <- rep(100, times = enduses)
 
 ##multiplying by exponential decay values for year 2016
@@ -135,9 +135,9 @@ exponential_test2016 <- decay_test * decay_array[1, c(1:enduses), 117, c(117:yea
 k2_test2016 <- decay_test * decay_array[2, c(1:enduses), 117, c(117:years)]
 
 ##multiplying by chi-squared decay values for year 2016
-k3_test2016 <- decay_test * decay_array[3, c(1:enduses), 117, c(117:years)]
+chi_test2016 <- decay_test * decay_array[3, c(1:enduses), 117, c(117:years)]
 
-##plots for exponential vs k=2 amount stored in mobile homes built in 2016 - end year
+##plots for exponential, k=2, chi-squared amount stored in mobile homes built in 2016 - end year
 plot(x = c(117:years), y = exponential_test2016[3,],
      type = "l",
      col = "red",
@@ -148,7 +148,7 @@ plot(x = c(117:years), y = exponential_test2016[3,],
 lines(x = c(117:years), y = k2_test2016[3,],
       col = "blue",
       lwd = 3)
-lines(x = c(117:years), y = k3_test2016[3,],
+lines(x = c(117:years), y = chi_test2016[3,],
       col = "green",
       lwd = 3)
 legend("bottomleft", c("exp", "k=2", "chi^2"),
@@ -265,3 +265,11 @@ for (i in 1:years)
     print(decayval)
   }
 }
+
+
+
+test <- 10639742
+print(test*decay_array[1,1,1,1])
+
+
+
