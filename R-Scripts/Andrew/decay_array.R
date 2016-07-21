@@ -9,7 +9,7 @@ halflives <- halflives[-c(4, 9, 13)]
 ##creating blank four-dimensional array to fill
 ##look-up array:
 ##1. Decay Type (1 = exponential, 2 = k=2, 3 = chi-squared)
-##2. End Use (refer to spreadsheet - will specify later)
+##2. End Use (1 = Single Family Housing, 2 = Multifamily Housing, 3 = Mobile Homes, 4 = Residential Upkeep and Improvement, 5 = All Construction Excluding Railroads, 6 = Railroad Ties, 7 = Railcar Repair, 8 = Household Furniture, 9 = Commercial Furniture, 10 = Other Manufacturing, 11 = Shipping, 12 = Other Uses, 13 = Uses for Other Industrial Products)
 ##3. Year Put in Use (1 = 1900)
 ##4. Year (1 = 1900)
 ##Example: decay_array[1, 3, 51, 101] will produce percentage carbon left after exponential decay of mobile homes built in 1950 at year 2000
