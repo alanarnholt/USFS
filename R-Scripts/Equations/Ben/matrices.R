@@ -70,3 +70,8 @@ mt <- matrix(, nrow = 10, ncol = 10)
 for(i in 1:121){
   decay1[[i]] <- matrix(, nrow = i, ncol = 16)   
 }
+
+
+
+
+###matrix/array calculations 

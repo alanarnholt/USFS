@@ -174,6 +174,7 @@ inc1 <- function(y,c){
 ######fraction of sawnwood used in various end uses 1900-2050
 fracsawnwood <- read.xlsx("./Data/fracsawnwood.xlsx", 1, header = FALSE)
 rownames(fracsawnwood) <- 1900:2050
+fracsawnwood[is.na(fracsawnwood)] <- 0
 fsw <- function(y,c){
   return(fracsawnwood[y-1899,c])
 }
@@ -181,6 +182,7 @@ fsw <- function(y,c){
 ######fraction of structural panel used in various end uses 1900-2050
 fracstrpanels <- read.xlsx("./Data/fracstrpanels.xlsx",1, header = FALSE)
 rownames(fracstrpanels) <- 1900:2050
+fracstrpanels[is.na(fracstrpanels)] <- 0
 fsp <- function(y,c){
   return(fracstrpanels[y-1899,c])
 }
@@ -188,17 +190,21 @@ fsp <- function(y,c){
 fracnonstrpanels <- read.xlsx("./Data/fracnonstrpanels.xlsx", 1,
                               header = FALSE)
 rownames(fracnonstrpanels) <- 1900:2050
+fracnonstrpanels[is.na(fracnonstrpanels)] <- 0
 fnsp <- function(y,c){
   return(fracnonstrpanels[y-1899,c])
 }
 ########halflives for various end uses for yrs 1900-2050
 halfLives <- read.xlsx("./Data/halfLives.xlsx", 1,header=FALSE)
+halflives <- halfLives[-c(4, 9, 13)]
 rownames(halfLives) <- 1900:2050
+#halfLives <- halfLives[,-totalEUs]
 HL <- function(y,eu){
   return(halfLives[y-1899,eu])
 }
 ######LOSS when placed IU based on EU and yr
 lossIU <- read.xlsx("./Data/lossWhenPlacedIU.xlsx",1,header=FALSE)
+lossIU <- lossIU[,-totalEUs]
 rownames(lossIU) <- 1900:2050
 iuLoss <- function(y,eu){
   return(lossIU[y-1899,eu])
