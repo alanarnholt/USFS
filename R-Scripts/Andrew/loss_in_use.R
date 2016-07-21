@@ -16,6 +16,6 @@ loss_array <- array(0, dim = years)
 base_value <- .09
 for (i in 1:years)
 {
-  loss_array[i] <- base_value
+  loss_array[i] <- 1 - base_value
   base_value <- base_value - .0001
 }
