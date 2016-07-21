@@ -147,7 +147,7 @@ plot(x = c(101:years), y = exp_single_family2000,
      type = "l",
      col = "red",
      lwd = 3,
-     main = "Decay of Carbon in Single Family Homes Built in 1900",
+     main = "Decay of Carbon in Single Family Homes Built in 2000",
      xlab = "Years (Since 1900)",
      ylab = "Amount of Carbon Stored",
      ylim = c(0, single_family2000))
