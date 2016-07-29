@@ -365,65 +365,78 @@ swcalcdata$`Sawn Wood Imports`<-sapply(yrs,function(y){
 ##########
 ##Above this works!
 
-#essentially the format of the matrices
-# inflow.year<- subset(swcalcdata, Years=="1900")
+inflow.year<- subset(swcalcdata, Years=="1900")
+inflow <- rep(list(matrix(c(swcalcdata$`Structural Panel Production`,swcalcdata$`Nonstructural Panels Production`,swcalcdata$`Sawn Wood Production`)),  nrow=3, ncol=1),121)
+inflow
+mat.prod <- matrix(c(swcalcdata$`Structural Panel Production`,swcalcdata$`Nonstructural Panels Production`,swcalcdata$`Sawn Wood Production`), byrow=T)
+mat.prod
+
+inflow2<- matrix((inflow.year))
+                   
+production <- c(swcalcdata$`Structural Panel Production`, swcalcdata$`Nonstructural Panels Production`,swcalcdata$`Sawn Wood Production`)
+rep(list(matrix(production, nrow=3, ncol=1, byrow=TRUE )),121)
+prod<-subset(production)
 
 
+              for(i in 1:length(mats)){
+                mats[[i]][1,] <- as.numeric(fracsawnwood[i,c(1:3, 5:8, 10:12, 14:16)]) #row for sawnwood products 
+                mats[[i]][2,] <- as.numeric(fracstrpanels[i,c(1:3, 5:8, 10:12, 14:16)]) #structural panels 
+                mats[[i]][3,] <- as.numeric(fracnonstrpanels[i,c(1:3, 5:8, 10:12, 14:16)]) #non-structural panels 
+              }
 
-yearsneeded<-1900:2020
+?length
 
-
-Importdatalooped<-inflow.year[,c(-2,-3,-4, -6, -7, -8, -10,-11,-12)];Importdatalooped
-
-for (i in 2:length(yearsneeded)){
-  oneyear<-subset(swcalcdata, Years == yearsneeded[[i]])
-  oneyear<-oneyear[,c(-2,-3,-4, -6, -7, -8, -10,-11,-12)]
-  Importdatalooped<-rbind(Importdatalooped, oneyear)
+year<-1900:2020
+matrix(year)
+prod.sp <- (production)
+prod.mat<-matrix(c( year, prod.sp),nrow=121, ncol = 4)
+mat<-matrix(subset(prod.mat, year==1900))
+mat
+thing1<-for(i in year){
+  mat[[i]][1,]<-matrix(subset(prod.mat, year==i))
 }
-
-Importdatalooped<-t(Importdatalooped)
-# rownames(Importdatalooped)<-NULL  #if you do not want the rownames listed, use this line
-View(Importdatalooped)
+thing1
 
 
-
-
-
-
-
-Exportdatalooped<-inflow.year[,c(-2,-3,-5,-6,-7,-9,-10,-11,-13)];Exportdatalooped
-
-for (i in 2:length(yearsneeded)){
-  oneyear<-subset(swcalcdata, Years == yearsneeded[[i]])
-  oneyear<-oneyear[,c(-2,-3,-5,-6,-7,-9,-10,-11,-13)]
-  Exportdatalooped<-rbind(Exportdatalooped, oneyear)
+thing<-for(i in 1:length(year)){
+  year[[i]][1,]<-(prod.sp[i])
 }
-
-Exportdatalooped<-t(Exportdatalooped)
-# rownames(Exportdatalooped)<-NULL
-View(Exportdatalooped)
-
-
-
-
-
-
-
-Productiondatalooped<-inflow.year[,c(-2,-4,-5,-6,-8,-9,-10,-12,-13)];Productiondatalooped
-
-for (i in 2:length(yearsneeded)){
-  oneyear<-subset(swcalcdata, Years == yearsneeded[[i]])
-  oneyear<-oneyear[,c(-2,-4,-5,-6,-8,-9,-10,-12,-13)]
-  Productiondatalooped<-rbind(Productiondatalooped, oneyear)
-}
-
-Productiondatalooped<-t(Productiondatalooped)
-# rownames(Productiondatalooped)<-NULL
-View(Productiondatalooped)
-
-
+thing
 
 
 ############################################
+#### Below gives us what we want!! just need to figure out how to loop properly!!
+
+production <- c(swcalcdata$`Structural Panel Production`, swcalcdata$`Nonstructural Panels Production`,swcalcdata$`Sawn Wood Production`)
+imports<-c(swcalcdata$`Structural Panel Imports`,swcalcdata$`Nonstructural Panels Imports`,swcalcdata$`Sawn Wood Imports`)
+exports<-c(swcalcdata$`Structural Panel Exports`,swcalcdata$`Nonstructural Panels Exports`,swcalcdata$`Sawn Wood Exports`)
+year<-1900:2020
+
+import.mat<-matrix(c( year, imports),nrow=121, ncol = 4)
+export.mat<-matrix(c( year, exports),nrow=121, ncol = 4)
+prod.mat<-matrix(c( year, production),nrow=121, ncol = 4)
+mat.p<-matrix(subset(prod.mat, year==1900))
+mat.i<-matrix(subset(import.mat, year==1900))
+mat.e<-matrix(subset(export.mat, year==1900))
+mat.p
+mat.i
+mat.e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
