@@ -264,8 +264,10 @@ imports1<-function(y,c){
 }
 #########
 recFibPulpUSA <- read.xlsx("./Data/recFibPulpusa.xlsx", 1, header=TRUE)
-
-
+rownames(recFibPulpUSA)<-1998:2013
+recFibPulp_USA<-function(y,c){
+  return(recFibPulpUSA[y-1997,c])
+}
 
 
 
