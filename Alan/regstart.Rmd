@@ -41,8 +41,19 @@ g1 + geom_abline(intercept = mod[, 1], slope = mod[, 2],
   theme_bw()
 ```
 
+
 ```{r}
 library(dplyr)
+df <- EPIDURALF %>%
+  mutate(ease = factor(ease, levels = c("Easy", "Difficult", "Impossible")))
+df2 <- df %>%
+  group_by(ease, treatment) %>%
+  summarise(WT = mean(kg))
+df2
+```
+
+
+```{r}
 EPIDURALF$ease <- factor(EPIDURALF$ease, levels = c("Easy", "Difficult", "Impossible")) 
 DF <- EPIDURALF %>%
   group_by(ease, treatment) %>%
