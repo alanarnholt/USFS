@@ -27,3 +27,7 @@ Documents that provide guidance on how to document forestry and forest products:
 * [Paper detailing calculations in spreadsheet](http://www.fpl.fs.fed.us/documnts/pdf2008/fpl_2008_skog001.pdf)
 
 * Read the `USFS_1127_gmd.doc` paper for March 21, 2016 meeting (in the `Papers` directory)
+
+-----------
+
+[WOODCARB3R R package](https://github.com/benjones2/WOODCARB3R)
