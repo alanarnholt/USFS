@@ -11,7 +11,11 @@ Var5 <- function(year){
 #########
 #DI= industrial roundwood production as C flow
 Calc_DI <- function(year){
+<<<<<<< HEAD
   return(PRO17*usa_C(year)*1000)
+=======
+  return(PRO17*usa_C(year) *1000)
+>>>>>>> e4ee92b4a54d02671ea85bd93b8124f4ea0cd8b5
 }
 usa_C <- function(year){
   if (year < 1950){
@@ -31,7 +35,11 @@ usa_C <- function(year){
 #########
 #DO= fuelwood
 Calc_DO <- function(year){
+<<<<<<< HEAD
   return(PRO17*usa_G(year)*1000)
+=======
+  return(PRO17*usa_G(year) *1000)
+>>>>>>> e4ee92b4a54d02671ea85bd93b8124f4ea0cd8b5
 }
 usa_G <- function(year){
   if (year < 1950){
