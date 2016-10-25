@@ -1,4 +1,5 @@
-halflives <- seq(from = 1, to = 300, by = .1)
+step = .1
+halflives <- seq(from = 1, to = 300, by = step)
 years <- c(1:300)
 g <- function(x) {((x^(k-1))*(exp(-x/h)))/(gamma(k)*(h^k))}
 
@@ -13,6 +14,7 @@ for (i in 1:length(halflives))
     h <- halflives[i] / log(2)
     decay <- integrate(g, lower=0, upper=j)$value
     exp_array[i, j] <- 1 - decay
+    print(i)
   }
 }
 
@@ -57,7 +59,7 @@ for (i in 1:length(halflives))
     decayval <- 1      
     while(abs(decayval - 0.5) > 1e-14) 
     {
-      m <- decayval + .5
+      m <- decayval * 2
       h <- h * m
       decayval <- integrate(g, lower=0, upper=halflives[i])$value
       print(i)
@@ -69,7 +71,7 @@ for (i in 1:length(halflives))
   }
 }
 
-write.csv(chi_array, file = "k2_lookup.csv")
+write.csv(k2_array, file = "k2_lookup.csv")
 
 ##standard gamma
 gamma_array <- array(0,dim=c(length(halflives), length(years)))
