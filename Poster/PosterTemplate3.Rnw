@@ -12,7 +12,7 @@
 \beamertemplategridbackground[1cm]
 
 %-- Header and footer information ----------------------------------
-\newcommand{\footright}{\href{https://github.com/alanarnholt/USFS/Poster}{https://github.com/alanarnholt/USFS/Poster}}
+\newcommand{\footright}{\href{https://github.com/alanarnholt/USFS/}{https://github.com/alanarnholt/USFS/}}
 \newcommand{\footleft}{\href{mailto:arnholtat@appstate.edu}{Faculty Advisors: Eric Marland \& Alan Arnholt}}
 
 \def\conference{The Conference Name Here}
@@ -76,6 +76,9 @@ housedataT <- housedataT[, -1]
 \item To ensure accurate predictive power for future observations, the data are split into a training set (80\%) and a test set (20\%). 
 \item Root mean squared error of the test set is used as a measure of model adequacy.  
 \item All computations and graphs are created with the open source software \texttt{R} \cite{R-base}. 
+\item Another bullet here
+\item Yet a fifth bullet here
+\item A sixth bullet if you want
 \end{itemize}
 \vspace{0ex}
 \end{block}
@@ -110,6 +113,20 @@ Note: Variables are described in the Variable Table handout.
 \item Random Forest built from, $n_{\text{trees}} = 5000 $, \cite{AL02} (\textcolor{blue}{mod3})
 \end{enumerate}
 \vspace{0ex}
+
+\end{block}
+\vfill
+
+
+%-- Block 1-4
+%-- Block 1-3
+\begin{block}{Resources}
+
+\begin{enumerate}
+\item Our incredible \href{http://madeitup.com}{web page}
+\item Our incredible \href{http://benjones2.github.io/WOODCARB3R/}{WOODCARB3R package}
+\end{enumerate}
+
 
 \end{block}
 \vfill
@@ -169,6 +186,25 @@ Note: Variables are described in the Variable Table handout.
 \end{block}
 \vfill
 
+%--Block 2-4 
+\begin{block}{Incredible R Code}
+\vspace{-3ex}
+
+<<label = "RCODE", echo = TRUE>>=
+N <- 10000
+x <- rnorm(100, 0, 1)
+results <- numeric(N)
+for(i in 1:N){
+  bs <- sample(x, size = 100, replace = TRUE)
+  results[i] <- mean(bs)
+}
+mean(results)
+@
+\vspace{-1.5ex}
+\end{block}
+\vfill
+
+
 \end{minipage}
 \end{column}%2
 
@@ -190,6 +226,16 @@ hist(rnorm(1000), col = "pink")
 \vfill
 
 %-- Block 3-2
+\begin{block}{Some Title}
+<<label = "HIST3b", echo = FALSE, fig.height = 6.5>>=
+hist(rnorm(1000), col = "lightblue")
+@
+\vspace{0ex}
+\vfill
+\end{block}
+\vfill
+
+%-- Block 3-3
 \vspace{0ex}
 \begin{block}{King County Real Estate}
 \vspace{0ex}
@@ -217,7 +263,7 @@ ggmap(KingMap) +
 \vspace{0ex}
 \begin{block}{Random Forest Variable Importance}
 \vspace{0ex}
-<<label = "HIST2", echo = FALSE, fig.height = 4.5>>=
+<<label = "HIST2", echo = FALSE, fig.height = 7.5>>=
 hist(rnorm(1000), col = "green")
 @
 \vspace{0ex}
@@ -227,7 +273,7 @@ hist(rnorm(1000), col = "green")
 
 %-- Block 4-2
 \begin{block}{Prediction Errors}
-<<label = "HIST3", echo = FALSE, fig.height = 3.5>>=
+<<label = "HIST3", echo = FALSE, fig.height = 7.5>>=
 hist(rnorm(1000), col = "purple")
 @
 \vspace{0ex}
