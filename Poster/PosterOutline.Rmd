@@ -1,0 +1,92 @@
+---
+title: "Outline for Poster"
+author: "Eric Outline"
+date: "1/25/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# First Column
+
+Abstract (overview)
+
+# Introduction
+
+* Something about harvested wood
+	
+	+ how much is there (from EPA report?) 
+	+ Graphics (trend over the past 100 years - per the report?)
+	+ Bar chart - fraction of HWP and SWDS
+		
+	* how is it calculated (woodcarb - source data)
+		+ harvest quantities
+		+ imports, exports, etc
+		+ decay of HWP
+		
+	* The three standard method for putting it all together
+		+ Production
+		+ Atmospheric Flow
+		+ Stock Change
+	
+	* Who cares (why does the accuracy matter?)
+	* Who uses the data  (CA ARB for example) (IPCC)
+		what data you collect is based on how it might be used ...
+		
+	* Something about WoodCarb / WoodCarb_ASU
+		+ Development of the package
+		+ where is the repository
+		+ how to get and use the package
+		+ what can it do
+		
+	Something about CA ARB (Laurel)
+		An example of someone using HWP to make money
+		
+# Second Column 
+
+* Sensitivity Analysis
+	+ what is it?
+	+ what can it show?
+	+ why is this a good thing to do?
+
+* Approach to sensitivity (methods)
+	+ How WoodCarb 2 did it
+	+ How are we doing it
+	+ Reference package and website
+
+* Results of Sensitivity
+	+ Overall picture
+	+ which component matters most
+		
+		
+* Discussion of results ?
+	+ where to target resources to reduce uncertainty and error	
+
+# Third Column (Predictions)
+
+* Current Analysis
+	+ Which component makes the biggest difference
+	+ Product distribution
+	+ Half life
+	+ Alternate decay dynamics
+	
+
+*	Future predictions
+		5, 10, 20 years out under various assumptions
+		
+
+# Fourth Column (thinking about policy implications)
+
+*	Strategizing - if we change this, then this happens ...
+	+ What if the product mix changes
+	+	What if the half-lives change
+	+	What if the end use changes
+	
+*	Conclusions and wrap up
+*	Possible Extensions
+
+*	References, if space.  Otherwise keep them on hand
+
+* Graphs for overall idea
