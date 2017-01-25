@@ -50,6 +50,7 @@ FinalCountDown<-finalCarbonContribution()
 
 
 #percent change applied to all halflives according to year
+set.seed(90)
 ptm <- proc.time()
 
 change<-list()
@@ -128,5 +129,29 @@ proc.time() - ptm
 sigchange
 #end of paper, (explaining the whole project) they did sensitivity, start with their stuff.  (recreate theirs?)
 #
+
+
+#3NOV 8 2018
+#1. which half life matters the most?
+#2. change each by % and by +- "1" year
+#if all of them changed randomly, what resulting change is expected?
+# - halflifes (all) + U(-1,1) what is the range of output variable? try with N(0,1)
+#both 1 and 2, look at plots (2) plot 1000 times and should be getting a cone (narrow to wide, left to right) 
+
+#hlaflife +- U(-.1,.1) -> result on average changes___?
+# final number (2015) looking at mean, sD, median
+
+
+
+
+#another thing
+#proportion into classes
+#change proportion of product that goes into each class
+#sensitive <- halflife or the fraction that goes into halflife category (may be the fraction)
+#do this with the halflife loops somehow (be creative)
+
+#are there other quantities/parameters that have uncertainties?
+
+#set.seeds, mainly reproducipiloby 
 
 
