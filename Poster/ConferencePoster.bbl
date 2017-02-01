@@ -1,10 +1,5 @@
 \begin{thebibliography}{1}
 
-\bibitem{JF09}
-Trevor Hastie, Robert Tibshirani, and Jerome Friedman.
-\newblock {\em The elements of statistical learning}, volume~2.
-\newblock Springer, 2009.
-
 \bibitem{R-base}
 {R Core Team}.
 \newblock {\em R: A Language and Environment for Statistical Computing}.

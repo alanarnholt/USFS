@@ -31,7 +31,6 @@
 <<label = "setup", comment = NA, echo = FALSE, message = FALSE, warning=FALSE>>=
 options(width = 35)
 opts_chunk$set(comment = NA, fig.align='center', fig.width=13, fig.height=6, cache=FALSE, warning = FALSE, message = FALSE)
-library(maps)
 library(ggplot2)
 library(PASWR)
 library(tree)
@@ -40,6 +39,7 @@ library(boot)
 library(xtable)
 library(ggmap)
 library(graphics)
+library(WOODCARB3R)
 @
 
 
@@ -127,7 +127,7 @@ Note: Base level data was given in spreadsheet.
 \begin{column}{0.23\linewidth}
 \begin{minipage}[t][.955\textheight]{\linewidth} 
 
-%--Block 2-2 
+%--Block 2-1 
 \begin{block}{Purpose}
 \vspace{0ex}
 \begin{itemize}
@@ -139,8 +139,17 @@ Note: Base level data was given in spreadsheet.
 \end{block}
 \vfill
 
+%--Block 2-2 
+\begin{block}{Total Carbon Removals}
+\vspace{0ex}
+<<label = "RCODE",echo = FALSE, results=FALSE>>=
+finalCarbonContribution(plot = TRUE)
+@
+\vspace{-1.5ex}
+\end{block}
+\vfill
 
-%-- Block 2-2
+%-- Block 2-3
 \vspace{0ex}
 \begin{block}{Sensitvity Analysis}
 \begin{itemize}
@@ -153,7 +162,7 @@ Note: Base level data was given in spreadsheet.
 \end{block}
 \vfill
 
-%-- Block 2-3
+%-- Block 2-4
 \begin{block}{Methods for Analyzing Sensitivity}
 \begin{itemize}
 \item A Monte-Carlo simulation used to assess the effect of uncertainty in inputs suggests the 90 percent confidence interval for removal contribution estimates under the three approaches is within –23\% to +19\%.
@@ -167,7 +176,7 @@ Note: Base level data was given in spreadsheet.
 \end{block}
 \vfill
 
-%-- Block 2-4
+%-- Block 2-5
 \begin{block}{Results}
 
 \begin{enumerate}[I.]
@@ -311,8 +320,6 @@ write_bib(c(.packages()), file = 'knitr-packages.bib')
 
 \end{minipage}
 \end{column}%4
-
-
 
 
 \end{columns}

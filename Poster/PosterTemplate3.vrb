@@ -145,7 +145,7 @@ Note: Variables are described in the Variable Table handout.
 \hlkwd{mean}\hlstd{(results)}
 \end{alltt}
 \begin{verbatim}
-[1] -0.08555566
+[1] -0.01871371
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
