@@ -142,7 +142,7 @@ Note: Base level data was given in spreadsheet.
 %--Block 2-2 
 \begin{block}{Total Carbon Removals}
 \vspace{0ex}
-<<label = "RCODE",echo = FALSE, results=FALSE>>=
+<<label = "RCODE",echo = FALSE, results=FALSE, results = "hide">>=
 finalCarbonContribution(plot = TRUE)
 @
 \vspace{-1.5ex}

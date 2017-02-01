@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.7)  1 FEB 2017 15:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.7)  1 FEB 2017 16:18
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **ConferencePoster.tex
 (./ConferencePoster.tex
@@ -1778,12 +1778,6 @@ File: figure/RCODE-1.pdf Graphic file (type pdf)
  <use figure/RCODE-1.pdf>
 Package pdftex.def Info: figure/RCODE-1.pdf used on input line 109.
 (pdftex.def)             Requested size: 939.5077pt x 433.61894pt.
-LaTeX Font Info:    Try loading font information for OT1+pxtt on input line 114
-.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/pxfonts/ot1pxtt.fd
-File: ot1pxtt.fd 2000/12/14 v1.0
-)
 Missing character: There is no â in font pxr!
 Missing character: There is no € in font pxr!
 Missing character: There is no “ in font pxr!
@@ -1791,7 +1785,7 @@ Missing character: There is no “ in font pxr!
 <graph1.png, id=25, 389.455pt x 245.91875pt>
 File: graph1.png Graphic file (type png)
  <use graph1.png>
-Package pdftex.def Info: graph1.png used on input line 223.
+Package pdftex.def Info: graph1.png used on input line 208.
 (pdftex.def)             Requested size: 984.2194pt x 621.50465pt.
 Missing character: There is no â in font pxr!
 Missing character: There is no € in font pxr!
@@ -1803,7 +1797,7 @@ Missing character: There is no “ in font pxr!
 (./ConferencePoster.bbl))
 File: ASU_logo.pdf Graphic file (type pdf)
  <use ASU_logo.pdf>
-Package pdftex.def Info: ASU_logo.pdf used on input line 384.
+Package pdftex.def Info: ASU_logo.pdf used on input line 369.
 (pdftex.def)             Requested size: 502.60034pt x 650.4035pt.
  [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -1817,19 +1811,19 @@ Package pdftex.def Info: ASU_logo.pdf used on input line 384.
 \tf@snm=\write7
 \openout7 = `ConferencePoster.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 385.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 385.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 370.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 370.
  (./ConferencePoster.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 385.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 385.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 385.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 370.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 370.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 370.
  ) 
 Here is how much of TeX's memory you used:
- 19050 strings out of 493093
- 356206 string characters out of 6134996
- 618666 words of memory out of 5000000
- 21991 multiletter control sequences out of 15000+600000
- 36938 words of font info for 108 fonts, out of 8000000 for 9000
+ 19021 strings out of 493093
+ 355749 string characters out of 6134996
+ 614826 words of memory out of 5000000
+ 21966 multiletter control sequences out of 15000+600000
+ 36662 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,21n,68p,503b,1032s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -1837,14 +1831,13 @@ exlive/2015/texmf-dist/fonts/type1/public/pxfonts/pxsya.pfb></usr/local/texlive
 /2015/texmf-dist/fonts/type1/public/pxfonts/rpcxr.pfb></usr/local/texlive/2015/
 texmf-dist/fonts/type1/public/pxfonts/rpxbsc.pfb></usr/local/texlive/2015/texmf
 -dist/fonts/type1/public/pxfonts/rpxr.pfb></usr/local/texlive/2015/texmf-dist/f
-onts/type1/public/txfonts/txtt.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
-pe1/urw/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw
-/palatino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/palati
-no/uplri8a.pfb>
-Output written on ConferencePoster.pdf (1 page, 252269 bytes).
+onts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/urw/palatino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw
+/palatino/uplri8a.pfb>
+Output written on ConferencePoster.pdf (1 page, 250414 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
+ 84 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
  5 named destinations out of 1000 (max. 500000)
  76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
