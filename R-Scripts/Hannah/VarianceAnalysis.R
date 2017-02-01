@@ -1,3 +1,5 @@
+library(WOODCARB3R)
+
 ############################
 #In these series of for loops we are looking to produce random error into one class of halflife and come its variance with other halflife classes.
 #within each for loop, a normally distributed error is applied to a specified halflife class
@@ -22,6 +24,7 @@ Histdf<-Histdf[,-1]
 #we need to create this other loop because not doing so would result in a data frame that has each calculated variance with rows of one variance filling in "missing" values.
 #By doing this loop, we are only obtaining the variances of each simulation without the filler data.
 #a histogram is then used to see the distribution of the variance
+
 Vardf<-data.frame(nrow=1)
 for(i in 1:length(Histdf)){
   Vardf<-cbind(Vardf,var(Histdf[i]))
@@ -31,7 +34,6 @@ Vardf<-Vardf[,-1]
 
 hist(as.numeric(Vardf))
 
-max(Vardf);min(Vardf)
 
 proc.time() - ptm
 
@@ -64,7 +66,6 @@ Vardf2<-Vardf2[,-1]
 
 hist(as.numeric(Vardf2))
 
-max(Vardf2);min(Vardf2)
 
 
 
@@ -95,7 +96,6 @@ Vardf3<-Vardf3[,-1]
 
 hist(as.numeric(Vardf3))
 
-max(Vardf3);min(Vardf3)
 
 
 
@@ -126,7 +126,6 @@ Vardf4<-Vardf4[,-1]
 
 hist(as.numeric(Vardf4))
 
-max(Vardf4);min(Vardf4)
 
 
 
@@ -157,7 +156,6 @@ Vardf5<-Vardf5[,-1]
 
 hist(as.numeric(Vardf5))
 
-max(Vardf5);min(Vardf5)
 
 
 
@@ -188,7 +186,6 @@ Vardf6<-Vardf6[,-1]
 
 hist(as.numeric(Vardf6))
 
-max(Vardf6);min(Vardf6)
 
 
 
@@ -219,7 +216,6 @@ Vardf7<-Vardf7[,-1]
 
 hist(as.numeric(Vardf7))
 
-max(Vardf7);min(Vardf7)
 
 
 
@@ -250,7 +246,6 @@ Vardf8<-Vardf8[,-1]
 
 hist(as.numeric(Vardf8))
 
-max(Vardf8);min(Vardf8)
 
 
 
@@ -281,7 +276,6 @@ Vardf9<-Vardf9[,-1]
 
 hist(as.numeric(Vardf9))
 
-max(Vardf9);min(Vardf9)
 
 
 
@@ -312,7 +306,6 @@ Vardf10<-Vardf10[,-1]
 
 hist(as.numeric(Vardf10))
 
-max(Vardf10);min(Vardf10)
 
 
 
@@ -343,7 +336,6 @@ Vardf11<-Vardf11[,-1]
 
 hist(as.numeric(Vardf11))
 
-max(Vardf11);min(Vardf11)
 
 
 
@@ -374,7 +366,6 @@ Vardf12<-Vardf12[,-1]
 
 hist(as.numeric(Vardf12))
 
-max(Vardf12);min(Vardf12)
 
 
 
@@ -405,6 +396,23 @@ Vardf13<-Vardf13[,-1]
 
 hist(as.numeric(Vardf13))
 
+
+max(Vardf);min(Vardf)
+max(Vardf2);min(Vardf2)
+max(Vardf3);min(Vardf3)
+max(Vardf4);min(Vardf4)
+max(Vardf5);min(Vardf5)
+max(Vardf6);min(Vardf6)
+max(Vardf7);min(Vardf7)
+max(Vardf8);min(Vardf8)
+max(Vardf9);min(Vardf9)
+max(Vardf10);min(Vardf10)
+max(Vardf11);min(Vardf11)
+max(Vardf12);min(Vardf12)
 max(Vardf13);min(Vardf13)
 
+
 proc.time() - ptmAll
+
+
+
