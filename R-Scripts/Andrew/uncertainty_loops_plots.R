@@ -1,0 +1,160 @@
+## package install and load
+devtools::install_github('benjones2/WOODCARB3R', build_vignettes = TRUE)
+library(WOODCARB3R)
+
+
+
+## ERROR IN ONE VARIABLE, WITH HISTOGRAM FOR ONE YEAR (IN THIS EXAMPLE, FRACTION SAWNWOOD TO DIFFEREND END USES)
+
+repetitions <- 100 #number of times to repeat sample
+year <- 1990 #year to plot on histogram
+years <- year - 1900
+final <- finalCarbonContribution(Years = year) #actual carbon contribution from package data
+error <- numeric(repetitions)
+for (i in 1:repetitions)
+{
+  errorfsawn <- rnorm(13*years,1,.2) #error distribution, based on percentage
+  errorfsawnmultiply <- aperm(array(dim = c(13, years), data = errorfsawn)) #array of error percentages to multiply by package array
+  error[i] <- finalCarbonContribution(Years = year, 
+                                      fsawn = fracsawnwood * errorfsawnmultiply) #filling sample vector
+  print(i)
+}
+hist(error, 
+     col = "cyan", 
+     main = "Uncertainty in 1990 Final Carbon Contribution with Sawnwood Product Distribution Error", 
+     ylab = "Distribution", 
+     xlab = "Carbon Contribution (Thousand Metric Tons CO2 Sequestered)")
+abline(v = final, col = "red", lwd = 2)
+summary(error)
+
+
+
+## ERROR IN ONE VARIABLE, WITH ERROR LINES FOR ALL YEARS (IN THIS EXAMPLE, FRACTION SAWNWOOD TO DIFFEREND END USES)
+
+repetitions <- 100 #number of times to repeat sample
+year <- c(1901:2010) #range of years to calculate and plot
+years <- length(year)
+final <- finalCarbonContribution(Years = year) #actual carbon contribution from package data
+errorarray <- array(0, dim = c(repetitions, years))
+for (i in 1:repetitions)
+{
+  errorfsawn <- rnorm(13*years,1,.2) #error distribution, based on percentage
+  errorfsawnmultiply <- aperm(array(dim = c(13, years), data = errorfsawn)) #array of error percentages to multiply by package array
+  error <- finalCarbonContribution(Years = year, 
+                                   fsawn = fracsawnwood * errorfsawnmultiply)
+  for (j in 1:years)
+  {
+    errorarray[i, j] <- error[j] #filling sample array
+  }
+  print(i)
+}
+plot(errorarray[1,], 
+     type = "l", 
+     col = "cyan", 
+     ylim = c(min(errorarray), max(errorarray)), 
+     main = "Uncertainty Final Carbon Contribution with Sawnwood Product Distribution Error", 
+     xlab = "Years (Since 1900)", 
+     ylab = "Carbon Contribution (Thousand Metric Tons CO2 Sequestered)")
+for (i in 2:repetitions)
+{
+  points(errorarray[i,], type = "l", col = "cyan")
+}
+points(final, type = "l", col = "red", lwd = 2)
+
+
+
+## ERROR IN MULTIPLE VARIABLES, WITH ERROR LINES FOR ALL YEARS
+
+repetitions <- 100 #number of times to repeat sample
+year <- c(1901:2010) #range of years to calculate and plot
+years <- length(year)
+final <- finalCarbonContribution(Years = year) #actual carbon contribution from package data
+errorarray <- array(0, dim = c(repetitions, years))
+for (i in 1:repetitions)
+{
+  errorfsawn <- rnorm(13*years,1,.2) #error distribution, based on percentage
+  errorfsawnmultiply <- aperm(array(dim = c(13, years), data = errorfsawn)) #array of error percentages to multiply by package array
+  errorhalflives <- rnorm(13*years,1,.1) #error distribution, based on percentage
+  errorhalflivesmultiply <- aperm(array(dim = c(13,years), data = errorhalflives)) #array of error percentages to multiply by package array
+  errorfsp <- rchisq(13*years,1,.25) #error distribution, based on percentage
+  errorfspmultiply <- aperm(array(dim = c(13,years), data = errorfsp)) #array of error percentages to multiply by package array
+  errorfnsp <- rbinom(13*years,1,.2) #error distribution, based on percentage
+  errorfnspmultiply <- aperm(array(dim = c(13,years), data = errorfnsp)) #array of error percentages to multiply by package array
+  error <- finalCarbonContribution(Years = year, 
+                                   fsawn = fracsawnwood * errorfsawnmultiply, 
+                                   halflives = halfLives * errorhalflivesmultiply, 
+                                   fsp = fracstrpanels * errorfspmultiply, 
+                                   fnsp = fracnonstrpanels * errorfnspmultiply)
+  for (j in 1:years)
+  {
+    errorarray[i, j] <- error[j] #filling sample array
+  }
+  print(i)
+}
+plot(errorarray[1,], 
+     type = "l", 
+     col = "cyan", 
+     ylim = c(min(errorarray), max(errorarray)), 
+     main = "Uncertainty Final Carbon Contribution with Product Distribution and Half Lives Error", 
+     xlab = "Years (Since 1900)", 
+     ylab = "Carbon Contribution (Thousand Metric Tons CO2 Sequestered)")
+for (i in 2:repetitions)
+{
+  points(errorarray[i,], type = "l", col = "cyan")
+}
+points(final, type = "l", col = "red", lwd = 2)
+
+
+
+## ERROR IN MULTIPLE VARIABLES, WITH ERROR LINES FOR ALL YEARS AND QUARTILES MARKED ON PLOT
+
+repetitions <- 50 #number of times to repeat sample
+year <- c(1901:2010) #range of years to calculate and plot
+years <- length(year)
+final <- finalCarbonContribution(Years = year) #actual carbon contribution from package data
+errorarray <- array(0, dim = c(repetitions, years))
+for (i in 1:repetitions)
+{
+  errorfsawn <- rnorm(13*years,1,.2) #error distribution, based on percentage
+  errorfsawnmultiply <- aperm(array(dim = c(13, years), data = errorfsawn)) #array of error percentages to multiply by package array
+  errorhalflives <- rnorm(13*years,1,.2) #error distribution, based on percentage
+  errorhalflivesmultiply <- aperm(array(dim = c(13,years), data = errorhalflives)) #array of error percentages to multiply by package array
+  errorfsp <- rnorm(13*years,1,.2) #error distribution, based on percentage
+  errorfspmultiply <- aperm(array(dim = c(13,years), data = errorfsp)) #array of error percentages to multiply by package array
+  errorfnsp <- rnorm(13*years,1,.2) #error distribution, based on percentage
+  errorfnspmultiply <- aperm(array(dim = c(13,years), data = errorfnsp)) #array of error percentages to multiply by package array
+  error <- finalCarbonContribution(Years = year, 
+                                   fsawn = fracsawnwood * errorfsawnmultiply, 
+                                   halflives = halfLives * errorhalflivesmultiply, 
+                                   fsp = fracstrpanels * errorfspmultiply, 
+                                   fnsp = fracnonstrpanels * errorfnspmultiply)
+  for (j in 1:years)
+  {
+    errorarray[i, j] <- error[j] #filling sample array
+  }
+  print(i)
+}
+incr <- 10 #increment for quartile placement
+quartarray <- array(dim = c(2, years))
+for (i in seq(1,years,by=incr)) #getting quartiles for selected years
+{
+  quartarray[1,i] <- quantile(errorarray[,i])[2]
+  quartarray[2,i] <- quantile(errorarray[,i])[4]
+}
+plot(errorarray[1,], 
+     type = "l", 
+     col = "cyan", 
+     ylim = c(min(errorarray), max(errorarray)), 
+     main = "Uncertainty Final Carbon Contribution with Product Distribution and Half Lives Error", 
+     xlab = "Years (Since 1900)", 
+     ylab = "Carbon Contribution (Thousand Metric Tons CO2 Sequestered)")
+for (i in 2:repetitions)
+{
+  points(errorarray[i,], type = "l", col = "cyan")
+}
+for (i in seq(1,years,by = incr))
+{
+  points(quartarray[1,], pch = 18, col = "purple")
+  points(quartarray[2,], pch = 18, col = "purple")
+}
+points(final, type = "l", col = "red", lwd = 2)
