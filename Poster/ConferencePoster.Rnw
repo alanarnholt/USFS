@@ -139,9 +139,10 @@ Note: Base level data was given in spreadsheet.
 \end{block}
 \vfill
 
-%--Block 2-2 
+%--Block 2-2 %--Block 3-2
 \begin{block}{Total Carbon Removals}
 \vspace{0ex}
+\centering
 <<label = "RCODE",echo = FALSE, results=FALSE, results = "hide">>=
 finalCarbonContribution(plot = TRUE)
 @
