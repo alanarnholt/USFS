@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.7)  7 FEB 2017 21:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.7)  8 FEB 2017 10:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1956,10 +1956,10 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 399.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 399.
  ) 
 Here is how much of TeX's memory you used:
- 22887 strings out of 493093
- 444093 string characters out of 6134996
- 599985 words of memory out of 5000000
- 25736 multiletter control sequences out of 15000+600000
+ 22888 strings out of 493093
+ 444107 string characters out of 6134996
+ 599643 words of memory out of 5000000
+ 25737 multiletter control sequences out of 15000+600000
  60778 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,16n,73p,483b,1432s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1968,7 +1968,7 @@ exlive/2015/texmf-dist/fonts/type1/public/txfonts/rtcxss.pfb></usr/local/texliv
 e/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2015/
 texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2015/texmf-d
 ist/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on poster2.pdf (1 page, 53633 bytes).
+Output written on poster2.pdf (1 page, 53628 bytes).
 PDF statistics:
  71 PDF objects out of 1000 (max. 8388607)
  50 compressed objects within 1 object stream

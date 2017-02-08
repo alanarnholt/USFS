@@ -4,8 +4,8 @@
 \usepackage{amsmath, amsfonts, amssymb, pxfonts, eulervm, xspace, enumerate, hyperref, color, bookmark}
 \usepackage{graphicx}
 \usepackage[orientation=landscape, size=custom, width =152.4, height=106.68, scale=1.4, debug]{beamerposter}
-\setbeamercolor{block title}{fg=black,bg=appgold} % Colors of the block titles
-\setbeamercolor{block body}{fg=black,bg=appgold} % Colors of the body of blocks
+\setbeamercolor{block title}{fg=black,bg=lyellow} % Colors of the block titles
+\setbeamercolor{block body}{fg=black,bg=lyellow} % Colors of the body of blocks
 \setbeamercolor{block alerted title}{fg=white,bg=black} % Colors of the highlighted block titles
 \setbeamercolor{block alerted body}{fg=black,bg=white} % Colors of the body of highlighted blocks
 % Many more colors are available for use in beamerthemeconfposter.sty
