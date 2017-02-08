@@ -52,5 +52,5 @@ head(imputed,26)
 #make observations
 #do other methods
 #change variables around
-
+#make more observations 
 

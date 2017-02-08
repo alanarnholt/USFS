@@ -1,6 +1,11 @@
 base
+methods
+datasets
+utils
+grDevices
+graphics
+stats
 knitr
-maps
 ggplot2
 e1071
 MASS

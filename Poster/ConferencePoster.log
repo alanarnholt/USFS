@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.7)  26 JAN 2017 20:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.7)  7 FEB 2017 21:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**PosterTemplate3.tex
-(./PosterTemplate3.tex
+**ConferencePoster.tex
+(./ConferencePoster.tex
 LaTeX2e <2015/01/01> patch level 1
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/beamer/beamer.cls
@@ -1528,8 +1528,8 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 ))
-(./PosterTemplate3.aux)
-\openout1 = `PosterTemplate3.aux'.
+(./ConferencePoster.aux)
+\openout1 = `ConferencePoster.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/pxmi/m/it on input line 77.
 LaTeX Font Info:    Try loading font information for OML+pxmi on input line 77.
@@ -1722,153 +1722,122 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 LaTeX Info: Redefining \includegraphics on input line 77.
 
-(./PosterTemplate3.nav) <ASU_logo.pdf, id=15, 614.295pt x 794.97pt>
+(./ConferencePoster.nav) <ASU_logo.pdf, id=15, 614.295pt x 794.97pt>
 File: ASU_logo.pdf Graphic file (type pdf)
 
 <use ASU_logo.pdf>
 Package pdftex.def Info: ASU_logo.pdf used on input line 77.
 (pdftex.def)             Requested size: 502.60034pt x 650.4035pt.
-\openout4 = `PosterTemplate3.vrb'.
+\openout4 = `ConferencePoster.vrb'.
 
- (./PosterTemplate3.vrb
-LaTeX Font Info:    Calculating math sizes for size <20.16> on input line 17.
-LaTeX Font Info:    Try loading font information for U+zeur on input line 17.
+ (./ConferencePoster.vrb
+LaTeX Font Info:    Calculating math sizes for size <20.16> on input line 28.
+LaTeX Font Info:    Try loading font information for U+zeur on input line 28.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/eulervm/uzeur.fd
 File: uzeur.fd 2005/01/11 v4.0 (WaS)
 )
-LaTeX Font Info:    Try loading font information for U+zeus on input line 17.
+LaTeX Font Info:    Try loading font information for U+zeus on input line 28.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/eulervm/uzeus.fd
 File: uzeus.fd 2005/01/11 v4.0 (WaS)
 )
-LaTeX Font Info:    Try loading font information for U+zeuex on input line 17.
+LaTeX Font Info:    Try loading font information for U+zeuex on input line 28.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/eulervm/uzeuex.fd
 File: uzeuex.fd 2005/01/11 v4.0 (WaS)
 )
-LaTeX Font Info:    Try loading font information for U+pxsya on input line 17.
+LaTeX Font Info:    Try loading font information for U+pxsya on input line 28.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pxfonts/upxsya.fd
 File: upxsya.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    Try loading font information for U+pxsyb on input line 17.
+LaTeX Font Info:    Try loading font information for U+pxsyb on input line 28.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pxfonts/upxsyb.fd
 File: utxsyb.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    Try loading font information for U+pxmia on input line 17.
+LaTeX Font Info:    Try loading font information for U+pxmia on input line 28.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pxfonts/upxmia.fd
 File: upxmia.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    Try loading font information for U+pxsyc on input line 17.
+LaTeX Font Info:    Try loading font information for U+pxsyc on input line 28.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pxfonts/upxsyc.fd
 File: upxsyc.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    Try loading font information for OT1+pxtt on input line 20.
+LaTeX Font Info:    Calculating math sizes for size <34.83> on input line 42.
+LaTeX Font Info:    Try loading font information for TS1+pxr on input line 42.
 
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/pxfonts/ot1pxtt.fd
-File: ot1pxtt.fd 2000/12/14 v1.0
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pxfonts/ts1pxr.fd
+File: ts1pxr.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    Calculating math sizes for size <34.83> on input line 32.
-LaTeX Font Info:    Calculating math sizes for size <29.04> on input line 52.
-LaTeX Font Info:    Font shape `OT1/pxtt/bx/n' in size <34.83> not available
-(Font)              Font shape `OT1/pxtt/b/n' tried instead on input line 139.
-LaTeX Font Info:    Try loading font information for OMS+pxtt on input line 141
-.
-LaTeX Font Info:    No file OMSpxtt.fd. on input line 141.
+<figure/RCODE-1.pdf, id=24, 939.51pt x 433.62pt>
+File: figure/RCODE-1.pdf Graphic file (type pdf)
+ <use figure/RCODE-1.pdf>
+Package pdftex.def Info: figure/RCODE-1.pdf used on input line 110.
+(pdftex.def)             Requested size: 939.5077pt x 433.61894pt.
+Missing character: There is no â in font pxr!
+Missing character: There is no € in font pxr!
+Missing character: There is no “ in font pxr!
 
+<graph1.png, id=25, 389.455pt x 245.91875pt>
+File: graph1.png Graphic file (type png)
+ <use graph1.png>
+Package pdftex.def Info: graph1.png used on input line 209.
+(pdftex.def)             Requested size: 984.2194pt x 621.50465pt.
+Missing character: There is no â in font pxr!
+Missing character: There is no € in font pxr!
+Missing character: There is no “ in font pxr!
+Missing character: There is no â in font pxr!
+Missing character: There is no € in font pxr!
+Missing character: There is no “ in font pxr!
 
-LaTeX Font Warning: Font shape `OMS/pxtt/m/n' undefined
-(Font)              using `OMS/pxsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 141.
-
-<figure/HIST-1.pdf, id=34, 794.97pt x 794.97pt>
-File: figure/HIST-1.pdf Graphic file (type pdf)
- <use figure/HIST-1.pdf>
-Package pdftex.def Info: figure/HIST-1.pdf used on input line 173.
-(pdftex.def)             Requested size: 794.96806pt x 794.99231pt.
-
-<figure/HIST3b-1.pdf, id=35, 939.51pt x 469.755pt>
-File: figure/HIST3b-1.pdf Graphic file (type pdf)
- <use figure/HIST3b-1.pdf>
-Package pdftex.def Info: figure/HIST3b-1.pdf used on input line 189.
-(pdftex.def)             Requested size: 939.5077pt x 469.75386pt.
-
-<figure/KCmap-1.pdf, id=36, 867.24pt x 867.24pt>
-File: figure/KCmap-1.pdf Graphic file (type pdf)
- <use figure/KCmap-1.pdf>
-Package pdftex.def Info: figure/KCmap-1.pdf used on input line 208.
-(pdftex.def)             Requested size: 867.2379pt x 867.27759pt.
-
-<figure/HIST2-1.pdf, id=37, 939.51pt x 542.025pt>
-File: figure/HIST2-1.pdf Graphic file (type pdf)
- <use figure/HIST2-1.pdf>
-Package pdftex.def Info: figure/HIST2-1.pdf used on input line 234.
-(pdftex.def)             Requested size: 939.5077pt x 542.02367pt.
-
-<figure/HIST3-1.pdf, id=38, 939.51pt x 542.025pt>
-File: figure/HIST3-1.pdf Graphic file (type pdf)
- <use figure/HIST3-1.pdf>
-Package pdftex.def Info: figure/HIST3-1.pdf used on input line 251.
-(pdftex.def)             Requested size: 939.5077pt x 542.02367pt.
-
-(./PosterTemplate3.bbl))
+(./ConferencePoster.bbl))
 File: ASU_logo.pdf Graphic file (type pdf)
  <use ASU_logo.pdf>
-Package pdftex.def Info: ASU_logo.pdf used on input line 374.
+Package pdftex.def Info: ASU_logo.pdf used on input line 370.
 (pdftex.def)             Requested size: 502.60034pt x 650.4035pt.
  [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
- <./ASU_logo.pdf> <./figure/HIST-1.pdf> <./figure/HIST3b-1.pdf> <./figure/KCmap
--1.pdf> <./figure/HIST2-1.pdf> <./figure/HIST3-1.pdf>]
+ <./ASU_logo.pdf> <./figure/RCODE-1.pdf> <./graph1.png>]
 \tf@nav=\write5
-\openout5 = `PosterTemplate3.nav'.
+\openout5 = `ConferencePoster.nav'.
 
 \tf@toc=\write6
-\openout6 = `PosterTemplate3.toc'.
+\openout6 = `ConferencePoster.toc'.
 
 \tf@snm=\write7
-\openout7 = `PosterTemplate3.snm'.
+\openout7 = `ConferencePoster.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 375.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 375.
- (./PosterTemplate3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 375.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 375.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 375.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 371.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 371.
+ (./ConferencePoster.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 371.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 371.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 371.
  ) 
 Here is how much of TeX's memory you used:
- 19122 strings out of 493093
- 357867 string characters out of 6134996
- 603540 words of memory out of 5000000
- 22042 multiletter control sequences out of 15000+600000
- 50387 words of font info for 154 fonts, out of 8000000 for 9000
+ 19021 strings out of 493093
+ 355749 string characters out of 6134996
+ 614827 words of memory out of 5000000
+ 21966 multiletter control sequences out of 15000+600000
+ 36662 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,21n,68p,467b,1060s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,21n,68p,503b,1032s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2015/texmf-dist/fonts/type1/public/amsfonts/euler/euex10.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/pxfonts/pxsy.pfb></usr/local/texl
-ive/2015/texmf-dist/fonts/type1/public/pxfonts/pxsya.pfb></usr/local/texlive/20
-15/texmf-dist/fonts/type1/public/pxfonts/rpxbsc.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/pxfonts/rpxr.pfb></usr/local/texlive/2015/texmf-dis
-t/fonts/type1/public/txfonts/txbtt.pfb></usr/local/texlive/2015/texmf-dist/font
-s/type1/public/txfonts/txtt.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
-/urw/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/pa
-latino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/palatino/
-uplri8a.pfb>
-Output written on PosterTemplate3.pdf (1 page, 1501467 bytes).
+exlive/2015/texmf-dist/fonts/type1/public/pxfonts/pxsya.pfb></usr/local/texlive
+/2015/texmf-dist/fonts/type1/public/pxfonts/rpcxr.pfb></usr/local/texlive/2015/
+texmf-dist/fonts/type1/public/pxfonts/rpxbsc.pfb></usr/local/texlive/2015/texmf
+-dist/fonts/type1/public/pxfonts/rpxr.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/urw/palatino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw
+/palatino/uplri8a.pfb>
+Output written on ConferencePoster.pdf (1 page, 250415 bytes).
 PDF statistics:
- 140 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
- 7 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 84 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
+ 5 named destinations out of 1000 (max. 500000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 

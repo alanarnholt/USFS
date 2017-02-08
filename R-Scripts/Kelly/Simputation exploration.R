@@ -4,6 +4,7 @@ devtools::install_github('benjones2/WOODCARB3R', build_vignettes = TRUE)
 library(WOODCARB3R)
 
 dat <- iris
+dat
 dat[1:3,1] <- dat[3:7,2] <- dat[8:10,5] <- NA  #emptying a few fields
 #1 through 3, column 1. 3 through 7, column 2. 8 through 10, column 5.
 head(dat,10)
