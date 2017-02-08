@@ -1,4 +1,4 @@
-## package install and load
+## woodcarb package install and load
 devtools::install_github('benjones2/WOODCARB3R', build_vignettes = TRUE)
 library(WOODCARB3R)
 
@@ -22,14 +22,14 @@ for (i in 1:repetitions)
 hist(error, 
      col = "cyan", 
      main = "Uncertainty in 1990 Final Carbon Contribution with Sawnwood Product Distribution Error", 
-     ylab = "Distribution", 
+     ylab = "Frequency", 
      xlab = "Carbon Contribution (Thousand Metric Tons CO2 Sequestered)")
 abline(v = final, col = "red", lwd = 2)
 summary(error)
 
 
 
-## ERROR IN ONE VARIABLE, WITH ERROR LINES FOR ALL YEARS (IN THIS EXAMPLE, FRACTION SAWNWOOD TO DIFFEREND END USES)
+## ERROR IN ONE VARIABLE, WITH ERROR LINES FOR ALL YEARS (IN THIS EXAMPLE, FRACTION SAWNWOOD TO DIFFERENT END USES)
 
 repetitions <- 100 #number of times to repeat sample
 year <- c(1901:2010) #range of years to calculate and plot
@@ -76,9 +76,9 @@ for (i in 1:repetitions)
   errorfsawnmultiply <- aperm(array(dim = c(13, years), data = errorfsawn)) #array of error percentages to multiply by package array
   errorhalflives <- rnorm(13*years,1,.1) #error distribution, based on percentage
   errorhalflivesmultiply <- aperm(array(dim = c(13,years), data = errorhalflives)) #array of error percentages to multiply by package array
-  errorfsp <- rchisq(13*years,1,.25) #error distribution, based on percentage
+  errorfsp <- rnorm(13*years,1,.3) #error distribution, based on percentage
   errorfspmultiply <- aperm(array(dim = c(13,years), data = errorfsp)) #array of error percentages to multiply by package array
-  errorfnsp <- rbinom(13*years,1,.2) #error distribution, based on percentage
+  errorfnsp <- rnorm(13*years,1,.4) #error distribution, based on percentage
   errorfnspmultiply <- aperm(array(dim = c(13,years), data = errorfnsp)) #array of error percentages to multiply by package array
   error <- finalCarbonContribution(Years = year, 
                                    fsawn = fracsawnwood * errorfsawnmultiply, 
@@ -106,40 +106,15 @@ points(final, type = "l", col = "red", lwd = 2)
 
 
 
-## ERROR IN MULTIPLE VARIABLES, WITH ERROR LINES FOR ALL YEARS AND QUARTILES MARKED ON PLOT
+## MARKING PERCENTILES ON PREVIOUS PLOT
 
-repetitions <- 50 #number of times to repeat sample
-year <- c(1901:2010) #range of years to calculate and plot
-years <- length(year)
-final <- finalCarbonContribution(Years = year) #actual carbon contribution from package data
-errorarray <- array(0, dim = c(repetitions, years))
-for (i in 1:repetitions)
+incr <- 10 #year increment for quartile placement
+percentiles <- 2 #number of percentiles you wish to plot
+quantarray <- array(dim = c(percentiles, years))
+for (i in seq(1,years,by=incr)) #getting percentiles for selected years
 {
-  errorfsawn <- rnorm(13*years,1,.2) #error distribution, based on percentage
-  errorfsawnmultiply <- aperm(array(dim = c(13, years), data = errorfsawn)) #array of error percentages to multiply by package array
-  errorhalflives <- rnorm(13*years,1,.2) #error distribution, based on percentage
-  errorhalflivesmultiply <- aperm(array(dim = c(13,years), data = errorhalflives)) #array of error percentages to multiply by package array
-  errorfsp <- rnorm(13*years,1,.2) #error distribution, based on percentage
-  errorfspmultiply <- aperm(array(dim = c(13,years), data = errorfsp)) #array of error percentages to multiply by package array
-  errorfnsp <- rnorm(13*years,1,.2) #error distribution, based on percentage
-  errorfnspmultiply <- aperm(array(dim = c(13,years), data = errorfnsp)) #array of error percentages to multiply by package array
-  error <- finalCarbonContribution(Years = year, 
-                                   fsawn = fracsawnwood * errorfsawnmultiply, 
-                                   halflives = halfLives * errorhalflivesmultiply, 
-                                   fsp = fracstrpanels * errorfspmultiply, 
-                                   fnsp = fracnonstrpanels * errorfnspmultiply)
-  for (j in 1:years)
-  {
-    errorarray[i, j] <- error[j] #filling sample array
-  }
-  print(i)
-}
-incr <- 10 #increment for quartile placement
-quartarray <- array(dim = c(2, years))
-for (i in seq(1,years,by=incr)) #getting quartiles for selected years
-{
-  quartarray[1,i] <- quantile(errorarray[,i])[2]
-  quartarray[2,i] <- quantile(errorarray[,i])[4]
+  quantarray[1,i] <- quantile(errorarray[,i],.25) #25th percentile
+  quantarray[2,i] <- quantile(errorarray[,i],.75) #75th percentile
 }
 plot(errorarray[1,], 
      type = "l", 
@@ -154,7 +129,21 @@ for (i in 2:repetitions)
 }
 for (i in seq(1,years,by = incr))
 {
-  points(quartarray[1,], pch = 18, col = "purple")
-  points(quartarray[2,], pch = 18, col = "purple")
+  points(quantarray[1,], pch = 16, col = "purple")
+  points(quantarray[2,], pch = 16, col = "purple")
 }
 points(final, type = "l", col = "red", lwd = 2)
+
+
+
+## UNCERTAINTY USING TRIANGULAR DISTRIBUTION
+## triangular package install and load
+install.packages("triangle")
+library(triangle)
+
+value <- 78 #example value
+pct <- .2 #percentage of error
+lower <- value - (value * pct) #lower limit of distribution
+upper <- value + (value * pct) #upper limit of distribution
+sample <- rtriangle(5000, a = lower, b = upper, c = value)
+hist(sample)
