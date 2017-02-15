@@ -1,14 +1,14 @@
 library(WOODCARB3R)
 
 ############################
-#In these series of for loops we are looking to produce random error into one class of halflife and come its variance with other halflife classes.
-#within each for loop, a normally distributed error is applied to a specified halflife class
-#this modified halflife class is then used with the untouched halflife classes to calculate the final Carbon Contribution
+#In these series of for loops we are looking to produce random error into one class of halflife and calculate its variance with other halflife classes.
+#within each for loop, a normally distributed error cenetered around 1 with a standard deviation of .2 is applied to a specified halflife class.
+#this modified halflife is then used with the untouched halflife classes to calculate the final Carbon Contribution.
 #each column in the data frame stores each simulation of applying the random error with the exception of the very first column which is removed after the simulation is complete
 #the variance is then taken from 
 
 
-# fixes to make
+########### fixes to make
 ##multiple by randomError only since its centered around 1
 ##lower number of simulations to 1000 from 2000 because laptop cannot handle it
 
@@ -16,12 +16,11 @@ library(WOODCARB3R)
 #each loop takes approximately 30 minutes
 #running all 13 loops takes roughly 6hours
 
-
 #fixes made, results are still the same as above, it took roughly 4 hours to complete all simulations for the 13 classes
 
 
 
-##as of february 10, 2017
+###########as of february 10, 2017
 # change years to just individual years :1990,2000,2010
 
 
@@ -91,7 +90,7 @@ Histdf2a<-data.frame(nrow=21)
 for(i in 1:1000){
   halflivesmatters <- halfLives
   randomError<-rnorm(length(halflivesmatters[,1]),1,.2)
-  halflivesmatters[,1]<- halflivesmatters[,1]*(randomError)
+  halflivesmatters[,1]<- halflivesmatters[,2]*(randomError)
   Histdf2a<-cbind(Histdf2a,as.data.frame(finalCarbonContribution(Years=1990,halflives = halflivesmatters)))
 }
 Histdf2a<-Histdf2a[,-1]
@@ -576,7 +575,7 @@ for(i in 1:1000){
   halflivesmatters <- halfLives
   randomError<-rnorm(length(halflivesmatters[,1]),1,.2)
   halflivesmatters[,13]<- halflivesmatters[,13]*(randomError)
-  Histdf13a<-cbind(Histdf13,as.data.frame(finalCarbonContribution(Years=1990,halflives = halflivesmatters)))
+  Histdf13a<-cbind(Histdf13a,as.data.frame(finalCarbonContribution(Years=1990,halflives = halflivesmatters)))
 }
 Histdf13a<-Histdf13a[,-1]
 
@@ -619,18 +618,18 @@ OneTrial;AllOfThem
 
 #variance of each variable for each year put into a matrix.  Columns are the years, Rows are the variables
 VarianceTable<-t(as.matrix(c(var(t(Histdfa)),var(t(Histdfb)),var(t(Histdfc)))))
-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf2a)),var(t(Histdf2b)),var(t(Histdf2c))))))
-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf3a)),var(t(Histdf3b)),var(t(Histdf3c))))))
-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf4a)),var(t(Histdf4b)),var(t(Histdf4c))))))
-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf5a)),var(t(Histdf5b)),var(t(Histdf5c))))))
-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf6a)),var(t(Histdf6b)),var(t(Histdf6c))))))
-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf7a)),var(t(Histdf7b)),var(t(Histdf7c))))))
-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf8a)),var(t(Histdf8b)),var(t(Histdf8c))))))
-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf9a)),var(t(Histdf9b)),var(t(Histdf9c))))))
-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf10a)),var(t(Histd10fb)),var(t(Histd10fc))))))
-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf11a)),var(t(Histdf11b)),var(t(Histdf11c))))))
-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf12a)),var(t(Histdf12b)),var(t(Histdf12c))))))
-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf13a)),var(t(Histdf13b)),var(t(Histdf13c))))))
+VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf2a)),var(t(Histdf2b)),var(t(Histdf2c))))))
+VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf3a)),var(t(Histdf3b)),var(t(Histdf3c))))))
+VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf4a)),var(t(Histdf4b)),var(t(Histdf4c))))))
+VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf5a)),var(t(Histdf5b)),var(t(Histdf5c))))))
+VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf6a)),var(t(Histdf6b)),var(t(Histdf6c))))))
+VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf7a)),var(t(Histdf7b)),var(t(Histdf7c))))))
+VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf8a)),var(t(Histdf8b)),var(t(Histdf8c))))))
+VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf9a)),var(t(Histdf9b)),var(t(Histdf9c))))))
+VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf10a)),var(t(Histdf10b)),var(t(Histdf10c))))))
+VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf11a)),var(t(Histdf11b)),var(t(Histdf11c))))))
+VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf12a)),var(t(Histdf12b)),var(t(Histdf12c))))))
+VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf13a)),var(t(Histdf13b)),var(t(Histdf13c))))))
 
 colnames(VarianceTable)<-c(1990,2000,2010)
 rownames(VarianceTable)<-c("Variable 1","Variable 2","Variable 3","Variable 4","Variable 5",
@@ -638,9 +637,9 @@ rownames(VarianceTable)<-c("Variable 1","Variable 2","Variable 3","Variable 4","
                            "Variable 11","Variable 12","Variable 13")
 
 
-
+#Minimum and Maximum amount of variance
 #finding the minimum amount of variance for year 1990
-min(var(t(Histdfa)),
+Min_1990<-min(var(t(Histdfa)),
     var(t(Histdf2a)),
     var(t(Histdf3a)),
     var(t(Histdf4a)),
@@ -656,7 +655,7 @@ min(var(t(Histdfa)),
     )
 
 #finding the minimum amount of variance for year 2000
-min(var(t(Histdfb)),
+Min_2000<-min(var(t(Histdfb)),
     var(t(Histdf2b)),
     var(t(Histdf3b)),
     var(t(Histdf4b)),
@@ -672,7 +671,7 @@ min(var(t(Histdfb)),
     )
 
 #finding the minimum amount of variance for year 2010
-min(var(t(Histdfc)),
+Min_2010<-min(var(t(Histdfc)),
     var(t(Histdf2c)),
     var(t(Histdf3c)),
     var(t(Histdf4c)),
@@ -692,7 +691,7 @@ min(var(t(Histdfc)),
 
 
 #finding the maximum amount of variance for year 1990
-max(var(t(Histdfa)),
+Max_1990<-max(var(t(Histdfa)),
     var(t(Histdf2a)),
     var(t(Histdf3a)),
     var(t(Histdf4a)),
@@ -708,7 +707,7 @@ max(var(t(Histdfa)),
 )
 
 #finding the maximum amount of variance for year 2000
-max(var(t(Histdfb)),
+Max_2000<-max(var(t(Histdfb)),
     var(t(Histdf2b)),
     var(t(Histdf3b)),
     var(t(Histdf4b)),
@@ -724,7 +723,7 @@ max(var(t(Histdfb)),
 )
 
 #finding the maximum amount of variance for year 2010
-max(var(t(Histdfc)),
+Max_2010<-max(var(t(Histdfc)),
     var(t(Histdf2c)),
     var(t(Histdf3c)),
     var(t(Histdf4c)),
@@ -738,60 +737,111 @@ max(var(t(Histdfc)),
     var(t(Histdf12c)),
     var(t(Histdf13c))
 )
+
 #
+Min_1990;Min_2000;Min_2010
+Max_1990;Max_2000;Max_2010
 
-#histograms of each variable for each of the three years.  WILL HAVE ALL OF THEM SCALED THE SAME
-hist(as.numeric(Histdfa), main="Variable1 Year 1990", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdfb), main="Variable1 Year 2000", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdfc), main="Variable1 Year 2010", xlab = "Final Carbon Contribution")
+#Minimum Amount of Variance for 1990,2000,2010 are in Variable 7 for all three years
+#no other Variables are close enough to Variable 7 to be a close second in minimum variance
 
-hist(as.numeric(Histdf2a), main="Variable1 Year 1990", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf2b), main="Variable1 Year 2000", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf2c), main="Variable1 Year 2010", xlab = "Final Carbon Contribution")
+#Maximum Amount of Variance for 1990,2000,2010 are in Variable 4 for all three years
+#A close second for the maximum variance is Variable 2, 1, 1 respectively
 
-hist(as.numeric(Histdf3a), main="Variable1 Year 1990", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf3b), main="Variable1 Year 2000", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf3c), main="Variable1 Year 2010", xlab = "Final Carbon Contribution")
+#Finding the Minimum and Maximum values of the finalCarbonContribution from all simulates manipulating the variables
+HistMIN<-min(Histdfa,
+    Histdf2a,
+    Histdf3a,
+    Histdf4a,
+    Histdf5a,
+    Histdf6a,
+    Histdf7a,
+    Histdf8a,
+    Histdf9a,
+    Histdf10a,
+    Histdf11a,
+    Histdf12a,
+    Histdf13a,
+    Histdfb,
+    Histdf2b,
+    Histdf3b,
+    Histdf4b,
+    Histdf5b,
+    Histdf6b,
+    Histdf7b,
+    Histdf8b,
+    Histdf9b,
+    Histdf10b,
+    Histdf11b,
+    Histdf12b,
+    Histdf13b,
+    Histdfc,
+    Histdf2c,
+    Histdf3c,
+    Histdf4c,
+    Histdf5c,
+    Histdf6c,
+    Histdf7c,
+    Histdf8c,
+    Histdf9c,
+    Histdf10c,
+    Histdf11c,
+    Histdf12c,
+    Histdf13c
+    )
 
-hist(as.numeric(Histdf4a), main="Variable1 Year 1990", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf4b), main="Variable1 Year 2000", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf4c), main="Variable1 Year 2010", xlab = "Final Carbon Contribution")
 
-hist(as.numeric(Histdf5a), main="Variable1 Year 1990", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf5b), main="Variable1 Year 2000", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf5c), main="Variable1 Year 2010", xlab = "Final Carbon Contribution")
+HistMAX<-max(Histdfa,
+    Histdf2a,
+    Histdf3a,
+    Histdf4a,
+    Histdf5a,
+    Histdf6a,
+    Histdf7a,
+    Histdf8a,
+    Histdf9a,
+    Histdf10a,
+    Histdf11a,
+    Histdf12a,
+    Histdf13a,
+    Histdfb,
+    Histdf2b,
+    Histdf3b,
+    Histdf4b,
+    Histdf5b,
+    Histdf6b,
+    Histdf7b,
+    Histdf8b,
+    Histdf9b,
+    Histdf10b,
+    Histdf11b,
+    Histdf12b,
+    Histdf13b,
+    Histdfc,
+    Histdf2c,
+    Histdf3c,
+    Histdf4c,
+    Histdf5c,
+    Histdf6c,
+    Histdf7c,
+    Histdf8c,
+    Histdf9c,
+    Histdf10c,
+    Histdf11c,
+    Histdf12c,
+    Histdf13c
+)
+#
+HistMIN;HistMAX
 
-hist(as.numeric(Histdf6a), main="Variable1 Year 1990", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf6b), main="Variable1 Year 2000", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf6c), main="Variable1 Year 2010", xlab = "Final Carbon Contribution")
+#histograms of Variabels with the least and the most variance for the year 2000.  WILL HAVE ALL OF THEM SCALED THE SAME
+hist(as.numeric(Histdfb), main="Variable1 Year 2000", xlab = "Final Carbon Contribution", xlim=c(min(Histdfb),max(Histdfb)))
+legend("topright",c("Minimum Value","Maximum Value"),c(round(min(Histdfb),2),round(max(Histdfb),2)))
 
-hist(as.numeric(Histdf7a), main="Variable1 Year 1990", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf7b), main="Variable1 Year 2000", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf7c), main="Variable1 Year 2010", xlab = "Final Carbon Contribution")
+hist(as.numeric(Histdf7b), main="Variable7 Year 2000", xlab = "Final Carbon Contribution")
+legend("topright",c("Min Value","Max Value"),c(round(min(Histdf7b),2),round(max(Histdf7b),2)))
 
-hist(as.numeric(Histdf8a), main="Variable1 Year 1990", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf8b), main="Variable1 Year 2000", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf8c), main="Variable1 Year 2010", xlab = "Final Carbon Contribution")
 
-hist(as.numeric(Histdf9a), main="Variable1 Year 1990", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf9b), main="Variable1 Year 2000", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf9c), main="Variable1 Year 2010", xlab = "Final Carbon Contribution")
-
-hist(as.numeric(Histdf10a), main="Variable1 Year 1990", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf10b), main="Variable1 Year 2000", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf10c), main="Variable1 Year 2010", xlab = "Final Carbon Contribution")
-
-hist(as.numeric(Histdf11a), main="Variable1 Year 1990", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf11b), main="Variable1 Year 2000", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf11c), main="Variable1 Year 2010", xlab = "Final Carbon Contribution")
-
-hist(as.numeric(Histdf12a), main="Variable1 Year 1990", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf12b), main="Variable1 Year 2000", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf12c), main="Variable1 Year 2010", xlab = "Final Carbon Contribution")
-
-hist(as.numeric(Histdf13a), main="Variable1 Year 1990", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf13b), main="Variable1 Year 2000", xlab = "Final Carbon Contribution")
-hist(as.numeric(Histdf13c), main="Variable1 Year 2010", xlab = "Final Carbon Contribution")
 #
 
 
