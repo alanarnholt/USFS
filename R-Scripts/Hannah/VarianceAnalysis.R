@@ -841,7 +841,30 @@ legend("topright",c("Minimum Value","Maximum Value"),c(round(min(Histdfb),2),rou
 hist(as.numeric(Histdf7b), main="Variable7 Year 2000", xlab = "Final Carbon Contribution")
 legend("topright",c("Min Value","Max Value"),c(round(min(Histdf7b),2),round(max(Histdf7b),2)))
 
+plot(density(as.numeric(Histdf6b)), ylim=c(0,.028), xlim=c(-113500,-112500))
 
+lines(density(as.numeric(Histdfb)), col="black")
+lines(density(as.numeric(Histdf2b)), col="red")
+lines(density(as.numeric(Histdf3b)), col="orange")
+lines(density(as.numeric(Histdf4b)), col="yellow")
+lines(density(as.numeric(Histdf5b)), col="green")
+lines(density(as.numeric(Histdf6b)), col="blue")
+lines(density(as.numeric(Histdf7b)), col="purple")
+lines(density(as.numeric(Histdf8b)), col="pink")
+lines(density(as.numeric(Histdf9b)), col="brown")
+lines(density(as.numeric(Histdf10b)), col="chocolate3")
+lines(density(as.numeric(Histdf11b)), col="skyblue")
+lines(density(as.numeric(Histdf12b)), col="tan2")
+lines(density(as.numeric(Histdf13b)), col="seagreen")
+# lines(density(as.numeric(Histdf14b)), col="rosybrown")
+legend("topright", legend=c("Variable 1","Variable 2","Variable 3","Variable 4","Variable 5",
+                            "Variable 6","Variable 7","Variable 8","Variable 9","Variable 10",
+                            "Variable 11","Variable 12","Variable 13"), 
+       col = c("black","red", "orange", "yellow", "green", "blue", "purple", "pink",
+               "brown", "chocolate3", "skyblue", "tan2", "seagreen"),
+       cex=.8, pch=8, pt.cex = 1)
+
+       
 #
 
 
