@@ -609,11 +609,51 @@ Histdf13c<-Histdf13c[,-1]
 
 #
 
+##Variable 14
+
+LastOne<-proc.time()
+set.seed(1)
+Histdf14a<-data.frame(nrow=21)
+for(i in 1:1000){
+  randomError<-rnorm(1,1,.2)
+  Histdf14a<-cbind(Histdf14a,as.data.frame(finalCarbonContribution(Years=1990,paperHL = 2.53087281800454*(randomError))))
+}
+Histdf14a<-Histdf14a[,-1]
+LastVariable<-proc.time() - LastOne
+
+
+set.seed(1)
+Histdf14b<-data.frame(nrow=21)
+for(i in 1:1000){
+  randomError<-rnorm(1,1,.2)
+  Histdf14b<-cbind(Histdf14b,as.data.frame(finalCarbonContribution(Years=2000,paperHL = 2.53087281800454*(randomError))))
+}
+Histdf14b<-Histdf14b[,-1]
+
+
+
+
+set.seed(1)
+Histdf14c<-data.frame(nrow=21)
+for(i in 1:1000){
+  randomError<-rnorm(1,1,.2)
+  Histdf14c<-cbind(Histdf14c,as.data.frame(finalCarbonContribution(Years=2010,paperHL = 2.53087281800454*(randomError))))
+}
+Histdf14c<-Histdf14c[,-1]
+#
+#
+
+
+
+
+
+
+
+
 #timing to see how long it takes to run all 13 variables for each of the three years (1990, 2000, 2010)
 AllOfThem<-proc.time() - ptmAll
 
-OneTrial;AllOfThem
-
+OneTrial;LastOne;AllOfThem
 
 
 #variance of each variable for each year put into a matrix.  Columns are the years, Rows are the variables
@@ -630,11 +670,12 @@ VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf10a)),var(t(Histdf1
 VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf11a)),var(t(Histdf11b)),var(t(Histdf11c))))))
 VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf12a)),var(t(Histdf12b)),var(t(Histdf12c))))))
 VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf13a)),var(t(Histdf13b)),var(t(Histdf13c))))))
+VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf14a)),var(t(Histdf14b)),var(t(Histdf14c))))))
 
 colnames(VarianceTable)<-c(1990,2000,2010)
 rownames(VarianceTable)<-c("Variable 1","Variable 2","Variable 3","Variable 4","Variable 5",
                            "Variable 6","Variable 7","Variable 8","Variable 9","Variable 10",
-                           "Variable 11","Variable 12","Variable 13")
+                           "Variable 11","Variable 12","Variable 13","Variable 14")
 
 
 #Minimum and Maximum amount of variance
@@ -651,7 +692,8 @@ Min_1990<-min(var(t(Histdfa)),
     var(t(Histdf10a)),
     var(t(Histdf11a)),
     var(t(Histdf12a)),
-    var(t(Histdf13a))
+    var(t(Histdf13a)),
+    var(t(Histdf14a))
     )
 
 #finding the minimum amount of variance for year 2000
@@ -667,7 +709,8 @@ Min_2000<-min(var(t(Histdfb)),
     var(t(Histdf10b)),
     var(t(Histdf11b)),
     var(t(Histdf12b)),
-    var(t(Histdf13b))
+    var(t(Histdf13b)),
+    var(t(Histdf14b))
     )
 
 #finding the minimum amount of variance for year 2010
@@ -683,7 +726,8 @@ Min_2010<-min(var(t(Histdfc)),
     var(t(Histdf10c)),
     var(t(Histdf11c)),
     var(t(Histdf12c)),
-    var(t(Histdf13c))
+    var(t(Histdf13c)),
+    var(t(Histdf14c))
     )
 #
 
@@ -703,7 +747,8 @@ Max_1990<-max(var(t(Histdfa)),
     var(t(Histdf10a)),
     var(t(Histdf11a)),
     var(t(Histdf12a)),
-    var(t(Histdf13a))
+    var(t(Histdf13a)),
+    var(t(Histdf14a))
 )
 
 #finding the maximum amount of variance for year 2000
@@ -719,7 +764,8 @@ Max_2000<-max(var(t(Histdfb)),
     var(t(Histdf10b)),
     var(t(Histdf11b)),
     var(t(Histdf12b)),
-    var(t(Histdf13b))
+    var(t(Histdf13b)),
+    var(t(Histdf14b))
 )
 
 #finding the maximum amount of variance for year 2010
@@ -735,7 +781,8 @@ Max_2010<-max(var(t(Histdfc)),
     var(t(Histdf10c)),
     var(t(Histdf11c)),
     var(t(Histdf12c)),
-    var(t(Histdf13c))
+    var(t(Histdf13c)),
+    var(t(Histdf14c))
 )
 
 #
@@ -787,7 +834,10 @@ HistMIN<-min(Histdfa,
     Histdf10c,
     Histdf11c,
     Histdf12c,
-    Histdf13c
+    Histdf13c,
+    Histdf14a,
+    Histdf14b,
+    Histdf14c
     )
 
 
@@ -829,19 +879,16 @@ HistMAX<-max(Histdfa,
     Histdf10c,
     Histdf11c,
     Histdf12c,
-    Histdf13c
+    Histdf13c,
+    Histdf14a,
+    Histdf14b,
+    Histdf14c
 )
 #
 HistMIN;HistMAX
 
-#histograms of Variabels with the least and the most variance for the year 2000.  WILL HAVE ALL OF THEM SCALED THE SAME
-hist(as.numeric(Histdfb), main="Variable1 Year 2000", xlab = "Final Carbon Contribution", xlim=c(min(Histdfb),max(Histdfb)))
-legend("topright",c("Minimum Value","Maximum Value"),c(round(min(Histdfb),2),round(max(Histdfb),2)))
-
-hist(as.numeric(Histdf7b), main="Variable7 Year 2000", xlab = "Final Carbon Contribution")
-legend("topright",c("Min Value","Max Value"),c(round(min(Histdf7b),2),round(max(Histdf7b),2)))
-
-plot(density(as.numeric(Histdf6b)), ylim=c(0,.028), xlim=c(-113500,-112500))
+#Density plot as a visual representation of the variation between variance distribution between all 14 variables
+plot(density(as.numeric(Histdf6b)), ylim=c(0,.029), xlim=c(-113500,-112500), main = "Densites of Halflives", xlab = "Carbon Contribution")
 
 lines(density(as.numeric(Histdfb)), col="black")
 lines(density(as.numeric(Histdf2b)), col="red")
@@ -856,20 +903,71 @@ lines(density(as.numeric(Histdf10b)), col="chocolate3")
 lines(density(as.numeric(Histdf11b)), col="skyblue")
 lines(density(as.numeric(Histdf12b)), col="tan2")
 lines(density(as.numeric(Histdf13b)), col="seagreen")
-# lines(density(as.numeric(Histdf14b)), col="rosybrown")
+lines(density(as.numeric(Histdf14b)), col="rosybrown")
 legend("topright", legend=c("Variable 1","Variable 2","Variable 3","Variable 4","Variable 5",
                             "Variable 6","Variable 7","Variable 8","Variable 9","Variable 10",
-                            "Variable 11","Variable 12","Variable 13"), 
+                            "Variable 11","Variable 12","Variable 13", "Variable 14"), 
        col = c("black","red", "orange", "yellow", "green", "blue", "purple", "pink",
-               "brown", "chocolate3", "skyblue", "tan2", "seagreen"),
+               "brown", "chocolate3", "skyblue", "tan2", "seagreen", "rosybrown"),
        cex=.8, pch=8, pt.cex = 1)
 
        
 #
+#This is so that the density plot can be remade without needing to rerun the for loops
+setwd("~/USFS/R-Scripts/Hannah")
+write.csv(Histdfa,file = "Histdfa.csv", row.names = F)
+write.csv(Histdfb,file = "Histdfb.csv", row.names = F)
+write.csv(Histdfc,file = "Histdfc.csv", row.names = F)
 
+write.csv(Histdf2a,file = "Histdf2a.csv", row.names = F)
+write.csv(Histdf2b,file = "Histdf2b.csv", row.names = F)
+write.csv(Histdf2c,file = "Histdf2c.csv", row.names = F)
 
+write.csv(Histdf3a,file = "Histdf3a.csv", row.names = F)
+write.csv(Histdf3b,file = "Histdf3b.csv", row.names = F)
+write.csv(Histdf3c,file = "Histdf3c.csv", row.names = F)
 
+write.csv(Histdf4a,file = "Histdf4a.csv", row.names = F)
+write.csv(Histdf4b,file = "Histdf4b.csv", row.names = F)
+write.csv(Histdf4c,file = "Histdf4c.csv", row.names = F)
 
+write.csv(Histdf5a,file = "Histdf5a.csv", row.names = F)
+write.csv(Histdf5b,file = "Histdf5b.csv", row.names = F)
+write.csv(Histdf5c,file = "Histdf5c.csv", row.names = F)
 
+write.csv(Histdf6a,file = "Histdf6a.csv", row.names = F)
+write.csv(Histdf6b,file = "Histdf6b.csv", row.names = F)
+write.csv(Histdf6c,file = "Histdf6c.csv", row.names = F)
 
+write.csv(Histdf7a,file = "Histdf7a.csv", row.names = F)
+write.csv(Histdf7b,file = "Histdf7b.csv", row.names = F)
+write.csv(Histdf7c,file = "Histdf7c.csv", row.names = F)
 
+write.csv(Histdf8a,file = "Histdf8a.csv", row.names = F)
+write.csv(Histdf8b,file = "Histdf8b.csv", row.names = F)
+write.csv(Histdf8c,file = "Histdf8c.csv", row.names = F)
+
+write.csv(Histdf9a,file = "Histdf9a.csv", row.names = F)
+write.csv(Histdf9b,file = "Histdf9b.csv", row.names = F)
+write.csv(Histdf9c,file = "Histdf9c.csv", row.names = F)
+
+write.csv(Histdf10a,file = "Histdf10a.csv", row.names = F)
+write.csv(Histdf10b,file = "Histdf10b.csv", row.names = F)
+write.csv(Histdf10c,file = "Histdf10c.csv", row.names = F)
+
+write.csv(Histdf11a,file = "Histdf11a.csv", row.names = F)
+write.csv(Histdf11b,file = "Histdf11b.csv", row.names = F)
+write.csv(Histdf11c,file = "Histdf11c.csv", row.names = F)
+
+write.csv(Histdf12a,file = "Histdf12a.csv", row.names = F)
+write.csv(Histdf12b,file = "Histdf12b.csv", row.names = F)
+write.csv(Histdf12c,file = "Histdf12c.csv", row.names = F)
+
+write.csv(Histdf13a,file = "Histdf13a.csv", row.names = F)
+write.csv(Histdf13b,file = "Histdf13b.csv", row.names = F)
+write.csv(Histdf13c,file = "Histdf13c.csv", row.names = F)
+
+write.csv(Histdf14a,file = "Histdf14a.csv", row.names = F)
+write.csv(Histdf14b,file = "Histdf14b.csv", row.names = F)
+write.csv(Histdf14c,file = "Histdf14c.csv", row.names = F)
+#
