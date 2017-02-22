@@ -4,8 +4,8 @@
 \usepackage{amsmath, amsfonts, amssymb, pxfonts, eulervm, xspace, enumerate, hyperref, color, bookmark}
 \usepackage{graphicx}
 \usepackage[orientation=landscape, size=custom, width =152.4, height=106.68, scale=1.4, debug]{beamerposter}
-\setbeamercolor{block title}{fg=black,bg=lyellow} % Colors of the block titles
-\setbeamercolor{block body}{fg=black,bg=lyellow} % Colors of the body of blocks
+\setbeamercolor{block title}{fg=black,bg=lgold} % Colors of the block titles
+\setbeamercolor{block body}{fg=black,bg=lgold} % Colors of the body of blocks
 \setbeamercolor{block alerted title}{fg=white,bg=black} % Colors of the highlighted block titles
 \setbeamercolor{block alerted body}{fg=black,bg=white} % Colors of the body of highlighted blocks
 % Many more colors are available for use in beamerthemeconfposter.sty
@@ -38,7 +38,7 @@
 %----------------------------------------------------------------------------------------
 
 \def\conference{The Conference Name Here}
-\title{Analyzing and Influencing Carbon Sequestration}
+\title{Analyzing and Influencing Carbon Sequestration in Harvested Wood Products}
 \author{Ben Jones, Hannah X Laws, Andrew Sullivan, Kelly Loucks} 
 \institute{Department of Mathematical Sciences}
 
@@ -66,13 +66,6 @@ library(WOODCARB3R)
 
 \begin{frame}[t] % The whole poster is enclosed in one beamer frame
 
-\begin{tikzpicture}[remember picture,overlay]
-%add logos in corners
-\node[anchor=north west] at ([shift={(3cm,0cm)}]current page.north west)
-    {\includegraphics[width=8cm]{usfs.png}};
-\node[anchor=north east] at ([shift={(-3cm,-1cm)}]current page.north east)
-    {\includegraphics[width=22cm]{app.png}};
-\end{tikzpicture}
 
 \begin{columns}[t] % The whole poster consists of three major columns, the second of which is split into two columns twice - the [t] option aligns each column's content to the top
 
@@ -89,6 +82,8 @@ Sequestration of carbon in forests is a process that can pull large quantities o
 
 
 The amount of carbon in HWP and SWDS depend on how much wood is harvested, what types of products are produced, how the products are used, the lifetime of the wood products, and how the wood is processed at the end of its primary product lifetime.
+
+
 
 \end{alertblock}
 

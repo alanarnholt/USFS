@@ -37,6 +37,7 @@
 \definecolor{silver} {RGB}{192,192,192}
 \definecolor{vblack} {RGB}{0,0,0}
 \definecolor{lgray}  {RGB}{128,128,128}
+\definecolor{fgreen} {RGB}{0,100,0}
 
 % set the basic colors
 \setbeamercolor{palette primary}   {fg=black,bg=white}
@@ -44,14 +45,14 @@
 \setbeamercolor{palette tertiary}  {bg=jblue,fg=white}
 \setbeamercolor{palette quaternary}{fg=black,bg=white}
 \setbeamercolor{structure}{fg=jblue}
-\setbeamercolor{titlelike}         {bg=jblue,fg=white}
-\setbeamercolor{frametitle}        {bg=jblue!10,fg=jblue}
-\setbeamercolor{cboxb}{fg=black,bg=jblue}
-\setbeamercolor{cboxr}{fg=black,bg=red}
+\setbeamercolor{titlelike}         {bg=black,fg=white}
+\setbeamercolor{frametitle}        {bg=black,fg=black}
+\setbeamercolor{cboxb}{fg=white,bg=black}
+\setbeamercolor{cboxr}{fg=black,bg=lgold}
 
 % set colors for itemize/enumerate
-\setbeamercolor{item}{fg=ngreen}
-\setbeamercolor{item projected}{fg=white,bg=ngreen}
+\setbeamercolor{item}{fg=lgold}
+\setbeamercolor{item projected}{fg=white,bg=black}
 
 % set colors for blocks
 \setbeamercolor{block title}{fg=ngreen,bg=white}
@@ -112,35 +113,39 @@
 }
 
 % Block definition
-\setbeamertemplate{block begin}
+
+\usepackage{tcolorbox}
+
+\defbeamertemplateparent{blocks}[framed]{block begin,block end}[1][]
+{[#1]}
+
+\defbeamertemplate{block begin}{framed}[1][]
 {
-  \par\vskip\medskipamount
-  \begin{beamercolorbox}[colsep*=0ex,dp={2ex},center]{block title}
-    \vskip-0.25cm
-    \usebeamerfont{block title}\large\insertblocktitle
+  \begin{tcolorbox}[
+    colback=white,
+    colframe=black, arc=10mm]
+    \begin{center}{
+    \vskip\smallskipamount
+      \usebeamerfont{block title}
+      \usebeamercolor[fg]{block title}\insertblocktitle}
+    \end{center}
+    
     \begin{flushleft}
     \vskip-1cm
     \begin{tikzpicture}[remember picture,overlay]
       \shade [inner color=gray,outer color=white]
-      (0,0) rectangle (\textwidth,0.3cm);
+      (0,0) rectangle (\textwidth,0.4cm);
     \end{tikzpicture}
     \end{flushleft}
-  \end{beamercolorbox}
-  {\parskip0pt\par}
-  \ifbeamercolorempty[bg]{block title}
-  {}
-  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}
-  \usebeamerfont{block body}
-  \vskip-0.5cm
-  \begin{beamercolorbox}[colsep*=0ex,vmode]{block body}
-  \justifying 
-}
+    \vskip\smallskipamount%
+    \raggedright%
+    \usebeamerfont{block body}
+  }
 
-\setbeamertemplate{block end}  
-{
-  \end{beamercolorbox}
-  \vskip\smallskipamount
-}
+\defbeamertemplate{block end}{framed}[1][] {\end{tcolorbox}}
+
+\setbeamertemplate{blocks}[framed]
+
 
 % Alert block definition (with frame)
 \setbeamertemplate{block alerted begin}
