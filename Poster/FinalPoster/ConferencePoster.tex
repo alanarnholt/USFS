@@ -187,23 +187,6 @@ E = mc^{2}
 \vfill
 
 
-%------------------------------------------------
-\setbeamercolor{item}{fg=lgold, bg=black}
-\begin{block}{Access to Package and Webpage}
-\begin{itemize}
-\item Online link: \href{http://benjones2.github.io/WOODCARB3R/}{WOODCARB3R package}
-
-\item Instant access: %qr code below
-\end{itemize}
-\vspace{0ex}
-\begin{center}
-\begin{tikzpicture}
-\node[anchor=south west] at ([shift={(0cm,0cm)}]current page.south west)
-  {\includegraphics[width=8cm]{qrcode.jpg}};
-\end{tikzpicture}
-\end{center}
-\end{block}
-
 %----------------------------------------------------------------------------------------
 
 \end{column} % End of the first column
@@ -252,10 +235,14 @@ E = mc^{2}
 %----------------------------------------------------------------------------------------
 \setbeamercolor{block title}{fg=black,bg=white}
 \setbeamercolor{block body}{fg=black,bg=white}
-\begin{block}{Plot}
+\begin{block}{Different Decays Plot}
+\begin{center}
 
-
-
+\begin{figure}
+    {\includegraphics[width=1\linewidth]{graph1.png}};
+    \caption{Figure caption}
+\end{figure}
+\end{center}
 \end{block}
 
 %----------------------------------------------------------------------------------------
@@ -269,10 +256,13 @@ E = mc^{2}
 %----------------------------------------------------------------------------------------
 
 \begin{alertblock}{Decay with Time Plot}
+\begin{center}
 
-
-
-
+\begin{figure}
+    {\includegraphics{graph1.png}};
+    \caption{Figure caption}
+\end{figure}
+\end{center}
 \end{alertblock} 
 
 %----------------------------------------------------------------------------------------
@@ -285,7 +275,7 @@ E = mc^{2}
 %	MATHEMATICAL SECTION
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Sensitivity}
+\begin{block}{Sensitivity Plot}
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
 
@@ -296,11 +286,17 @@ E = mc^{2}
 
 
 \end{knitrout}
+
 \end{block}
 %---------------------------------------------------------------------
-\begin{block}{Plot}
+\begin{block}{Sensitivity of Input}
+\begin{center}
 
-
+\begin{figure}
+    {\includegraphics[width=1\linewidth]{graph1.png}};
+    \caption{Figure caption}
+\end{figure}
+\end{center}
 \end{block}
 
 %----------------------------------------------------------------------------------------
@@ -313,32 +309,19 @@ E = mc^{2}
 %	RESULTS
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Results}
+\begin{block}{Sensitivity Table}
 
-\begin{figure}
-
-\caption{Figure caption}
-\end{figure}
-
-
-\begin{table}
-\vspace{2ex}
-\begin{tabular}{l l l}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\bottomrule
-\end{tabular}
-\caption{Table caption}
-\end{table}
 
 \end{block}
 %-------------------------------------------------------------------------------------
-\begin{block}{Plot}
+\begin{block}{Time Plot with Envelope}
+\begin{center}
 
+\begin{figure}
+    {\includegraphics[width=1\linewidth]{graph1.png}};
+    \caption{Figure caption}
+\end{figure}
+\end{center}
 
 \end{block}
 %----------------------------------------------------------------------------------------
@@ -358,8 +341,13 @@ Treatment 3 & 0.0009271 & 0.296 \\
 %----------------------------------------------------------------------------------------
 
 \begin{block}{Future Plot and Targeted Change}
+\begin{center}
 
-
+\begin{figure}
+    {\includegraphics[width=1\linewidth]{graph1.png}};
+    \caption{Figure caption}
+\end{figure}
+\end{center}
 
 \end{block}
 
@@ -373,6 +361,7 @@ Treatment 3 & 0.0009271 & 0.296 \\
 \item 
 \item 
 \item 
+\item
 \end{itemize}
 
 \end{block}
@@ -422,11 +411,22 @@ This work also was funded by a Research Joint Venture Agreement with the USDA Fo
 
 \end{alertblock}
 
-\begin{center}
-\begin{tabular}{ccc}
+%-----------------------------------------------------------------------------
+\setbeamercolor{item}{fg=lgold, bg=black}
+\begin{block}{Access to Package and Webpage}
+\begin{itemize}
+\item Online link: \href{http://benjones2.github.io/WOODCARB3R/}{WOODCARB3R package}
 
-\end{tabular}
+\item Instant access: %qr code below
+\end{itemize}
+\vspace{0ex}
+\begin{center}
+\begin{tikzpicture}
+\node[anchor=south west] at ([shift={(0cm,0cm)}]current page.south west)
+  {\includegraphics[width=8cm]{qrcode.jpg}};
+\end{tikzpicture}
 \end{center}
+\end{block}
 
 %----------------------------------------------------------------------------------------
 
