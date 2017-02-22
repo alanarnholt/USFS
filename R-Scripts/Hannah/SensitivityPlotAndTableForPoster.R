@@ -1,5 +1,11 @@
 setwd("~/USFS/R-Scripts/Hannah")
 
+##Description for Poster
+#We are looking to produce random error into each class of halflife and calculate its affects on the final carbon contribution using a series of for loops.
+#Within each loop, a normally distributed error centered around 1 with a standard deviation of .2 is applied to a specified halflife class.
+#By looking at the new carbon contribution containing the error and looking at the distribution of error, assumptions can be made about how well halflifes hold.
+
+
 #Reading in all CSV files
 Histdfa<-read.csv("Histdfa.csv")
 Histdfb<-read.csv("Histdfb.csv")
