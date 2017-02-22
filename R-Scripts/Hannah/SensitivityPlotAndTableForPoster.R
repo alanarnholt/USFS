@@ -5,7 +5,9 @@ setwd("~/USFS/R-Scripts/Hannah")
 #Within each loop, a normally distributed error centered around 1 with a standard deviation of .2 is applied to a specified halflife class.
 #By looking at the new carbon contribution containing the error and looking at the distribution of error, assumptions can be made about how well halflifes hold.
 
-
+# Halflife role in final carbon contribution calculation.
+# Error assumed to be N(1,.2).
+# Assume how well halflifes hold with applied error.
 #Reading in all CSV files
 Histdfa<-read.csv("Histdfa.csv")
 Histdfb<-read.csv("Histdfb.csv")
@@ -68,7 +70,7 @@ Histdf14b<-read.csv("Histdf14b.csv")
 Histdf14c<-read.csv("Histdf14c.csv")
 
 
-plot(density(as.numeric(Histdf6b)), ylim=c(0,.029), xlim=c(-113500,-112500), main = "Densites of Halflives", xlab = "Carbon Contribution")
+plot(density(as.numeric(Histdf6b)), ylim=c(0,.029), xlim=c(-113500,-112500), main = "Densites of Halflives for Year 2000", xlab = "Carbon Contribution")
 
 lines(density(as.numeric(Histdfb)), col="black")
 lines(density(as.numeric(Histdf2b)), col="red")
