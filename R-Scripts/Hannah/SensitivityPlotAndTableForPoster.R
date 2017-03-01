@@ -67,7 +67,11 @@ Histdf14b<-read.csv("Histdf14b.csv")
 Histdf14c<-read.csv("Histdf14c.csv")
 
 
+<<<<<<< HEAD
+plot(density(as.numeric(Histdf6b)), ylim=c(0,.029), xlim=c(-113500,-112500), main = "Densities of Halflives", xlab = "Carbon Contribution")
+=======
 plot(density(as.numeric(Histdf6b)), ylim=c(0,.029), xlim=c(-113500,-112500), main = "Densites of Halflives for Year 2000", xlab = "Carbon Contribution")
+>>>>>>> 3b83054fd7bbbb011175cec6eb3408c35382a690
 
 lines(density(as.numeric(Histdfb)), col="black")
 lines(density(as.numeric(Histdf2b)), col="red")
