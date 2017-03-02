@@ -1,9 +1,6 @@
 setwd("~/USFS/R-Scripts/Hannah")
 
 ##Description for Poster
-#We are looking to produce random error into each class of halflife and calculate its affects on the final carbon contribution using a series of for loops.
-#Within each loop, a normally distributed error centered around 1 with a standard deviation of .2 is applied to a specified halflife class.
-#By looking at the new carbon contribution containing the error and looking at the distribution of error, assumptions can be made about how well halflifes hold.
 
 # Halflife role in final carbon contribution calculation.
 # Error assumed to be N(1,.2).
@@ -70,11 +67,9 @@ Histdf14b<-read.csv("Histdf14b.csv")
 Histdf14c<-read.csv("Histdf14c.csv")
 
 
-<<<<<<< HEAD
-plot(density(as.numeric(Histdf6b)), ylim=c(0,.029), xlim=c(-113500,-112500), main = "Densities of Halflives", xlab = "Carbon Contribution")
-=======
+
 plot(density(as.numeric(Histdf6b)), ylim=c(0,.029), xlim=c(-113500,-112500), main = "Densites of Halflives for Year 2000", xlab = "Carbon Contribution")
->>>>>>> 3b83054fd7bbbb011175cec6eb3408c35382a690
+
 
 lines(density(as.numeric(Histdfb)), col="black")
 lines(density(as.numeric(Histdf2b)), col="red")
@@ -114,9 +109,18 @@ VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf12a)),var(t(Histdf1
 VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf13a)),var(t(Histdf13b)),var(t(Histdf13c))))))
 VarianceTable<-rbind(VarianceTable,t(as.matrix(c(var(t(Histdf14a)),var(t(Histdf14b)),var(t(Histdf14c))))))
 
-colnames(VarianceTable)<-c(1990,2000,2010)
-rownames(VarianceTable)<-c("Variable 1","Variable 2","Variable 3","Variable 4","Variable 5",
-                           "Variable 6","Variable 7","Variable 8","Variable 9","Variable 10",
-                           "Variable 11","Variable 12","Variable 13","Variable 14")
 
 
+
+hh<-halfLives[1,]
+hh<-cbind(hh,2.53087281800454)
+colnames(hh)[14]<-"Paper"
+
+VarianceTable<-cbind(t(hh),VarianceTable)
+colnames(VarianceTable)<-c("Half Life",1990,2000,2010)
+
+
+
+
+plot(finalCarbonContribution(), xlab = "Years starting at 1990", ylab = "Carbon Contribution", main = "Error Comparison",type = "l",col="blue",lwd=5)
+lines(finalCarbonContribution(paperHL = 2.53087281800454*1.5), lwd = 5, col = "orange")

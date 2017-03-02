@@ -95,9 +95,9 @@ plot(errorarray[1,],
      type = "l", 
      col = "cyan", 
      ylim = c(min(errorarray), max(errorarray)), 
-     main = "Uncertainty Final Carbon Contribution with Product Distribution and Half Lives Error", 
+     main = "Uncertainty in Final Carbon Contribution", 
      xlab = "Years (Since 1900)", 
-     ylab = "Carbon Contribution (Thousand Metric Tons CO2 Sequestered)")
+     ylab = "Carbon Contribution (Thousand Metric Tons CO2)")
 for (i in 2:repetitions)
 {
   points(errorarray[i,], type = "l", col = "cyan")
@@ -139,11 +139,17 @@ points(final, type = "l", col = "red", lwd = 2)
 ## UNCERTAINTY USING TRIANGULAR DISTRIBUTION
 ## triangular package install and load
 install.packages("triangle")
-library(triangle)
+library(triangle) #loading triangle package, may need to install
 
-value <- 78 #example value
-pct <- .2 #percentage of error
-lower <- value - (value * pct) #lower limit of distribution
-upper <- value + (value * pct) #upper limit of distribution
-sample <- rtriangle(5000, a = lower, b = upper, c = value)
-hist(sample)
+mu <- 400 #the expected value, as indicated in WOODCARB
+pcterror <- .15 #percentage error in 90% confidence interval
+
+a <- 2.642672084 * pcterror * mu #lower limit of distribution, for derivation see Maple file
+b <- mu + (mu - a) #upper limit of distribution
+c <- mu #mode of distribution
+
+errorsamples <- 5000 #amount of times to repeat sample
+samples <- numeric(errorsamples)
+samples <- rtriangle(errorsamples, a, b, c)
+hist(samples, freq = FALSE)
+
