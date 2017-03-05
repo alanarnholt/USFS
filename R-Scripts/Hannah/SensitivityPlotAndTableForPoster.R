@@ -1,4 +1,6 @@
 setwd("~/USFS/R-Scripts/Hannah")
+library(WOODCARB3R)
+library(gridExtra)
 
 ##Description for Poster
 
@@ -121,6 +123,47 @@ colnames(VarianceTable)<-c("Half Life",1990,2000,2010)
 
 
 
-
+#Time Series Plot to show affect of halflife error
 plot(finalCarbonContribution(), xlab = "Years starting at 1990", ylab = "Carbon Contribution", main = "Error Comparison",type = "l",col="blue",lwd=5)
 lines(finalCarbonContribution(paperHL = 2.53087281800454*1.5), lwd = 5, col = "orange")
+
+
+
+#exporting graphs and table as PDF
+pdf(file = ("HLSensitivityGraph.pdf"))
+plot(density(as.numeric(Histdf6b)), ylim=c(0,.029), xlim=c(-113500,-112500), main = "Densites of Halflives for Year 2000", xlab = "Carbon Contribution")
+
+
+lines(density(as.numeric(Histdfb)), col="black")
+lines(density(as.numeric(Histdf2b)), col="red")
+lines(density(as.numeric(Histdf3b)), col="orange")
+lines(density(as.numeric(Histdf4b)), col="yellow")
+lines(density(as.numeric(Histdf5b)), col="green")
+lines(density(as.numeric(Histdf6b)), col="blue")
+lines(density(as.numeric(Histdf7b)), col="purple")
+lines(density(as.numeric(Histdf8b)), col="pink")
+lines(density(as.numeric(Histdf9b)), col="brown")
+lines(density(as.numeric(Histdf10b)), col="chocolate3")
+lines(density(as.numeric(Histdf11b)), col="skyblue")
+lines(density(as.numeric(Histdf12b)), col="tan2")
+lines(density(as.numeric(Histdf13b)), col="seagreen")
+lines(density(as.numeric(Histdf14b)), col="rosybrown")
+
+dev.off()
+
+
+
+pdf(file = ("HLTable.pdf"), height = 3.75, width = 6)
+VarTab<-as.table(VarianceTable)
+grid.table(VarTab, theme = ttheme_default(base_size = 8))
+dev.off()
+
+
+
+
+pdf(file = ("TSPlot.pdf"))
+
+plot(c(1990:2015),finalCarbonContribution(), xlab = "Years", ylab = "Carbon Contribution", main = "Error Comparison",type = "l",col="blue",lwd=3)
+lines(c(1990:2015),finalCarbonContribution(paperHL = 2.53087281800454*1.5), lwd = 3, col = "orange")
+
+dev.off()
