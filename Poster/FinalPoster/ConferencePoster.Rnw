@@ -188,15 +188,11 @@ E = mc^{2}
 %----------------------------------------------------------------------------------------
 
 %changing color             
-\setbeamercolor{block title}{fg=lgold,bg=black} % Change the alert block title colors
+\setbeamercolor{block title}{fg=black,bg=black} % Change the alert block title colors
 \setbeamercolor{block body}{fg=black,bg=white} % Change the alert block body colors
 \setbeamercolor{item}{fg=lgold, bg=black}
 
 \begin{block}{Uncertainty Analysis}
-\begin{tikzpicture}[remember picture,overlay]
-      \shade [inner color=silver,outer color=lgold]
-      (0,0) rectangle (\textwidth,0.4cm);
-    \end{tikzpicture}
 \begin{itemize}
 \item Information is intended to aid in international discussions and any agreements about managing greenhouse gas emissions and sinks.
 \item Also provides national level methods and estimates of carbon sinks and emissions associated with HWP.
@@ -251,15 +247,11 @@ E = mc^{2}
 
 \begin{column}{\onecolwid} % The first column within column 2 (column 2.1)
 
-\setbeamercolor{block title}{fg=lgold,bg=black} % Change the alert block title colors
+\setbeamercolor{block title}{fg=black,bg=black} % Change the alert block title colors
 \setbeamercolor{block body}{fg=black,bg=white} % Change the alert block body colors
 \setbeamercolor{item}{fg=lgold, bg=black}
 
 \begin{block}{Sensitivity Analysis}
-\begin{tikzpicture}[remember picture,overlay]
-      \shade [inner color=silver,outer color=lgold]
-      (0,0) rectangle (\textwidth,0.4cm);
-    \end{tikzpicture}
 \begin{itemize}
 \item Information is intended to aid in international discussions and any agreements about managing greenhouse gas emissions and sinks.
 \item Also provides national level methods and estimates of carbon sinks and emissions associated with HWP.
