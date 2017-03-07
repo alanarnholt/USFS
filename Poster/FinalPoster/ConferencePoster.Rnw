@@ -275,23 +275,12 @@ E = mc^{2}
 \begin{block}{Sensitivity Plot}
 \begin{center}
 \begin{figure}
-    {\includegraphics[width=1\linewidth,height=10cm]{halflifedens.png}};
-    \caption{Figure caption}
-\end{figure}
-\end{center}
-\end{block}
-%---------------------------------------------------------------------
-\begin{block}{Sensitivity of Input}
-\begin{center}
-
-\begin{figure}
-    {\includegraphics[width=1\linewidth]{graph1.png}};
+    {\includegraphics[width=1\linewidth,height=18cm]{CopyOfHLSensitivityGraph.pdf}}
     \caption{Figure caption}
 \end{figure}
 \end{center}
 \end{block}
 
-%----------------------------------------------------------------------------------------
 
 \end{column} % End of column 2.1
 
@@ -299,6 +288,34 @@ E = mc^{2}
 
 %----------------------------------------------------------------------------------------
 %	RESULTS
+%----------------------------------------------------------------------------------------
+
+%---------------------------------------------------------------------
+\begin{block}{Halflife Table}
+\begin{center}
+
+\begin{figure}
+    {\includegraphics[width=1\linewidth, height=37cm]{CopyOfHLTable2.pdf}}
+    \caption{Figure caption}
+\end{figure}
+\end{center}
+\end{block}
+
+%----------------------------------------------------------------------------------------
+
+
+\end{column} % End of column 2.2
+
+\end{columns} % End of the split of column 2
+
+\end{column} % End of the second column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The third column
+
+%----------------------------------------------------------------------------------------
+%	--
 %----------------------------------------------------------------------------------------
 
 \begin{block}{Decay}
@@ -334,21 +351,6 @@ E = mc^{2}
 \end{center}
 
 \end{block}
-
-
-\end{column} % End of column 2.2
-
-\end{columns} % End of the split of column 2
-
-\end{column} % End of the second column
-
-\begin{column}{\sepwid}\end{column} % Empty spacer column
-
-\begin{column}{\onecolwid} % The third column
-
-%----------------------------------------------------------------------------------------
-%	--
-%----------------------------------------------------------------------------------------
 
 \begin{block}{Future Plot and Targeted Change}
 \begin{center}

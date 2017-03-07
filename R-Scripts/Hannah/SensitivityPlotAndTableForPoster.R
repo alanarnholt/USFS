@@ -1,7 +1,7 @@
 setwd("~/USFS/R-Scripts/Hannah")
 library(WOODCARB3R)
 library(gridExtra)
-
+library(ggplot2)
 ##Description for Poster
 
 # Halflife role in final carbon contribution calculation.
@@ -130,8 +130,9 @@ lines(finalCarbonContribution(paperHL = 2.53087281800454*1.5), lwd = 5, col = "o
 
 
 #exporting graphs and table as PDF
-pdf(file = ("HLSensitivityGraph.pdf"))
-plot(density(as.numeric(Histdf6b)), ylim=c(0,.029), xlim=c(-113500,-112500), main = "Densites of Halflives for Year 2000", xlab = "Carbon Contribution")
+pdf(file = ("HLSensitivityGraph.pdf"), height = 4, width = 6)
+
+plot(density(as.numeric(Histdf6b)), main = NA, ylim=c(0,.029), xlim=c(-113500,-112500), xlab = "Carbon Contribution")
 
 
 lines(density(as.numeric(Histdfb)), col="black")
@@ -153,9 +154,9 @@ dev.off()
 
 
 
-pdf(file = ("HLTable.pdf"), height = 3.75, width = 6)
+pdf(file = ("HLTable.pdf"), height = 5, width = 8.5)
 VarTab<-as.table(VarianceTable)
-grid.table(VarTab, theme = ttheme_default(base_size = 8))
+grid.table(VarTab, theme = ttheme_default(base_size = 12))
 dev.off()
 
 
