@@ -258,9 +258,10 @@ E = mc^{2}
 
 \begin{block}{Decay}
 \begin{itemize}
-\item
-\item
-\item
+\item Decay functions are based on the gamma distribution:
+$$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
+\item WOODCARB2 used an exponential decay where $k=1$ in the gamma distribution
+\item Two alternate decay functions, $k=2$ and $k=10$, were calculated by altering $k$ in the gamma distribution and introduced in the WOODCARB3R package
 \end{itemize}
 \end{block}
 %----------------------------------------------------------------------------------------
@@ -302,7 +303,7 @@ E = mc^{2}
 \begin{block}{Overall Decay}
 \begin{center}
 \begin{figure}
-    {\includegraphics[width=1\linewidth, height=9cm]{overalldecay.png}};
+    {\includegraphics[width=1\linewidth, height=9cm]{DecayPlotOverall.pdf}};
     \caption{This figure shows the over effect of the decay function on Carbon Sequestration}
 \end{figure}
 \end{center}
