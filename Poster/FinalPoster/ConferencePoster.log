@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.6.3)  8 MAR 2017 11:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.6.3)  8 MAR 2017 11:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2224,10 +2224,6 @@ File: LongPlot.pdf Graphic file (type pdf)
 Package pdftex.def Info: LongPlot.pdf used on input line 487.
 (pdftex.def)             Requested size: 1969.41777pt x 284.53156pt.
 
-Overfull \hbox (10.45554pt too wide) in paragraph at lines 487--487
- []\T1/pxss/m/n/37.32 ; 
- []
-
 <CopyOfHLSensitivityGraph.pdf, id=19, 433.62pt x 289.08pt>
 File: CopyOfHLSensitivityGraph.pdf Graphic file (type pdf)
 
@@ -2254,19 +2250,11 @@ File: Decay_Plot_Example.png Graphic file (type png)
 Package pdftex.def Info: Decay_Plot_Example.png used on input line 487.
 (pdftex.def)             Requested size: 922.70163pt x 256.0907pt.
 
-Overfull \hbox (10.40529pt too wide) in paragraph at lines 487--487
- []\T1/pxss/m/n/37.32 ; 
- []
-
 <overalldecay.png, id=23, 658.71094pt x 366.61969pt>
 File: overalldecay.png Graphic file (type png)
  <use overalldecay.png>
 Package pdftex.def Info: overalldecay.png used on input line 487.
 (pdftex.def)             Requested size: 922.70163pt x 256.08939pt.
-
-Overfull \hbox (10.40529pt too wide) in paragraph at lines 487--487
- []\T1/pxss/m/n/37.32 ; 
- []
 
 <graph1.png, id=24, 389.455pt x 245.91875pt>
 File: graph1.png Graphic file (type png)
@@ -2317,7 +2305,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 489.
 Here is how much of TeX's memory you used:
  32512 strings out of 493027
  646625 string characters out of 6134070
- 818934 words of memory out of 5000000
+ 818910 words of memory out of 5000000
  35371 multiletter control sequences out of 15000+600000
  58222 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2328,7 +2316,7 @@ exlive/2015/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local
 al/texlive/2015/texmf-dist/fonts/type1/public/txfonts/rtcxss.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2
 015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on ConferencePoster.pdf (1 page, 3717243 bytes).
+Output written on ConferencePoster.pdf (1 page, 3717223 bytes).
 PDF statistics:
  98 PDF objects out of 1000 (max. 8388607)
  59 compressed objects within 1 object stream
