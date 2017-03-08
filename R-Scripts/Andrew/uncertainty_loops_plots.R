@@ -48,19 +48,25 @@ for (i in 1:repetitions)
   }
   print(i)
 }
+
+# Alan adjusting par
+par(mar = c(4, 7, 4, 0) + 0.1)
+#
+
 plot(errorarray[1,], 
      type = "l", 
      col = "cyan", 
      ylim = c(min(errorarray), max(errorarray)), 
      main = "Uncertainty Final Carbon Contribution with Sawnwood Product Distribution Error", 
      xlab = "Years (Since 1900)", 
-     ylab = "Carbon Contribution (Thousand Metric Tons CO2 Sequestered)")
+     ylab = "Carbon Contribution\n (Thousand Metric Tons\n CO2 Sequestered)")
 for (i in 2:repetitions)
 {
   points(errorarray[i,], type = "l", col = "cyan")
 }
 points(final, type = "l", col = "red", lwd = 2)
 
+par(mar = c(5, 4, 4, 2) + 0.1)
 
 
 ## ERROR IN MULTIPLE VARIABLES, WITH ERROR LINES FOR ALL YEARS

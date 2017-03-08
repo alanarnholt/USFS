@@ -234,7 +234,7 @@ E = mc^{2}
 \begin{center}
 
 \begin{figure}
-    {\includegraphics[width=1\linewidth,height=10cm]{Uncertainty_Plot.png}};
+    {\includegraphics[width=1\linewidth,height=10cm]{LongPlot.pdf}};
     \caption{this is the caption that shows what is in the figure that explains the plot of HWP stocks and provides and envelope of uncertainty around it
     this is the caption that shows what is in the figure that explains the plot of HWP stocks and provides and envelope of uncertainty around it}
 \end{figure}
