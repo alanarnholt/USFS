@@ -273,17 +273,7 @@ E = mc^{2}
 \end{center}
 
 \end{block}
-%----------------------------------------------------------------------------------------
-\begin{block}{Overall Decay}
-\begin{center}
-\begin{figure}
-    {\includegraphics[width=1\linewidth, height=9cm]{overalldecay.png}};
-    \caption{This figure shows the over effect of the decay function on Carbon Sequestration}
-\end{figure}
-\end{center}
 
-\end{block}
-%---------------------------------------------------------------------
 
 %----------------------------------------------------------------------------------------
 
@@ -302,11 +292,23 @@ E = mc^{2}
 \begin{block}{Halflife Table}
 \begin{center}
 \begin{figure}
-{\includegraphics[width=1\linewidth, height=37cm]{CopyOfHLTable2.pdf}}
+{\includegraphics[width=1\linewidth, height=17cm]{CopyOfHLTable.pdf}}
       \caption{Figure caption}
   \end{figure}
   \end{center}
   \end{block}
+
+%----------------------------------------------------------------------------------------
+\begin{block}{Overall Decay}
+\begin{center}
+\begin{figure}
+    {\includegraphics[width=1\linewidth, height=9cm]{overalldecay.png}};
+    \caption{This figure shows the over effect of the decay function on Carbon Sequestration}
+\end{figure}
+\end{center}
+
+\end{block}
+%---------------------------------------------------------------------
 
 
 \end{column} % End of column 2.2
@@ -340,7 +342,7 @@ E = mc^{2}
 \begin{block}{Sensitivity Plot}
 \begin{center}
 \begin{figure}
-    {\includegraphics[width=1\linewidth,height=10cm]{halflifedens.png}};
+    {\includegraphics[width=1\linewidth,height=10cm]{CopyOfHLSensitivityGraph.pdf}};
     \caption{Figure caption}
 \end{figure}
 \end{center}
