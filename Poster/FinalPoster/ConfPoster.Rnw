@@ -1,54 +1,4 @@
-\documentclass[final]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
-%% maxwidth is the original width if it is less than linewidth
-%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
-\makeatletter
-\def\maxwidth{ %
-  \ifdim\Gin@nat@width>\linewidth
-    \linewidth
-  \else
-    \Gin@nat@width
-  \fi
-}
-\makeatother
-
-\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
-\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
-\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
-\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
-\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
-\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
-\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
-\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
-\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
-\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
-\let\hlipl\hlkwb
-
-\usepackage{framed}
-\makeatletter
-\newenvironment{kframe}{%
- \def\at@end@of@kframe{}%
- \ifinner\ifhmode%
-  \def\at@end@of@kframe{\end{minipage}}%
-  \begin{minipage}{\columnwidth}%
- \fi\fi%
- \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
- \colorbox{shadecolor}{##1}\hskip-\fboxsep
-     % There is no \\@totalrightmargin, so:
-     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
- \MakeFramed {\advance\hsize-\width
-   \@totalleftmargin\z@ \linewidth\hsize
-   \@setminipage}}%
- {\par\unskip\endMakeFramed%
- \at@end@of@kframe}
-\makeatother
-
-\definecolor{shadecolor}{rgb}{.97, .97, .97}
-\definecolor{messagecolor}{rgb}{0, 0, 0}
-\definecolor{warningcolor}{rgb}{1, 0, 1}
-\definecolor{errorcolor}{rgb}{1, 0, 0}
-\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
-
-\usepackage{alltt}
+\documentclass[final]{beamer}
 \mode<presentation>{\usetheme{confposter}}
 \usepackage{amsmath, amsfonts, amssymb, pxfonts, eulervm, xspace, enumerate, hyperref, color, bookmark}
 
@@ -107,9 +57,21 @@
 \institute{Department of Mathematical Sciences} % Institution(s)
 
 %----------------------------------------------------------------------------------------
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\begin{document}
 
+\begin{document}
+<<label = "setup", comment = NA, echo = FALSE, message = FALSE, warning=FALSE>>=
+options(width = 35)
+opts_chunk$set(comment = NA, fig.align='center', fig.width=13, fig.height=6, cache=FALSE, warning = FALSE, message = FALSE)
+library(ggplot2)
+library(PASWR)
+library(tree)
+library(randomForest)
+library(boot)
+library(xtable)
+library(ggmap)
+library(graphics)
+library(WOODCARB3R)
+@
 \addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
 \addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
 
@@ -150,26 +112,27 @@
       \shade [inner color=silver,outer color=lgold]
       (0,0) rectangle (\textwidth,0.4cm);
     \end{tikzpicture}
-\begin{itemize}
-\item Information is intended to aid in international discussions and any agreements about managing greenhouse gas emissions and sinks.
-\item Also provides national level methods and estimates of carbon sinks and emissions associated with HWP.
-\item The package provides quick accessibility, allowing data to be updated, modified, and manipulated with ease.
-\end{itemize}
+
+WOODCARB3 expands the capabilities of the WOODCARB2 spreadsheet model by changing to an R package platform. The conversion brings increased capability for data manipulation, analysis, and reporting. It also increases the ease of integration with other datasets. This poster describes some of the results and demonstrates some of the potential for the WOODCARB3 model. Examples of the types of analysis possible include uncertainty analysis, sensitivity analysis, alternate model dynamics, alternate pathways.
+
 \vspace{0ex}
 
 \end{alertblock}
+%-------------------------------------------------------------
+\begin{block}{Introduction}
 
 
-\begin{alertblock}{Introduction}
-\begin{itemize}
+WOODCARB2 is the current tool used by the US Forest Service to document and calculate the total carbon stocks from harvested wood products (HWP). The statistics package R, being open source in a very active engaged community, is one of the dominant platforms and offers a wide variety of tools and interfaces with other software packages.
+\vspace{1ex}
 
-\item Sequestration of carbon in forests is a process that can pull large quantities of carbon out of the atmosphere or prevent its release to the atmosphere, 87\% of total \textbf{CO$_{2}$} removals in 2014. Carbon mitigation efforts have thus focused much attention on reforestation, forest management,and forest based products. According to the most recent report to the \textbf{UNFCCC}, an estimated 18.7\% of the total carbon in woody materials is contained in harvested wood \textbf{(HWP and SWDS).}  
+Sequestration of carbon in forests accounts for 87\% of total \textbf{CO$_{2}$} removals in 2014. Carbon mitigation efforts have thus focused much attention on reforestation, forest management,and forest based products. According to the most recent report to the \textbf{UNFCCC}, an estimated 18.7\% of the total carbon in woody materials is contained in harvested wood \textbf{(HWP and SWDS).}
+\vspace{1ex}  
+
+The amount of carbon in \textbf{HWP} and \textbf{SWDS} depend on how much wood is harvested, what types of products are produced, how the products are use, the lifetime of the wood products, and how the wood is processed at the end of its primary product lifetime.
 
 
-\item The amount of carbon in \textbf{HWP} and \textbf{SWDS} depend on how much wood is harvested, what types of products are produced, how the products are use, the lifetime of the wood products, and how the wood is processed at the end of its primary product lifetime.
 
-\end{itemize}
-\end{alertblock}
+\end{block}
 
 
 %------------------------------------------------
@@ -177,23 +140,20 @@
 \begin{block}{Sources of Data and Equations}
 
 \begin{enumerate}[I.]
-\item Input data from reports by Hair, Ulrich, Howard, Ince, etc. 
-\vspace{.3ex}
-\item The Production Approach is:  
+\item WOODCARB II Software in Microsoft Excel\textsuperscript{\textregistered}
+
+\vspace{0ex}
+Note: Base level data was given in spreadsheet. 
+\item Harvest Quantities: 
 \begin{equation}
-\frac{44}{12} * \Big(-\Delta C_{HWP\:IU\:DH} - \Delta C_{HWP\:SWDS\:DH}\Big)
+E = mc^{2}
 \label{eqn:Einstein}
 \end{equation}
-\vspace{.3ex}
-\item $\frac{44}{12}$ converts Carbon to $CO_2$
-\vspace{.3ex}
-\item $\Delta C_{HWP\:IU\:DH}$ is change in stock of HWP in use from 
-domestic harvest 
-\vspace{.3ex}
-\item $\Delta C_{HWP\:SWDS\:DH}$ is change in stock of HWP in SWDS
-from domestic harvest 
+\item Imports, Exports, etc.:
+\item Decay of HWP:
 \end{enumerate}
-\vspace{.3ex}
+\vspace{0ex}
+
 \end{block}
 \vfill
 
@@ -201,17 +161,16 @@ from domestic harvest
 % Methodology
 %----------------------------------------------------------------------------------------
 \setbeamercolor{block title}{fg=fgreen,bg=white}
-\begin{block}{Methodology}
+\begin{block}{Methodology (what we did)}
 \begin{itemize}
-\item Most analysis done with the Production approach.
-\vspace{.5ex}
-\item The Production approach focuses on carbon stocks in wood harvested in the US.
-\vspace{.5ex}
-\item Analysis is conducted of sensitivity of input parameters, uncertainty of estimates
-and consequences of alternative decay distributions. 
+\item We have translated WOODCARB3 spreadsheet models into an R package.
+\vspace{1ex}
+\item  
+\vspace{1ex}
 \end{itemize}
-\vspace{.3ex}
+\vspace{0ex}
 \vfill
+
 \end{block}
 %----------------------------------------------------------------------------------------
 
@@ -230,7 +189,7 @@ and consequences of alternative decay distributions.
 %----------------------------------------------------------------------------------------
 
 %changing color             
-\setbeamercolor{block title}{fg=lgold,bg=black} % Change the alert block title colors
+\setbeamercolor{block title}{fg=black,bg=black} % Change the alert block title colors
 \setbeamercolor{block body}{fg=black,bg=white} % Change the alert block body colors
 \setbeamercolor{item}{fg=lgold, bg=black}
 
@@ -262,8 +221,8 @@ and consequences of alternative decay distributions.
 \begin{block}{Projected Carbon Contribution}
 \begin{figure}
     {\includegraphics[width=1\linewidth,height=11cm]{projection.png}};
-    \caption{Figure caption}
 \end{figure}
+{\bf Figure 1:} Projected carbon contribution based on five and ten year regressed projections.
 \end{block}
 
 %----------------------------------------------------------------------------------------
@@ -280,7 +239,7 @@ and consequences of alternative decay distributions.
 \begin{center}
 
 \begin{figure}
-    {\includegraphics[width=1\linewidth,height=10cm]{LongPlot.pdf}}
+    {\includegraphics[width=1\linewidth,height=10cm]{Uncertainty_Plot.png}};
     \caption{this is the caption that shows what is in the figure that explains the plot of HWP stocks and provides and envelope of uncertainty around it
     this is the caption that shows what is in the figure that explains the plot of HWP stocks and provides and envelope of uncertainty around it}
 \end{figure}
@@ -293,21 +252,83 @@ and consequences of alternative decay distributions.
 
 \begin{column}{\onecolwid} % The first column within column 2 (column 2.1)
 
-\setbeamercolor{block title}{fg=lgold,bg=black} % Change the alert block title colors
+\setbeamercolor{block title}{fg=black,bg=black} % Change the alert block title colors
+\setbeamercolor{block body}{fg=black,bg=white} % Change the alert block body colors
+\setbeamercolor{item}{fg=lgold, bg=black}
+
+\begin{block}{Decay}
+\begin{itemize}
+\item
+\item
+\item
+\end{itemize}
+\end{block}
+%----------------------------------------------------------------------------------------
+\begin{block}{Decay of Hardwood in Multifamily housing}
+\begin{center}
+\begin{figure}
+    {\includegraphics[width=1\linewidth, height=9cm]{Decay_Plot_Example.png}};
+    \caption{This figure shows the over effect of the decay function on multifamily housing built in 1960}
+\end{figure}
+\end{center}
+
+\end{block}
+%----------------------------------------------------------------------------------------
+\begin{block}{Overall Decay}
+\begin{center}
+\begin{figure}
+    {\includegraphics[width=1\linewidth, height=9cm]{overalldecay.png}};
+    \caption{This figure shows the over effect of the decay function on Carbon Sequestration}
+\end{figure}
+\end{center}
+
+\end{block}
+%---------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of column 2.1
+
+\begin{column}{\onecolwid} % The second column within column 2 (column 2.2)
+
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+
+%Half Life Table
+%-----------------------------------------------------------------------------
+
+\begin{block}{Halflife Table}
+\begin{center}
+\begin{figure}
+{\includegraphics[width=1\linewidth, height=37cm]{CopyOfHLTable2.pdf}}
+      \caption{Figure caption}
+  \end{figure}
+  \end{center}
+  \end{block}
+
+
+\end{column} % End of column 2.2
+
+\end{columns} % End of the split of column 2
+
+\end{column} % End of the second column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The third column
+
+%----------------------------------------------------------------------------------------
+\setbeamercolor{block title}{fg=black,bg=black} % Change the alert block title colors
 \setbeamercolor{block body}{fg=black,bg=white} % Change the alert block body colors
 \setbeamercolor{item}{fg=lgold, bg=black}
 
 \begin{block}{Sensitivity Analysis}
-\begin{tikzpicture}[remember picture,overlay]
-      \shade [inner color=silver,outer color=lgold]
-      (0,0) rectangle (\textwidth,0.4cm);
-    \end{tikzpicture}
 \begin{itemize}
-\item Halflife role in final carbon contribution calculation.
-\item Error is assumed to be N(1,.2). 
-\item Assume how well halflifes hold with applied error.
-\item Results can be used to improve half-lives.
-\item Results can also show which half-lives are concerete.
+\item Information is intended to aid in international discussions and any agreements about managing greenhouse gas emissions and sinks.
+\item Also provides national level methods and estimates of carbon sinks and emissions associated with HWP.
+\item 
 \end{itemize}
 \vspace{0ex}
 
@@ -319,147 +340,23 @@ and consequences of alternative decay distributions.
 \begin{block}{Sensitivity Plot}
 \begin{center}
 \begin{figure}
-<<<<<<< HEAD
     {\includegraphics[width=1\linewidth,height=10cm]{halflifedens.png}};
     \caption{Figure caption}
-=======
-    {\includegraphics[width=1\linewidth,height=18cm]{CopyOfHLSensitivityGraph.pdf}}
-    \caption{New.Nonres.Rties and New.Nonres.Rcar.Repair have the least variance.}
->>>>>>> f7283b686d1e54ba0244df88d9cc692e51614753
-\end{figure}
-\end{center}
-\end{block}
-%---------------------------------------------------------------------
-<<<<<<< HEAD
-\begin{block}{Sensitivity of Input}
-\begin{center}
-
-\begin{figure}
-    {\includegraphics[width=1\linewidth]{graph1.png}};
-    \caption{Figure caption}
-=======
-\begin{block}{Half-life Table}
-\begin{center}
-
-\begin{figure}
-    {\includegraphics[width=1\linewidth, height = 17cm]{CopyOfHLTable.pdf}}
-    
->>>>>>> f7283b686d1e54ba0244df88d9cc692e51614753
 \end{figure}
 \end{center}
 \end{block}
 
-%----------------------------------------------------------------------------------------
-
-\end{column} % End of column 2.1
-
-<<<<<<< HEAD
-\begin{column}{\onecolwid} % The second column within column 2 (column 2.2)
-=======
-
-
 
 %----------------------------------------------------------------------------------------
-%Sensitivity Plot Example
-%----------------------------------------------------------------------------------------
-\begin{block}{Sensitivity Affect}
-\begin{center}
-
-\begin{figure}
-    {\includegraphics[width=1\linewidth, height = 13cm]{CopyOfTSPlot.pdf}}
-    \caption{This is a comparison between Paper half-life and a 50 percent increase.}
-\end{figure}
-\end{center}
-\end{block}
-
-%----------------------------------------------------------------------------------------
-
-\end{column} % End of column 2.2
-
-\end{columns} % End of the split of column 2
-
-\end{column} % End of the second column
-
-\begin{column}{\sepwid}\end{column} % Empty spacer column
-
-\begin{column}{\onecolwid} % The third column
->>>>>>> f7283b686d1e54ba0244df88d9cc692e51614753
-
-%----------------------------------------------------------------------------------------
-%	RESULTS
-%----------------------------------------------------------------------------------------
-
-\begin{block}{Decay}
-\begin{itemize}
-\item
-\item
-\item
-\end{itemize}
-\end{block}
-%-------------------------------------------------------------------------------------
-%----------------------------------------------------------------------------------------
-%Decay Plot Example
-%----------------------------------------------------------------------------------------
-\begin{block}{Decay of Hardwood in Multifamily housing}
-\begin{center}
-\begin{figure}
-    {\includegraphics[width=1\linewidth, height=9cm]{Decay_Plot_Example.png}}
-    \caption{This figure shows the over effect of the decay function on multifamily housing built in 1960}
-\end{figure}
-\end{center}
-
-\end{block}
-
-
-%Overall Decay
-%-----------------------------------------------------------------------------
-\begin{block}{Overall Decay}
-\begin{center}
-\begin{figure}
-    {\includegraphics[width=1\linewidth, height=9cm]{overalldecay.png}}
-    \caption{This figure shows the over effect of the decay function on Carbon Sequestration}
-\end{figure}
-\end{center}
-
-\end{block}
-
-
-\end{column} % End of column 2.2
-
-\end{columns} % End of the split of column 2
-
-\end{column} % End of the second column
-
-\begin{column}{\sepwid}\end{column} % Empty spacer column
-
-\begin{column}{\onecolwid} % The third column
-
-%----------------------------------------------------------------------------------------
-%	--
-%----------------------------------------------------------------------------------------
-
-\begin{block}{Future Plot and Targeted Change}
-\begin{center}
-
-\begin{figure}
-    {\includegraphics[width=1\linewidth]{graph1.png}}
-    \caption{Figure caption}
-\end{figure}
-\end{center}
-
-\end{block}
-
-%----------------------------------------------------------------------------------------
-%	Conclusion
+%	Discussion
 %----------------------------------------------------------------------------------------
 
 \begin{block}{Discussion}
 
 \begin{itemize}
-\item 
-\item 
-\item 
-\item
+\item Targeted changes in average half life can increase total stocks.
+\item End of life dynamics make a big difference in stock size.
+\item Sensitivities help channel reductions in uncertainty.
 \end{itemize}
 
 \end{block}

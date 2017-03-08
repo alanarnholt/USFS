@@ -62,15 +62,6 @@
 <<label = "setup", comment = NA, echo = FALSE, message = FALSE, warning=FALSE>>=
 options(width = 35)
 opts_chunk$set(comment = NA, fig.align='center', fig.width=13, fig.height=6, cache=FALSE, warning = FALSE, message = FALSE)
-library(ggplot2)
-library(PASWR)
-library(tree)
-library(randomForest)
-library(boot)
-library(xtable)
-library(ggmap)
-library(graphics)
-library(WOODCARB3R)
 @
 \addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
 \addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
@@ -139,20 +130,23 @@ library(WOODCARB3R)
 \begin{block}{Sources of Data and Equations}
 
 \begin{enumerate}[I.]
-\item WOODCARB II Software in Microsoft Excel\textsuperscript{\textregistered}
-
-\vspace{0ex}
-Note: Base level data was given in spreadsheet. 
-\item Harvest Quantities: 
+\item Input data from reports by Hair, Ulrich, Howard, Ince, etc. 
+\vspace{.3ex}
+\item The Production Approach is:  
 \begin{equation}
-E = mc^{2}
+\frac{44}{12} * \Big(-\Delta C_{HWP\:IU\:DH} - \Delta C_{HWP\:SWDS\:DH}\Big)
 \label{eqn:Einstein}
 \end{equation}
-\item Imports, Exports, etc.:
-\item Decay of HWP:
+\vspace{.3ex}
+\item $\frac{44}{12}$ converts Carbon to $CO_2$
+\vspace{.3ex}
+\item $\Delta C_{HWP\:IU\:DH}$ is change in stock of HWP in use from 
+domestic harvest 
+\vspace{.3ex}
+\item $\Delta C_{HWP\:SWDS\:DH}$ is change in stock of HWP in SWDS
+from domestic harvest 
 \end{enumerate}
-\vspace{0ex}
-
+\vspace{.3ex}
 \end{block}
 \vfill
 
@@ -160,16 +154,17 @@ E = mc^{2}
 % Methodology
 %----------------------------------------------------------------------------------------
 \setbeamercolor{block title}{fg=fgreen,bg=white}
-\begin{block}{Methodology (what we did)}
+\begin{block}{Methodology}
 \begin{itemize}
-\item We have translated WOODCARB3 spreadsheet models into an R package.
-\vspace{1ex}
-\item  
-\vspace{1ex}
+\item Most analysis done with the Production approach.
+\vspace{.5ex}
+\item The Production approach focuses on carbon stocks in wood harvested in the US.
+\vspace{.5ex}
+\item Analysis is conducted of sensitivity of input parameters, uncertainty of estimates
+and consequences of alternative decay distributions. 
 \end{itemize}
-\vspace{0ex}
+\vspace{.3ex}
 \vfill
-
 \end{block}
 %----------------------------------------------------------------------------------------
 
@@ -188,11 +183,15 @@ E = mc^{2}
 %----------------------------------------------------------------------------------------
 
 %changing color             
-\setbeamercolor{block title}{fg=black,bg=black} % Change the alert block title colors
+\setbeamercolor{block title}{fg=lgold,bg=black} % Change the alert block title colors
 \setbeamercolor{block body}{fg=black,bg=white} % Change the alert block body colors
 \setbeamercolor{item}{fg=lgold, bg=black}
 
 \begin{block}{Uncertainty Analysis}
+\begin{tikzpicture}[remember picture,overlay]
+      \shade [inner color=silver,outer color=lgold]
+      (0,0) rectangle (\textwidth,0.4cm);
+    \end{tikzpicture}
 \begin{itemize}
 \item Information is intended to aid in international discussions and any agreements about managing greenhouse gas emissions and sinks.
 \item Also provides national level methods and estimates of carbon sinks and emissions associated with HWP.
@@ -247,11 +246,15 @@ E = mc^{2}
 
 \begin{column}{\onecolwid} % The first column within column 2 (column 2.1)
 
-\setbeamercolor{block title}{fg=black,bg=black} % Change the alert block title colors
+\setbeamercolor{block title}{fg=lgold,bg=black} % Change the alert block title colors
 \setbeamercolor{block body}{fg=black,bg=white} % Change the alert block body colors
 \setbeamercolor{item}{fg=lgold, bg=black}
 
 \begin{block}{Sensitivity Analysis}
+\begin{tikzpicture}[remember picture,overlay]
+      \shade [inner color=silver,outer color=lgold]
+      (0,0) rectangle (\textwidth,0.4cm);
+    \end{tikzpicture}
 \begin{itemize}
 \item Halflife role in final carbon contribution calculation.
 \item Error is assumed to be N(1,.2). 
@@ -269,35 +272,43 @@ E = mc^{2}
 \begin{block}{Sensitivity Plot}
 \begin{center}
 \begin{figure}
+<<<<<<< HEAD
+    {\includegraphics[width=1\linewidth,height=10cm]{halflifedens.png}};
+    \caption{Figure caption}
+=======
     {\includegraphics[width=1\linewidth,height=18cm]{CopyOfHLSensitivityGraph.pdf}}
     \caption{New.Nonres.Rties and New.Nonres.Rcar.Repair have the least variance.}
+>>>>>>> f7283b686d1e54ba0244df88d9cc692e51614753
 \end{figure}
 \end{center}
 \end{block}
-
-
-\end{column} % End of column 2.1
-
-\begin{column}{\onecolwid} % The second column within column 2 (column 2.2)
-
-%----------------------------------------------------------------------------------------
-%	RESULTS
-%----------------------------------------------------------------------------------------
-
 %---------------------------------------------------------------------
+<<<<<<< HEAD
+\begin{block}{Sensitivity of Input}
+\begin{center}
+
+\begin{figure}
+    {\includegraphics[width=1\linewidth]{graph1.png}};
+    \caption{Figure caption}
+=======
 \begin{block}{Half-life Table}
 \begin{center}
 
 \begin{figure}
     {\includegraphics[width=1\linewidth, height = 17cm]{CopyOfHLTable.pdf}}
     
+>>>>>>> f7283b686d1e54ba0244df88d9cc692e51614753
 \end{figure}
 \end{center}
 \end{block}
 
 %----------------------------------------------------------------------------------------
 
+\end{column} % End of column 2.1
 
+<<<<<<< HEAD
+\begin{column}{\onecolwid} % The second column within column 2 (column 2.2)
+=======
 
 
 
@@ -325,9 +336,10 @@ E = mc^{2}
 \begin{column}{\sepwid}\end{column} % Empty spacer column
 
 \begin{column}{\onecolwid} % The third column
+>>>>>>> f7283b686d1e54ba0244df88d9cc692e51614753
 
 %----------------------------------------------------------------------------------------
-%	--
+%	RESULTS
 %----------------------------------------------------------------------------------------
 
 \begin{block}{Decay}
@@ -363,6 +375,21 @@ E = mc^{2}
 \end{center}
 
 \end{block}
+
+
+\end{column} % End of column 2.2
+
+\end{columns} % End of the split of column 2
+
+\end{column} % End of the second column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The third column
+
+%----------------------------------------------------------------------------------------
+%	--
+%----------------------------------------------------------------------------------------
 
 \begin{block}{Future Plot and Targeted Change}
 \begin{center}
@@ -400,9 +427,7 @@ E = mc^{2}
 
 \begin{block}{Acknowledgements}
 
-This work was funded by a Research Joint Venture Agreement with the USDA Forest Service, Northern Research Station.
-
-This work also was funded by a Research Joint Venture Agreement with the USDA Forest Service, Southern Research Station.
+This work was funded by a Research Joint Venture Agreements with the USDA Forest Service, Northern Research Station and the USDA Forest Service, Southern Research Station.
 
 \end{block}
 
@@ -413,23 +438,12 @@ This work also was funded by a Research Joint Venture Agreement with the USDA Fo
 \setbeamercolor{block alerted title}{fg=lgold,bg=black} % Change the alert block title colors
 \setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
 
-\begin{alertblock}{Contact Information}
+\begin{alertblock}{Contact Information and Package Access}
 
 \begin{itemize}
-\item Web: \href{https://mathsci.appstate.edu}{https://mathsci.appstate.edu}
 \item Email: \href{marlandes@appstate.edu}{marlandes@appstate.edu}
-\item Phone: +1 (000) 111 1111
-\end{itemize}
-
-\end{alertblock}
-
-%-----------------------------------------------------------------------------
-\setbeamercolor{item}{fg=lgold, bg=black}
-\begin{block}{Access to Package and Webpage}
-\begin{itemize}
 \item Online link: \href{http://benjones2.github.io/WOODCARB3R/}{WOODCARB3R package}
-
-\item Instant access: %qr code below
+%qr code below
 \end{itemize}
 \vspace{0ex}
 \begin{center}
@@ -438,7 +452,10 @@ This work also was funded by a Research Joint Venture Agreement with the USDA Fo
   {\includegraphics[width=8cm]{qrcode.jpg}};
 \end{tikzpicture}
 \end{center}
-\end{block}
+
+\end{alertblock}
+
+%-----------------------------------------------------------------------------
 
 %----------------------------------------------------------------------------------------
 
