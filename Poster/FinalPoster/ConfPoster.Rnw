@@ -347,11 +347,27 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 \begin{block}{Sensitivity Plot}
 \begin{center}
 \begin{figure}
-    {\includegraphics[width=1\linewidth,height=10cm]{CopyOfHLSensitivityGraph.pdf}};
+    {\vspace{-1cm}
+    \includegraphics[width=1\linewidth,height=10cm]{CopyOfHLSensitivityGraph.pdf}};
     \caption{Figure caption}
 \end{figure}
 \end{center}
 \end{block}
+
+%----------------------------------------------------------------------------------------
+%Sensitivity Plot Example
+%----------------------------------------------------------------------------------------
+\begin{block}{Sensitivity Affect}
+\begin{center}
+
+\begin{figure}
+    {\includegraphics[width=1\linewidth, height = 13cm]{CopyOfTSPlot.pdf}}
+    \caption{This is a comparison between Paper half-life and a 50 percent increase.}
+\end{figure}
+\end{center}
+\end{block}
+
+%----------------------------------------------------------------------------------------
 
 
 %----------------------------------------------------------------------------------------

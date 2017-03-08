@@ -176,3 +176,7 @@ plot(c(1990:2015),finalCarbonContribution(), xlab = "Years", ylab = "Carbon Cont
 lines(c(1990:2015),finalCarbonContribution(paperHL = 2.53087281800454*1.5), lwd = 3, col = "orange")
 
 dev.off()
+
+
+
+#graph1.png is the Halflife Affect block
