@@ -177,23 +177,20 @@
 \begin{block}{Sources of Data and Equations}
 
 \begin{enumerate}[I.]
-\item Input data from reports by Hair, Ulrich, Howard, Ince, etc. 
-\vspace{.3ex}
-\item The Production Approach is:  
+\item WOODCARB II Software in Microsoft Excel\textsuperscript{\textregistered}
+
+\vspace{0ex}
+Note: Base level data was given in spreadsheet. 
+\item Harvest Quantities: 
 \begin{equation}
-\frac{44}{12} * \Big(-\Delta C_{HWP\:IU\:DH} - \Delta C_{HWP\:SWDS\:DH}\Big)
+E = mc^{2}
 \label{eqn:Einstein}
 \end{equation}
-\vspace{.3ex}
-\item $\frac{44}{12}$ converts Carbon to $CO_2$
-\vspace{.3ex}
-\item $\Delta C_{HWP\:IU\:DH}$ is change in stock of HWP in use from 
-domestic harvest 
-\vspace{.3ex}
-\item $\Delta C_{HWP\:SWDS\:DH}$ is change in stock of HWP in SWDS
-from domestic harvest 
+\item Imports, Exports, etc.:
+\item Decay of HWP:
 \end{enumerate}
-\vspace{.3ex}
+\vspace{0ex}
+
 \end{block}
 \vfill
 
@@ -201,16 +198,14 @@ from domestic harvest
 % Methodology
 %----------------------------------------------------------------------------------------
 \setbeamercolor{block title}{fg=fgreen,bg=white}
-\begin{block}{Methodology}
+\begin{block}{Methodology (what we did)}
 \begin{itemize}
-\item Most analysis done with the Production approach.
-\vspace{.5ex}
-\item The Production approach focuses on carbon stocks in wood harvested in the US.
-\vspace{.5ex}
-\item Analysis is conducted of sensitivity of input parameters, uncertainty of estimates
-and consequences of alternative decay distributions. 
+\item We have translated WOODCARB3 spreadsheet models into an R package.
+\vspace{1ex}
+\item  
+\vspace{1ex}
 \end{itemize}
-\vspace{.3ex}
+\vspace{0ex}
 \vfill
 
 \end{block}
@@ -296,9 +291,11 @@ and consequences of alternative decay distributions.
 
 \begin{block}{Sensitivity Analysis}
 \begin{itemize}
-\item Information is intended to aid in international discussions and any agreements about managing greenhouse gas emissions and sinks.
-\item Also provides national level methods and estimates of carbon sinks and emissions associated with HWP.
-\item 
+\item Halflife role in final carbon contribution calculation.
+\item Error is assumed to be N(1,.2). 
+\item Assume how well halflifes hold with applied error.
+\item Results can be used to improve half-lives.
+\item Results can also show which half-lives are concerete.
 \end{itemize}
 \vspace{0ex}
 
@@ -311,7 +308,7 @@ and consequences of alternative decay distributions.
 \begin{center}
 \begin{figure}
     {\includegraphics[width=1\linewidth,height=18cm]{CopyOfHLSensitivityGraph.pdf}}
-    \caption{Figure caption}
+    \caption{New.Nonres.Rties and New.Nonres.Rcar.Repair have the least variance.}
 \end{figure}
 \end{center}
 \end{block}
@@ -326,18 +323,36 @@ and consequences of alternative decay distributions.
 %----------------------------------------------------------------------------------------
 
 %---------------------------------------------------------------------
-\begin{block}{Halflife Table}
+\begin{block}{Half-life Table}
 \begin{center}
 
 \begin{figure}
-    {\includegraphics[width=1\linewidth, height=37cm]{CopyOfHLTable2.pdf}}
-    \caption{Figure caption}
+    {\includegraphics[width=1\linewidth, height = 17cm]{CopyOfHLTable.pdf}}
+    
 \end{figure}
 \end{center}
 \end{block}
 
 %----------------------------------------------------------------------------------------
 
+
+
+
+
+%----------------------------------------------------------------------------------------
+%Sensitivity Plot Example
+%----------------------------------------------------------------------------------------
+\begin{block}{Sensitivity Affect}
+\begin{center}
+
+\begin{figure}
+    {\includegraphics[width=1\linewidth, height = 13cm]{CopyOfTSPlot.pdf}}
+    \caption{This is a comparison between Paper half-life and a 50 percent increase.}
+\end{figure}
+\end{center}
+\end{block}
+
+%----------------------------------------------------------------------------------------
 
 \end{column} % End of column 2.2
 

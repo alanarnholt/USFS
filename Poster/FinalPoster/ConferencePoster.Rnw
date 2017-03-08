@@ -253,9 +253,11 @@ E = mc^{2}
 
 \begin{block}{Sensitivity Analysis}
 \begin{itemize}
-\item Information is intended to aid in international discussions and any agreements about managing greenhouse gas emissions and sinks.
-\item Also provides national level methods and estimates of carbon sinks and emissions associated with HWP.
-\item 
+\item Halflife role in final carbon contribution calculation.
+\item Error is assumed to be N(1,.2). 
+\item Assume how well halflifes hold with applied error.
+\item Results can be used to improve half-lives.
+\item Results can also show which half-lives are concerete.
 \end{itemize}
 \vspace{0ex}
 
@@ -268,7 +270,7 @@ E = mc^{2}
 \begin{center}
 \begin{figure}
     {\includegraphics[width=1\linewidth,height=18cm]{CopyOfHLSensitivityGraph.pdf}}
-    \caption{Figure caption}
+    \caption{New.Nonres.Rties and New.Nonres.Rcar.Repair have the least variance.}
 \end{figure}
 \end{center}
 \end{block}
@@ -283,18 +285,36 @@ E = mc^{2}
 %----------------------------------------------------------------------------------------
 
 %---------------------------------------------------------------------
-\begin{block}{Halflife Table}
+\begin{block}{Half-life Table}
 \begin{center}
 
 \begin{figure}
-    {\includegraphics[width=1\linewidth, height=37cm]{CopyOfHLTable2.pdf}}
-    \caption{Figure caption}
+    {\includegraphics[width=1\linewidth, height = 17cm]{CopyOfHLTable.pdf}}
+    
 \end{figure}
 \end{center}
 \end{block}
 
 %----------------------------------------------------------------------------------------
 
+
+
+
+
+%----------------------------------------------------------------------------------------
+%Sensitivity Plot Example
+%----------------------------------------------------------------------------------------
+\begin{block}{Sensitivity Affect}
+\begin{center}
+
+\begin{figure}
+    {\includegraphics[width=1\linewidth, height = 13cm]{CopyOfTSPlot.pdf}}
+    \caption{This is a comparison between Paper half-life and a 50 percent increase.}
+\end{figure}
+\end{center}
+\end{block}
+
+%----------------------------------------------------------------------------------------
 
 \end{column} % End of column 2.2
 
