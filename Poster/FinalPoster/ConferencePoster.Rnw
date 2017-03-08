@@ -188,11 +188,15 @@ E = mc^{2}
 %----------------------------------------------------------------------------------------
 
 %changing color             
-\setbeamercolor{block title}{fg=black,bg=black} % Change the alert block title colors
+\setbeamercolor{block title}{fg=lgold,bg=black} % Change the alert block title colors
 \setbeamercolor{block body}{fg=black,bg=white} % Change the alert block body colors
 \setbeamercolor{item}{fg=lgold, bg=black}
 
 \begin{block}{Uncertainty Analysis}
+\begin{tikzpicture}[remember picture,overlay]
+      \shade [inner color=silver,outer color=lgold]
+      (0,0) rectangle (\textwidth,0.4cm);
+    \end{tikzpicture}
 \begin{itemize}
 \item Information is intended to aid in international discussions and any agreements about managing greenhouse gas emissions and sinks.
 \item Also provides national level methods and estimates of carbon sinks and emissions associated with HWP.
@@ -247,11 +251,15 @@ E = mc^{2}
 
 \begin{column}{\onecolwid} % The first column within column 2 (column 2.1)
 
-\setbeamercolor{block title}{fg=black,bg=black} % Change the alert block title colors
+\setbeamercolor{block title}{fg=lgold,bg=black} % Change the alert block title colors
 \setbeamercolor{block body}{fg=black,bg=white} % Change the alert block body colors
 \setbeamercolor{item}{fg=lgold, bg=black}
 
 \begin{block}{Sensitivity Analysis}
+\begin{tikzpicture}[remember picture,overlay]
+      \shade [inner color=silver,outer color=lgold]
+      (0,0) rectangle (\textwidth,0.4cm);
+    \end{tikzpicture}
 \begin{itemize}
 \item Information is intended to aid in international discussions and any agreements about managing greenhouse gas emissions and sinks.
 \item Also provides national level methods and estimates of carbon sinks and emissions associated with HWP.
@@ -267,12 +275,23 @@ E = mc^{2}
 \begin{block}{Sensitivity Plot}
 \begin{center}
 \begin{figure}
-    {\includegraphics[width=1\linewidth,height=18cm]{CopyOfHLSensitivityGraph.pdf}}
+    {\includegraphics[width=1\linewidth,height=10cm]{halflifedens.png}};
+    \caption{Figure caption}
+\end{figure}
+\end{center}
+\end{block}
+%---------------------------------------------------------------------
+\begin{block}{Sensitivity of Input}
+\begin{center}
+
+\begin{figure}
+    {\includegraphics[width=1\linewidth]{graph1.png}};
     \caption{Figure caption}
 \end{figure}
 \end{center}
 \end{block}
 
+%----------------------------------------------------------------------------------------
 
 \end{column} % End of column 2.1
 
@@ -280,34 +299,6 @@ E = mc^{2}
 
 %----------------------------------------------------------------------------------------
 %	RESULTS
-%----------------------------------------------------------------------------------------
-
-%---------------------------------------------------------------------
-\begin{block}{Halflife Table}
-\begin{center}
-
-\begin{figure}
-    {\includegraphics[width=1\linewidth, height=37cm]{CopyOfHLTable2.pdf}}
-    \caption{Figure caption}
-\end{figure}
-\end{center}
-\end{block}
-
-%----------------------------------------------------------------------------------------
-
-
-\end{column} % End of column 2.2
-
-\end{columns} % End of the split of column 2
-
-\end{column} % End of the second column
-
-\begin{column}{\sepwid}\end{column} % Empty spacer column
-
-\begin{column}{\onecolwid} % The third column
-
-%----------------------------------------------------------------------------------------
-%	--
 %----------------------------------------------------------------------------------------
 
 \begin{block}{Decay}
@@ -343,6 +334,21 @@ E = mc^{2}
 \end{center}
 
 \end{block}
+
+
+\end{column} % End of column 2.2
+
+\end{columns} % End of the split of column 2
+
+\end{column} % End of the second column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The third column
+
+%----------------------------------------------------------------------------------------
+%	--
+%----------------------------------------------------------------------------------------
 
 \begin{block}{Future Plot and Targeted Change}
 \begin{center}
@@ -380,9 +386,7 @@ E = mc^{2}
 
 \begin{block}{Acknowledgements}
 
-This work was funded by a Research Joint Venture Agreement with the USDA Forest Service, Northern Research Station.
-
-This work also was funded by a Research Joint Venture Agreement with the USDA Forest Service, Southern Research Station.
+This work was funded by a Research Joint Venture Agreements with the USDA Forest Service, Northern Research Station and the USDA Forest Service, Southern Research Station.
 
 \end{block}
 
@@ -393,23 +397,12 @@ This work also was funded by a Research Joint Venture Agreement with the USDA Fo
 \setbeamercolor{block alerted title}{fg=lgold,bg=black} % Change the alert block title colors
 \setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
 
-\begin{alertblock}{Contact Information}
+\begin{alertblock}{Contact Information and Package Access}
 
 \begin{itemize}
-\item Web: \href{https://mathsci.appstate.edu}{https://mathsci.appstate.edu}
 \item Email: \href{marlandes@appstate.edu}{marlandes@appstate.edu}
-\item Phone: +1 (000) 111 1111
-\end{itemize}
-
-\end{alertblock}
-
-%-----------------------------------------------------------------------------
-\setbeamercolor{item}{fg=lgold, bg=black}
-\begin{block}{Access to Package and Webpage}
-\begin{itemize}
 \item Online link: \href{http://benjones2.github.io/WOODCARB3R/}{WOODCARB3R package}
-
-\item Instant access: %qr code below
+%qr code below
 \end{itemize}
 \vspace{0ex}
 \begin{center}
@@ -418,7 +411,10 @@ This work also was funded by a Research Joint Venture Agreement with the USDA Fo
   {\includegraphics[width=8cm]{qrcode.jpg}};
 \end{tikzpicture}
 \end{center}
-\end{block}
+
+\end{alertblock}
+
+%-----------------------------------------------------------------------------
 
 %----------------------------------------------------------------------------------------
 
