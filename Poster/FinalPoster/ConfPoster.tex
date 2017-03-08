@@ -109,7 +109,22 @@
 %----------------------------------------------------------------------------------------
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error in library(ggplot2): there is no package called 'ggplot2'}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error in library(PASWR): there is no package called 'PASWR'}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error in library(tree): there is no package called 'tree'}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error in library(randomForest): there is no package called 'randomForest'}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error in library(xtable): there is no package called 'xtable'}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{Error in library(ggmap): there is no package called 'ggmap'}}\end{kframe}
+\end{knitrout}
 \addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
 \addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
 
@@ -178,20 +193,23 @@ The amount of carbon in \textbf{HWP} and \textbf{SWDS} depend on how much wood i
 \begin{block}{Sources of Data and Equations}
 
 \begin{enumerate}[I.]
-\item WOODCARB II Software in Microsoft Excel\textsuperscript{\textregistered}
-
-\vspace{0ex}
-Note: Base level data was given in spreadsheet. 
-\item Harvest Quantities: 
+\item Input data from reports by Hair, Ulrich, Howard, Ince, etc. 
+\vspace{.3ex}
+\item The Production Approach is:  
 \begin{equation}
-E = mc^{2}
+\frac{44}{12} * \Big(-\Delta C_{HWP\:IU\:DH} - \Delta C_{HWP\:SWDS\:DH}\Big)
 \label{eqn:Einstein}
 \end{equation}
-\item Imports, Exports, etc.:
-\item Decay of HWP:
+\vspace{.3ex}
+\item $\frac{44}{12}$ converts Carbon to $CO_2$
+\vspace{.3ex}
+\item $\Delta C_{HWP\:IU\:DH}$ is change in stock of HWP in use from 
+domestic harvest 
+\vspace{.3ex}
+\item $\Delta C_{HWP\:SWDS\:DH}$ is change in stock of HWP in SWDS
+from domestic harvest 
 \end{enumerate}
-\vspace{0ex}
-
+\vspace{.3ex}
 \end{block}
 \vfill
 
@@ -199,16 +217,17 @@ E = mc^{2}
 % Methodology
 %----------------------------------------------------------------------------------------
 \setbeamercolor{block title}{fg=fgreen,bg=white}
-\begin{block}{Methodology (what we did)}
+\begin{block}{Methodology}
 \begin{itemize}
-\item We have translated WOODCARB3 spreadsheet models into an R package.
-\vspace{1ex}
-\item  
-\vspace{1ex}
+\item Most analysis done with the Production approach.
+\vspace{.5ex}
+\item The Production approach focuses on carbon stocks in wood harvested in the US.
+\vspace{.5ex}
+\item Analysis is conducted of sensitivity of input parameters, uncertainty of estimates
+and consequences of alternative decay distributions. 
 \end{itemize}
-\vspace{0ex}
+\vspace{.3ex}
 \vfill
-
 \end{block}
 %----------------------------------------------------------------------------------------
 
@@ -296,9 +315,10 @@ E = mc^{2}
 
 \begin{block}{Decay}
 \begin{itemize}
-\item
-\item
-\item
+\item Decay functions are based on the gamma distribution:
+$$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
+\item WOODCARB2 used an exponential decay where $k=1$ in the gamma distribution
+\item Two alternate decay functions, $k=2$ and $k=10$, were calculated by altering $k$ in the gamma distribution and introduced in the WOODCARB3R package
 \end{itemize}
 \end{block}
 %----------------------------------------------------------------------------------------
@@ -340,7 +360,7 @@ E = mc^{2}
 \begin{block}{Overall Decay}
 \begin{center}
 \begin{figure}
-    {\includegraphics[width=1\linewidth, height=9cm]{overalldecay.png}};
+    {\includegraphics[width=1\linewidth, height=9cm]{DecayPlotOverall.pdf}};
     \caption{This figure shows the over effect of the decay function on Carbon Sequestration}
 \end{figure}
 \end{center}
