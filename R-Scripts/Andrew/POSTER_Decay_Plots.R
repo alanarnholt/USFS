@@ -23,6 +23,7 @@ k10[years] <- finalCarbonContribution(Years = years,
                                       plot = FALSE)
 
 ## plots
+par(mar=c(4,6,4,1)+0.1)
 plot(exp,
      type = "l",
      col = "red",
@@ -30,7 +31,7 @@ plot(exp,
      xlim = c(1900,2012),
      ylim = c(min(exp,k2,k10,na.rm=TRUE), max(exp,k2,k10,na.rm=TRUE)),
      main = "Effect of Decay Function on Carbon Sequestration",
-     ylab = "Carbon Contribution (Thousand Metric Tons CO2)",
+     ylab = "Carbon Contribution\n (Thousand Metric Tons CO2)",
      xlab = "Year")
 lines(k2,
       type = "l",
@@ -40,6 +41,7 @@ lines(k10,
       type = "l",
       col = "green",
       lwd = 3)
+par(mar=c(4,5,4,4)+0.1)
 
 
 

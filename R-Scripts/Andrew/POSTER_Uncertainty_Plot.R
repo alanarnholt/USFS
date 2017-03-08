@@ -6,7 +6,7 @@ library(WOODCARB3R)
 library(triangle)
 
 ## uncertainty samples
-repetitions <- 200 #number of times to repeat sample
+repetitions <- 2000 #number of times to repeat sample
 year <- c(1901:2012) #range of years to calculate and plot
 years <- length(year)
 final <- finalCarbonContribution(Years = year) #actual carbon contribution from package data
@@ -218,7 +218,7 @@ plot(errorarray[1,],
      xlim = c(1900,2012),
      main = "Uncertainty in Final Carbon Contribution", 
      xlab = "Year", 
-     ylab = "Carbon Contribution (Thousand Metric Tons CO2)")
+     ylab = "Carbon Contribution \n(Thousand Metric Tons CO2)")
 for (i in 2:repetitions)
 {
   points(errorarray[i,], type = "l", col = "cyan")

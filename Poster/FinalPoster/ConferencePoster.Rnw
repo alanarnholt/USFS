@@ -357,7 +357,7 @@ E = mc^{2}
 \begin{block}{Overall Decay}
 \begin{center}
 \begin{figure}
-    {\includegraphics[width=1\linewidth, height=9cm]{overalldecay.png}}
+    {\includegraphics[width=1\linewidth, height=9cm}{DecayPlotOverall.pdf}
     \caption{This figure shows the over effect of the decay function on Carbon Sequestration}
 \end{figure}
 \end{center}
