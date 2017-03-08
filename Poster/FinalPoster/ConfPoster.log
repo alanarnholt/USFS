@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.7)  8 MAR 2017 15:37
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.7)  8 MAR 2017 16:00
+>>>>>>> c8ee2c30bea7e9ae8953f0133b39a075ed11b7b3
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2192,16 +2196,16 @@ File: upxsyc.fd 2000/12/14 v1.0
 <usfs.png, id=13, 214.8025pt x 235.88126pt>
 File: usfs.png Graphic file (type png)
  <use usfs.png>
-Package pdftex.def Info: usfs.png used on input line 448.
+Package pdftex.def Info: usfs.png used on input line 455.
 (pdftex.def)             Requested size: 256.0748pt x 281.22766pt.
 
 <app.png, id=14, 446.66875pt x 113.42375pt>
 File: app.png Graphic file (type png)
  <use app.png>
-Package pdftex.def Info: app.png used on input line 448.
+Package pdftex.def Info: app.png used on input line 455.
 (pdftex.def)             Requested size: 654.41338pt x 166.19264pt.
-LaTeX Font Info:    Calculating math sizes for size <37.32> on input line 448.
-LaTeX Font Info:    Try loading font information for TS1+pxss on input line 448
+LaTeX Font Info:    Calculating math sizes for size <37.32> on input line 455.
+LaTeX Font Info:    Try loading font information for TS1+pxss on input line 455
 .
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pxfonts/ts1pxss.fd
@@ -2210,10 +2214,10 @@ File: ts1pxss.fd 2000/12/14 v1.0
 <projection.png, id=17, 794.97pt x 614.295pt>
 File: projection.png Graphic file (type png)
  <use projection.png>
-Package pdftex.def Info: projection.png used on input line 448.
+Package pdftex.def Info: projection.png used on input line 455.
 (pdftex.def)             Requested size: 922.69958pt x 312.98634pt.
 
-Overfull \hbox (10.40324pt too wide) in paragraph at lines 448--448
+Overfull \hbox (10.40324pt too wide) in paragraph at lines 455--455
  []\T1/pxss/m/n/37.32 ; 
  []
 
@@ -2221,10 +2225,10 @@ Overfull \hbox (10.40324pt too wide) in paragraph at lines 448--448
 File: Uncertainty_Plot.png Graphic file (type png)
 
 <use Uncertainty_Plot.png>
-Package pdftex.def Info: Uncertainty_Plot.png used on input line 448.
+Package pdftex.def Info: Uncertainty_Plot.png used on input line 455.
 (pdftex.def)             Requested size: 1969.58469pt x 284.54968pt.
 
-Overfull \hbox (10.62245pt too wide) in paragraph at lines 448--448
+Overfull \hbox (10.62245pt too wide) in paragraph at lines 455--455
  []\T1/pxss/m/n/37.32 ; 
  []
 
@@ -2232,23 +2236,30 @@ Overfull \hbox (10.62245pt too wide) in paragraph at lines 448--448
 File: Decay_Plot_Example.png Graphic file (type png)
 
 <use Decay_Plot_Example.png>
-Package pdftex.def Info: Decay_Plot_Example.png used on input line 448.
+Package pdftex.def Info: Decay_Plot_Example.png used on input line 455.
 (pdftex.def)             Requested size: 922.70163pt x 256.0907pt.
 
-Overfull \hbox (10.40529pt too wide) in paragraph at lines 448--448
+Overfull \hbox (10.40529pt too wide) in paragraph at lines 455--455
  []\T1/pxss/m/n/37.32 ; 
  []
 
-<overalldecay.png, id=20, 658.71094pt x 366.61969pt>
-File: overalldecay.png Graphic file (type png)
- <use overalldecay.png>
-Package pdftex.def Info: overalldecay.png used on input line 448.
-(pdftex.def)             Requested size: 922.70163pt x 256.08939pt.
+<CopyOfHLTable.pdf, id=20, 578.16pt x 216.81pt>
+File: CopyOfHLTable.pdf Graphic file (type pdf)
+ <use CopyOfHLTable.pdf>
+Package pdftex.def Info: CopyOfHLTable.pdf used on input line 455.
+(pdftex.def)             Requested size: 922.71942pt x 483.75876pt.
 
-Overfull \hbox (10.40529pt too wide) in paragraph at lines 448--448
+<DecayPlotOverall.pdf, id=21, 867.24pt x 289.08pt>
+File: DecayPlotOverall.pdf Graphic file (type pdf)
+ <use DecayPlotOverall.pdf>
+Package pdftex.def Info: DecayPlotOverall.pdf used on input line 455.
+(pdftex.def)             Requested size: 922.72386pt x 256.08942pt.
+
+Overfull \hbox (10.42752pt too wide) in paragraph at lines 455--455
  []\T1/pxss/m/n/37.32 ; 
  []
 
+<<<<<<< HEAD
 
 LaTeX Warning: File `CopyOfHLTable2.pdf' not found on input line 448.
 
@@ -2275,30 +2286,43 @@ File: halflifedens.png Graphic file (type png)
  <use halflifedens.png>
 Package pdftex.def Info: halflifedens.png used on input line 448.
 (pdftex.def)             Requested size: 922.82622pt x 284.54408pt.
+=======
+<CopyOfHLSensitivityGraph.pdf, id=22, 433.62pt x 289.08pt>
+File: CopyOfHLSensitivityGraph.pdf Graphic file (type pdf)
 
-Overfull \hbox (10.52988pt too wide) in paragraph at lines 448--448
+<use CopyOfHLSensitivityGraph.pdf>
+Package pdftex.def Info: CopyOfHLSensitivityGraph.pdf used on input line 455.
+(pdftex.def)             Requested size: 922.79001pt x 284.54036pt.
+>>>>>>> c8ee2c30bea7e9ae8953f0133b39a075ed11b7b3
+
+Overfull \hbox (10.49367pt too wide) in paragraph at lines 455--455
  []\T1/pxss/m/n/37.32 ; 
  []
 
 <qrcode.jpg, id=24, 371.3875pt x 371.3875pt>
 File: qrcode.jpg Graphic file (type jpg)
  <use qrcode.jpg>
-Package pdftex.def Info: qrcode.jpg used on input line 448.
+Package pdftex.def Info: qrcode.jpg used on input line 455.
 (pdftex.def)             Requested size: 227.62204pt x 227.62842pt.
 
-Overfull \vbox (52.48592pt too high) detected at line 448
+Overfull \vbox (12.86354pt too high) detected at line 455
  []
 
 <background.jpg, id=25, 4047.12pt x 3035.34pt>
 File: background.jpg Graphic file (type jpg)
  <use background.jpg>
-Package pdftex.def Info: background.jpg used on input line 448.
+Package pdftex.def Info: background.jpg used on input line 455.
 (pdftex.def)             Requested size: 4336.30414pt x 3035.37894pt.
  [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
  <./background.jpg> <./usfs.png> <./app.png> <./projection.png> <./Uncertainty_
+<<<<<<< HEAD
 Plot.png (PNG copy)> <./Decay_Plot_Example.png> <./overalldecay.png> <./halflif
 edens.png (PNG copy)> <./qrcode.jpg>]
+=======
+Plot.png (PNG copy)> <./Decay_Plot_Example.png> <./CopyOfHLTable.pdf> <./DecayP
+lotOverall.pdf> <./CopyOfHLSensitivityGraph.pdf> <./qrcode.jpg>]
+>>>>>>> c8ee2c30bea7e9ae8953f0133b39a075ed11b7b3
 \tf@nav=\write7
 \openout7 = `ConfPoster.nav'.
 
@@ -2308,25 +2332,37 @@ edens.png (PNG copy)> <./qrcode.jpg>]
 \tf@snm=\write9
 \openout9 = `ConfPoster.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 450.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 450.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 457.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 457.
  (./ConfPoster.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 450.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 450.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 450.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 457.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 457.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 457.
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  31184 strings out of 493093
  623145 string characters out of 6134996
  792307 words of memory out of 5000000
  33984 multiletter control sequences out of 15000+600000
  58544 words of font info for 114 fonts, out of 8000000 for 9000
+=======
+ 31164 strings out of 493093
+ 622852 string characters out of 6134996
+ 799814 words of memory out of 5000000
+ 33959 multiletter control sequences out of 15000+600000
+ 60166 words of font info for 121 fonts, out of 8000000 for 9000
+>>>>>>> c8ee2c30bea7e9ae8953f0133b39a075ed11b7b3
  1141 hyphenation exceptions out of 8191
  61i,17n,89p,10420b,1730s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/amsfonts/euler/euex10.pfb></usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local
 /texlive/2015/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/loc
 al/texlive/2015/texmf-dist/fonts/type1/public/txfonts/rtcxss.pfb></usr/local/te
+<<<<<<< HEAD
 xlive/2015/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/
 2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2015/te
 xmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
@@ -2334,6 +2370,14 @@ Output written on ConfPoster.pdf (1 page, 3576748 bytes).
 PDF statistics:
  73 PDF objects out of 1000 (max. 8388607)
  41 compressed objects within 1 object stream
+=======
+xlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on ConfPoster.pdf (1 page, 3605032 bytes).
+PDF statistics:
+ 99 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
+>>>>>>> c8ee2c30bea7e9ae8953f0133b39a075ed11b7b3
  4 named destinations out of 1000 (max. 500000)
  94 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -123,8 +123,10 @@ colnames(hh)[14]<-"Paper"
 VarianceTable<-cbind(t(hh),VarianceTable)
 colnames(VarianceTable)<-c("Half Life",1990,2000,2010)
 
+VarianceTable<-round(VarianceTable,2)
+
 VarianceTable<-VarianceTable[-c(3,5,6,7,10),]
-rownames(VarianceTable)<-c("Single Fam Homes", "Multi Fam Homes", "Res Upkeep", "House Furniture", "Comm. Furniture", "Shipping", "Other", "Industrial", "Paper")
+rownames(VarianceTable)<-c("Single Family", "Multi Family", "Resid Upkeep", "House Furniture", "Comm. Furniture", "Shipping", "Other", "Industrial", "Paper")
 
 VarianceTable<-VarianceTable[c(1,2,6,4,5,8,7,3,9),]
 
@@ -160,7 +162,7 @@ dev.off()
 
 
 
-pdf(file = ("HLTable.pdf"), height = 3, width = 8)
+pdf(file = ("HLTable.pdf"), height = 3, width = 5.5)
 VarTab<-as.table(VarianceTable)
 grid.table(VarTab, theme = ttheme_default(base_size = 12))
 dev.off()
