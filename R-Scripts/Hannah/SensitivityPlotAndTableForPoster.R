@@ -138,8 +138,12 @@ lines(finalCarbonContribution(paperHL = 2.53087281800454*1.5), lwd = 5, col = "o
 
 
 #exporting graphs and table as PDF
-pdf(file = ("HLSensitivityGraph.pdf"), height = 4, width = 6)
+pdf(file = "HLSensitivityGraph.pdf", height = 2, width = 6)
 
+
+
+
+par(mar=c(4,5,1,1)+0.1)
 plot(density(as.numeric(Histdf6b)), main = NA, ylim=c(0,.029), xlim=c(-113500,-112500), xlab = "Carbon Contribution")
 
 
@@ -157,7 +161,7 @@ lines(density(as.numeric(Histdf11b)), col="skyblue")
 lines(density(as.numeric(Histdf12b)), col="tan2")
 lines(density(as.numeric(Histdf13b)), col="seagreen")
 lines(density(as.numeric(Histdf14b)), col="rosybrown")
-
+par(mar=c(4,5,4,4)+0.1)
 dev.off()
 
 
