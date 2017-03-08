@@ -1,0 +1,19 @@
+---
+title: "Poster Captions"
+author: "Andrew Sullivan"
+date: "March 8, 2017"
+output: html_document
+---
+
+*Figure #* 95% confidence intervals for projected carbon sequestration of hardwood products based on 5-year (orange) and 10-year (blue) simple linear regression
+
+*Figure #* Overall carbon sequestration by hardwood products using exponential (red), $k=2$ (blue), and $k=10$ (green) decay function
+
+*Figure #* Example of the shape of decay function using exponential (red), $k=2$ (blue), and $k=10$ (green) decay functions
+
+*Figure #* Uncertainty in carbon sequestration by hardwood products based on 2000 sample calculations including error sources and distributions defined in "Sequestration of carbon in harvested wood products for the United States" (Skog 2008)
+
+* Decay functions are based on the gamma distribution:
+$$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
+* WOODCARB2 used an exponential decay where $k=1$ in the gamma distribution
+* Two alternate decay functions, $k=2$ and $k=10$, were calculated by altering $k$ in the gamma distribution and introduced in the WOODCARB3R package
