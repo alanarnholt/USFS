@@ -177,20 +177,23 @@
 \begin{block}{Sources of Data and Equations}
 
 \begin{enumerate}[I.]
-\item WOODCARB II Software in Microsoft Excel\textsuperscript{\textregistered}
-
-\vspace{0ex}
-Note: Base level data was given in spreadsheet. 
-\item Harvest Quantities: 
+\item Input data from reports by Hair, Ulrich, Howard, Ince, etc. 
+\vspace{.3ex}
+\item The Production Approach is:  
 \begin{equation}
-E = mc^{2}
+\frac{44}{12} * \Big(-\Delta C_{HWP\:IU\:DH} - \Delta C_{HWP\:SWDS\:DH}\Big)
 \label{eqn:Einstein}
 \end{equation}
-\item Imports, Exports, etc.:
-\item Decay of HWP:
+\vspace{.3ex}
+\item $\frac{44}{12}$ converts Carbon to $CO_2$
+\vspace{.3ex}
+\item $\Delta C_{HWP\:IU\:DH}$ is change in stock of HWP in use from 
+domestic harvest 
+\vspace{.3ex}
+\item $\Delta C_{HWP\:SWDS\:DH}$ is change in stock of HWP in SWDS
+from domestic harvest 
 \end{enumerate}
-\vspace{0ex}
-
+\vspace{.3ex}
 \end{block}
 \vfill
 
@@ -198,16 +201,17 @@ E = mc^{2}
 % Methodology
 %----------------------------------------------------------------------------------------
 \setbeamercolor{block title}{fg=fgreen,bg=white}
-\begin{block}{Methodology (what we did)}
+\begin{block}{Methodology}
 \begin{itemize}
-\item We have translated WOODCARB3 spreadsheet models into an R package.
-\vspace{1ex}
-\item  
-\vspace{1ex}
+\item Most analysis done with the Production approach.
+\vspace{.5ex}
+\item The Production approach focuses on carbon stocks in wood harvested in the US.
+\vspace{.5ex}
+\item Analysis is conducted of sensitivity of input parameters, uncertainty of estimates
+and consequences of alternative decay distributions. 
 \end{itemize}
-\vspace{0ex}
+\vspace{.3ex}
 \vfill
-
 \end{block}
 %----------------------------------------------------------------------------------------
 
@@ -276,7 +280,7 @@ E = mc^{2}
 \begin{center}
 
 \begin{figure}
-    {\includegraphics[width=1\linewidth,height=10cm]{Uncertainty_Plot.png}};
+    {\includegraphics[width=1\linewidth,height=10cm]{LongPlot.pdf}}
     \caption{this is the caption that shows what is in the figure that explains the plot of HWP stocks and provides and envelope of uncertainty around it
     this is the caption that shows what is in the figure that explains the plot of HWP stocks and provides and envelope of uncertainty around it}
 \end{figure}
@@ -299,9 +303,11 @@ E = mc^{2}
       (0,0) rectangle (\textwidth,0.4cm);
     \end{tikzpicture}
 \begin{itemize}
-\item Information is intended to aid in international discussions and any agreements about managing greenhouse gas emissions and sinks.
-\item Also provides national level methods and estimates of carbon sinks and emissions associated with HWP.
-\item 
+\item Halflife role in final carbon contribution calculation.
+\item Error is assumed to be N(1,.2). 
+\item Assume how well halflifes hold with applied error.
+\item Results can be used to improve half-lives.
+\item Results can also show which half-lives are concerete.
 \end{itemize}
 \vspace{0ex}
 
@@ -313,18 +319,32 @@ E = mc^{2}
 \begin{block}{Sensitivity Plot}
 \begin{center}
 \begin{figure}
+<<<<<<< HEAD
     {\includegraphics[width=1\linewidth,height=10cm]{halflifedens.png}};
     \caption{Figure caption}
+=======
+    {\includegraphics[width=1\linewidth,height=18cm]{CopyOfHLSensitivityGraph.pdf}}
+    \caption{New.Nonres.Rties and New.Nonres.Rcar.Repair have the least variance.}
+>>>>>>> f7283b686d1e54ba0244df88d9cc692e51614753
 \end{figure}
 \end{center}
 \end{block}
 %---------------------------------------------------------------------
+<<<<<<< HEAD
 \begin{block}{Sensitivity of Input}
 \begin{center}
 
 \begin{figure}
     {\includegraphics[width=1\linewidth]{graph1.png}};
     \caption{Figure caption}
+=======
+\begin{block}{Half-life Table}
+\begin{center}
+
+\begin{figure}
+    {\includegraphics[width=1\linewidth, height = 17cm]{CopyOfHLTable.pdf}}
+    
+>>>>>>> f7283b686d1e54ba0244df88d9cc692e51614753
 \end{figure}
 \end{center}
 \end{block}
@@ -333,7 +353,37 @@ E = mc^{2}
 
 \end{column} % End of column 2.1
 
+<<<<<<< HEAD
 \begin{column}{\onecolwid} % The second column within column 2 (column 2.2)
+=======
+
+
+
+%----------------------------------------------------------------------------------------
+%Sensitivity Plot Example
+%----------------------------------------------------------------------------------------
+\begin{block}{Sensitivity Affect}
+\begin{center}
+
+\begin{figure}
+    {\includegraphics[width=1\linewidth, height = 13cm]{CopyOfTSPlot.pdf}}
+    \caption{This is a comparison between Paper half-life and a 50 percent increase.}
+\end{figure}
+\end{center}
+\end{block}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of column 2.2
+
+\end{columns} % End of the split of column 2
+
+\end{column} % End of the second column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The third column
+>>>>>>> f7283b686d1e54ba0244df88d9cc692e51614753
 
 %----------------------------------------------------------------------------------------
 %	RESULTS
@@ -353,7 +403,7 @@ E = mc^{2}
 \begin{block}{Decay of Hardwood in Multifamily housing}
 \begin{center}
 \begin{figure}
-    {\includegraphics[width=1\linewidth, height=9cm]{Decay_Plot_Example.png}};
+    {\includegraphics[width=1\linewidth, height=9cm]{Decay_Plot_Example.png}}
     \caption{This figure shows the over effect of the decay function on multifamily housing built in 1960}
 \end{figure}
 \end{center}
@@ -366,7 +416,7 @@ E = mc^{2}
 \begin{block}{Overall Decay}
 \begin{center}
 \begin{figure}
-    {\includegraphics[width=1\linewidth, height=9cm]{overalldecay.png}};
+    {\includegraphics[width=1\linewidth, height=9cm]{overalldecay.png}}
     \caption{This figure shows the over effect of the decay function on Carbon Sequestration}
 \end{figure}
 \end{center}
@@ -392,7 +442,7 @@ E = mc^{2}
 \begin{center}
 
 \begin{figure}
-    {\includegraphics[width=1\linewidth]{graph1.png}};
+    {\includegraphics[width=1\linewidth]{graph1.png}}
     \caption{Figure caption}
 \end{figure}
 \end{center}
