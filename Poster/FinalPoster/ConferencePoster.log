@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.6.3)  8 MAR 2017 11:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.6.3)  8 MAR 2017 11:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2262,17 +2262,13 @@ File: graph1.png Graphic file (type png)
 Package pdftex.def Info: graph1.png used on input line 487.
 (pdftex.def)             Requested size: 922.6713pt x 582.63716pt.
 
-Overfull \hbox (10.37495pt too wide) in paragraph at lines 487--487
- []\T1/pxss/m/n/37.32 ; 
- []
-
 <qrcode.jpg, id=29, 371.3875pt x 371.3875pt>
 File: qrcode.jpg Graphic file (type jpg)
  <use qrcode.jpg>
 Package pdftex.def Info: qrcode.jpg used on input line 487.
 (pdftex.def)             Requested size: 227.62204pt x 227.62842pt.
 
-Overfull \vbox (1248.34863pt too high) detected at line 487
+Overfull \vbox (1203.34863pt too high) detected at line 487
  []
 
 <background.jpg, id=30, 4047.12pt x 3035.34pt>
@@ -2303,10 +2299,10 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 489.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 489.
  ) 
 Here is how much of TeX's memory you used:
- 32512 strings out of 493027
- 646625 string characters out of 6134070
- 818910 words of memory out of 5000000
- 35371 multiletter control sequences out of 15000+600000
+ 32511 strings out of 493027
+ 646606 string characters out of 6134070
+ 818906 words of memory out of 5000000
+ 35370 multiletter control sequences out of 15000+600000
  58222 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,16n,89p,10426b,1494s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2316,7 +2312,7 @@ exlive/2015/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local
 al/texlive/2015/texmf-dist/fonts/type1/public/txfonts/rtcxss.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2
 015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on ConferencePoster.pdf (1 page, 3717223 bytes).
+Output written on ConferencePoster.pdf (1 page, 3717205 bytes).
 PDF statistics:
  98 PDF objects out of 1000 (max. 8388607)
  59 compressed objects within 1 object stream
