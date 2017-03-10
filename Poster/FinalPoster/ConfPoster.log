@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.7)  8 MAR 2017 16:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.7)  10 MAR 2017 14:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1420,7 +1420,7 @@ Package beamerposter Info: checking size input, please wait. on input line 129.
 Package beamerposter Info: the input custom\ 6\ was correct, we proceed. on inp
 ut line 129.
 Package beamerposter Info: finished size input check. on input line 129.
-Package beamerposter Info: custom poster width=152.4 on input line 129.
+Package beamerposter Info: custom poster width=122 on input line 129.
 Package beamerposter Info: custom poster height=106.68 on input line 129.
 Package beamerposter Info: myfontscale=1.5 on input line 129.
 Package beamerposter Info: enabled debug mode on input line 129.
@@ -1444,11 +1444,11 @@ FP debug: upn: +++ computing upn-expression "1 customwidth -"
 FP debug: upn: calculating "1"
 FP debug: upn: result      "1"
 FP debug: upn: calculating "customwidth"
-FP debug: upn: result      "152.4"
-FP debug: upn: calculating "152.4 sub 1"
+FP debug: upn: result      "122"
+FP debug: upn: calculating "122 sub 1"
 ( FP-SUB )
-FP debug: upn: result      "151.400000000000000000"
-FP debug: upn: +++ result of upn-expression is "(151.400000000000000000)"
+FP debug: upn: result      "121.000000000000000000"
+FP debug: upn: +++ result of upn-expression is "(121.000000000000000000)"
 ) ( FP-UPN
 FP debug: upn: +++ computing upn-expression "1 customheight -"
 FP debug: upn: calculating "1"
@@ -1460,9 +1460,9 @@ FP debug: upn: calculating "106.68 sub 1"
 FP debug: upn: result      "105.680000000000000000"
 FP debug: upn: +++ result of upn-expression is "(105.680000000000000000)"
 )
-Package beamerposter Info: paperwidth=4336.19981pt, paperheight=3035.33978pt on
- input line 172.
-Package beamerposter Info: textwidth=4307.74707pt, textwidth=3006.88702pt on in
+Package beamerposter Info: paperwidth=3471.2362pt, paperheight=3035.33978pt on 
+input line 172.
+Package beamerposter Info: textwidth=3442.78346pt, textwidth=3006.88702pt on in
 put line 173.
 Package beamerposter Info: fontscale=1.0, myfontscale=1.50 on input line 174.
  ( FP-UPN
@@ -2043,11 +2043,11 @@ File: t1pxss.fd 2000/12/14 v1.0
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: includehead includefoot 
-* h-part:(L,W,R)=(28.45274pt, 4279.29433pt, 28.45274pt)
+* h-part:(L,W,R)=(28.45274pt, 3414.33072pt, 28.45274pt)
 * v-part:(T,H,B)=(0.0pt, 3035.33978pt, 0.0pt)
-* \paperwidth=4336.19981pt
+* \paperwidth=3471.2362pt
 * \paperheight=3035.33978pt
-* \textwidth=4279.29433pt
+* \textwidth=3414.33072pt
 * \textheight=3006.88705pt
 * \oddsidemargin=-43.81725pt
 * \evensidemargin=-43.81725pt
@@ -2189,6 +2189,10 @@ LaTeX Font Info:    Try loading font information for U+pxsyc on input line 111.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pxfonts/upxsyc.fd
 File: upxsyc.fd 2000/12/14 v1.0
 )
+Overfull \hbox (735.7883pt too wide) detected at line 111
+ [] 
+ []
+
 <usfs.png, id=13, 214.8025pt x 235.88126pt>
 File: usfs.png Graphic file (type png)
  <use usfs.png>
@@ -2211,9 +2215,9 @@ File: ts1pxss.fd 2000/12/14 v1.0
 File: projection.png Graphic file (type png)
  <use projection.png>
 Package pdftex.def Info: projection.png used on input line 469.
-(pdftex.def)             Requested size: 1009.44301pt x 312.98634pt.
+(pdftex.def)             Requested size: 801.8459pt x 312.98634pt.
 
-Overfull \hbox (10.40414pt too wide) in paragraph at lines 469--469
+Overfull \hbox (10.40305pt too wide) in paragraph at lines 469--469
  []\T1/pxss/m/n/37.32 ; 
  []
 
@@ -2222,9 +2226,9 @@ File: Uncertainty_Plot.png Graphic file (type png)
 
 <use Uncertainty_Plot.png>
 Package pdftex.def Info: Uncertainty_Plot.png used on input line 469.
-(pdftex.def)             Requested size: 2082.74004pt x 284.54968pt.
+(pdftex.def)             Requested size: 1658.45268pt x 284.54968pt.
 
-Overfull \hbox (11.03238pt too wide) in paragraph at lines 469--469
+Overfull \hbox (10.58194pt too wide) in paragraph at lines 469--469
  []\T1/pxss/m/n/37.32 ; 
  []
 
@@ -2233,9 +2237,9 @@ File: Decay_Plot_Example.png Graphic file (type png)
 
 <use Decay_Plot_Example.png>
 Package pdftex.def Info: Decay_Plot_Example.png used on input line 469.
-(pdftex.def)             Requested size: 1009.44267pt x 256.0907pt.
+(pdftex.def)             Requested size: 801.83707pt x 256.0907pt.
 
-Overfull \hbox (10.40381pt too wide) in paragraph at lines 469--469
+Overfull \hbox (10.39421pt too wide) in paragraph at lines 469--469
  []\T1/pxss/m/n/37.32 ; 
  []
 
@@ -2243,15 +2247,15 @@ Overfull \hbox (10.40381pt too wide) in paragraph at lines 469--469
 File: CopyOfHLTable.pdf Graphic file (type pdf)
  <use CopyOfHLTable.pdf>
 Package pdftex.def Info: CopyOfHLTable.pdf used on input line 469.
-(pdftex.def)             Requested size: 1009.46616pt x 483.75876pt.
+(pdftex.def)             Requested size: 801.85803pt x 483.75876pt.
 
 <DecayPlotOverall.pdf, id=21, 867.24pt x 289.08pt>
 File: DecayPlotOverall.pdf Graphic file (type pdf)
  <use DecayPlotOverall.pdf>
 Package pdftex.def Info: DecayPlotOverall.pdf used on input line 469.
-(pdftex.def)             Requested size: 1009.46617pt x 256.08942pt.
+(pdftex.def)             Requested size: 801.85364pt x 256.08942pt.
 
-Overfull \hbox (10.4273pt too wide) in paragraph at lines 469--469
+Overfull \hbox (10.41078pt too wide) in paragraph at lines 469--469
  []\T1/pxss/m/n/37.32 ; 
  []
 
@@ -2260,13 +2264,13 @@ File: CopyOfHLSensitivityGraph1.pdf Graphic file (type pdf)
 
 <use CopyOfHLSensitivityGraph1.pdf>
 Package pdftex.def Info: CopyOfHLSensitivityGraph1.pdf used on input line 469.
-(pdftex.def)             Requested size: 1009.53894pt x 284.54253pt.
+(pdftex.def)             Requested size: 801.91978pt x 284.54253pt.
 
 <CopyOfTSPlot.pdf, id=23, 433.62pt x 289.08pt>
 File: CopyOfTSPlot.pdf Graphic file (type pdf)
  <use CopyOfTSPlot.pdf>
 Package pdftex.def Info: CopyOfTSPlot.pdf used on input line 469.
-(pdftex.def)             Requested size: 1009.53894pt x 369.90643pt.
+(pdftex.def)             Requested size: 801.91978pt x 369.90643pt.
 
 <qrcode.jpg, id=26, 371.3875pt x 371.3875pt>
 File: qrcode.jpg Graphic file (type jpg)
@@ -2274,15 +2278,25 @@ File: qrcode.jpg Graphic file (type jpg)
 Package pdftex.def Info: qrcode.jpg used on input line 469.
 (pdftex.def)             Requested size: 227.62204pt x 227.62842pt.
 
-Overfull \vbox (162.88414pt too high) detected at line 469
+Overfull \vbox (500.42372pt too high) detected at line 469
  []
 
 <background.jpg, id=27, 3139.73pt x 2354.7975pt>
 File: background.jpg Graphic file (type jpg)
  <use background.jpg>
 Package pdftex.def Info: background.jpg used on input line 469.
-(pdftex.def)             Requested size: 4336.47325pt x 3035.36598pt.
- [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+(pdftex.def)             Requested size: 3471.43987pt x 3035.36598pt.
+
+Overfull \hbox (735.7883pt too wide) has occurred while \output is active
+ [] 
+ []
+
+
+Overfull \hbox (36.135pt too wide) has occurred while \output is active
+[] []
+ []
+
+[1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
  <./background.jpg> <./usfs.png> <./app.png> <./projection.png> <./Uncertainty_
 Plot.png (PNG copy)> <./Decay_Plot_Example.png> <./CopyOfHLTable.pdf> <./DecayP
@@ -2299,17 +2313,16 @@ e.jpg>]
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 471.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 471.
-
 (./ConfPoster.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 471.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 471.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 471.
  ) 
 Here is how much of TeX's memory you used:
- 31169 strings out of 493093
- 622956 string characters out of 6134996
- 805695 words of memory out of 5000000
- 33963 multiletter control sequences out of 15000+600000
+ 31168 strings out of 493093
+ 622937 string characters out of 6134996
+ 806292 words of memory out of 5000000
+ 33962 multiletter control sequences out of 15000+600000
  60166 words of font info for 121 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,17n,89p,10420b,1730s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2322,7 +2335,7 @@ exlive/2015/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local
 al/texlive/2015/texmf-dist/fonts/type1/public/txfonts/rtcxss.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2
 015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on ConfPoster.pdf (1 page, 5812086 bytes).
+Output written on ConfPoster.pdf (1 page, 5812188 bytes).
 PDF statistics:
  107 PDF objects out of 1000 (max. 8388607)
  67 compressed objects within 1 object stream

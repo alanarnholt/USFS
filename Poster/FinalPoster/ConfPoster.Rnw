@@ -4,7 +4,7 @@
 
 \usepackage{mdframed}
 \usepackage{graphicx}
-\usepackage[orientation=landscape, size=custom, width =152.4, height=106.68, scale=1.5, debug]{beamerposter}
+\usepackage[orientation=landscape, size=custom, width =122, height=106.68, scale=1.5, debug]{beamerposter}
 
 \setbeamercolor{block title}{fg=black,bg=white} % Colors of the block titles
 \setbeamercolor{block body}{fg=black,bg=white} % Colors of the body of blocks
