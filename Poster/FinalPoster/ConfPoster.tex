@@ -89,7 +89,7 @@
 \setlength{\onecolwid}{0.24\paperwidth} % Width of one column
 \setlength{\twocolwid}{0.49\paperwidth} % Width of two columns
 \setlength{\threecolwid}{0.74\paperwidth} % Width of three columns
-\setlength{\topmargin}{-0.5in} % Reduce the top margin size
+\setlength{\topmargin}{-.7in} % Reduce the top margin size
 %-----------------------------------------------------------
 
 \usepackage{graphicx}  % Required for including images
@@ -110,12 +110,12 @@
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 
-\addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
-\addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
+\addtobeamertemplate{block end}{}{\vspace*{1ex}} % White space under blocks
+\addtobeamertemplate{block alerted end}{}{\vspace*{1ex}} % White space under highlighted (alert) blocks
 
 
-\setlength{\belowcaptionskip}{2ex} % White space under figures
-\setlength\belowdisplayshortskip{2ex} % White space under equations
+\setlength{\belowcaptionskip}{1ex} % White space under figures
+\setlength\belowdisplayshortskip{.7ex} % White space under equations
 
 \begin{frame}[t] % The whole poster is enclosed in one beamer frame
 
@@ -123,9 +123,9 @@
 \begin{tikzpicture}[remember picture,overlay]
 %add logos in corners
 \node[anchor=north west] at ([shift={(6cm,0cm)}]current page.north west)
-    {\includegraphics[width=9cm]{usfs.png}};
-\node[anchor=north east] at ([shift={(-3cm,-1cm)}]current page.north east)
-    {\includegraphics[width=23cm]{app.png}};
+    {\includegraphics[width=8.5cm]{usfs.png}};
+\node[anchor=north east] at ([shift={(-.8cm,-2cm)}]current page.north east)
+    {\includegraphics[width=18cm]{app.png}};
 \end{tikzpicture}
 
 \begin{columns}[t] % The whole poster consists of three major columns, the second of which is split into two columns twice - the [t] option aligns each column's content to the top
