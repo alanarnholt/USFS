@@ -126,7 +126,7 @@ colnames(VarianceTable)<-c("Half Life",1990,2000,2010)
 VarianceTable<-round(VarianceTable,2)
 
 VarianceTable<-VarianceTable[-c(3,5,6,7,10),]
-rownames(VarianceTable)<-c("Single Family", "Multi Family", "Resid Upkeep", "House Furniture", "Comm. Furniture", "Shipping", "Other", "Industrial", "Paper")
+rownames(VarianceTable)<-c("Single Family", "Multi Family", "Resid Upkeep", "House Furn", "Comm. Furn", "Shipping", "Other", "Industrial", "Paper")
 
 VarianceTable<-VarianceTable[c(1,2,6,4,5,8,7,3,9),]
 
@@ -143,8 +143,10 @@ pdf(file = "HLSensitivityGraph.pdf", height = 2, width = 6)
 
 
 
-par(mar=c(4,5,1,1)+0.1)
-plot(density(as.numeric(Histdf6b)), main = NA, ylim=c(0,.029), xlim=c(-113500,-112500), xlab = "Carbon Contribution")
+par(mar=c(2.8,2.7,0.8,0.1)+0.1)
+plot(density(as.numeric(Histdf6b)), main = NA, ylim=c(0,.029), xlim=c(-113500,-112500), xlab = "", ylab = "", cex.lab = 0.7, cex.axis = 0.7)
+title(xlab="Carbon Contribution", line=2, cex.lab=0.7)
+title(ylab="Density", line=2, cex.lab=0.7)
 
 
 lines(density(as.numeric(Histdfb)), col="black")
@@ -166,7 +168,7 @@ dev.off()
 
 
 
-pdf(file = ("HLTable.pdf"), height = 3, width = 5.5)
+pdf(file = ("HLTable.pdf"), height = 3, width = 5.1)
 VarTab<-as.table(VarianceTable)
 grid.table(VarTab, theme = ttheme_default(base_size = 12))
 dev.off()
@@ -174,11 +176,13 @@ dev.off()
 
 
 
-pdf(file = ("TSPlot.pdf"), height = 4, width = 6)
-
-plot(c(1990:2015),finalCarbonContribution(), xlab = "Years", ylab = "Carbon Contribution", main = NA,type = "l",col="blue",lwd=3)
+pdf(file = ("TSPlot.pdf"), height = 2.3, width = 6)
+par(mar=c(2.8,2.7,0.2,0.1)+0.1)
+plot(c(1990:2015),finalCarbonContribution(), xlab = "", ylab = "", main = NA,type = "l",col="blue",lwd=3, cex.lab = 0.7, cex.axis = 0.7)
 lines(c(1990:2015),finalCarbonContribution(paperHL = 2.53087281800454*1.5), lwd = 3, col = "orange")
-
+title(xlab="Years", line=2, cex.lab=0.7)
+title(ylab="Carbon Contribution", line=2, cex.lab=0.7)
+par(mar=c(4,5,4,4)+0.1)
 dev.off()
 
 

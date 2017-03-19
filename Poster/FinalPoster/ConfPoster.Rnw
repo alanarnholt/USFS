@@ -270,7 +270,7 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 \begin{center}
 \vspace{-2cm}
 \begin{figure}
-    {\includegraphics[width=1\linewidth, height=9cm]{DecayPlotExample.pdf}};
+    {\includegraphics[width=1\linewidth, height=9cm]{DecayPlotExample.pdf}}
     \caption{This figure shows the over effect of the decay function on multifamily housing built in 1960}
 \end{figure}
 \end{center}
@@ -306,7 +306,7 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 \begin{center}
 \vspace{-2cm}
 \begin{figure}
-    {\includegraphics[width=1\linewidth, height=9cm]{DecayPlotOverall.pdf}};
+    {\includegraphics[width=1\linewidth, height=9cm]{DecayPlotOverall.pdf}}
     \caption{This figure shows the over effect of the decay function on Carbon Sequestration}
 \end{figure}
 \end{center}
@@ -349,7 +349,7 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 \begin{center}
 \vspace{-2cm}
 \begin{figure}
-    {\includegraphics[width=1\linewidth,height=10cm]{CopyOfHLSensitivityGraph1.pdf}}
+    {\includegraphics[width=1\linewidth,height=10cm]{CopyOfHLSensitivityGraph.pdf}}
     \caption{Figure New.Nonres.Rties and New.Nonres.Rcar.Repair have the least variance.}
 \end{figure}
 \end{center}
