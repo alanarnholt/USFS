@@ -136,29 +136,6 @@ The amount of carbon in \textbf{HWP} and \textbf{SWDS} depend on how much wood i
 
 
 %------------------------------------------------
-\setbeamercolor{block title}{fg=black,bg=white}
-\begin{block}{Sources of Data and Equations}
-
-\begin{enumerate}[I.]
-\item Input data from reports by Hair, Ulrich, Howard, Ince, etc. 
-\vspace{.3ex}
-\item The Production Approach is:  
-\begin{equation}
-\frac{44}{12} * \Big(-\Delta C_{HWP\:IU\:DH} - \Delta C_{HWP\:SWDS\:DH}\Big)
-\label{eqn:Einstein}
-\end{equation}
-\vspace{.3ex}
-\item $\frac{44}{12}$ converts Carbon to $CO_2$
-\vspace{.3ex}
-\item $\Delta C_{HWP\:IU\:DH}$ is change in stock of HWP in use from 
-domestic harvest 
-\vspace{.3ex}
-\item $\Delta C_{HWP\:SWDS\:DH}$ is change in stock of HWP in SWDS
-from domestic harvest 
-\end{enumerate}
-\vspace{.3ex}
-\end{block}
-\vfill
 
 %----------------------------------------------------------------------------------------
 % Methodology
@@ -166,10 +143,12 @@ from domestic harvest
 \setbeamercolor{block title}{fg=fgreen,bg=white}
 \begin{block}{Methodology}
 \begin{itemize}
-\item Most analysis done using the Production approach
-\item The Production approach focuses on carbon stocks in wood harvested in the US
+\item Input data comes from USFS reports as used in WOODCARB2.
+\item The following results use the production approach to carbon accounting. This assumes that a party is responsible for emissions from any produced HWP or SWDS, which includes exports but not imports.
+\item Stock change and atmospheric flow approach results are also available.
 \item Analysis is conducted of sensitivity of input parameters, uncertainty of estimates
 and consequences of alternative decay distributions. 
+\item Sensitivity and uncertainty calculations using Monte Carlo simulations.
 \end{itemize}
 \end{block}
 %----------------------------------------------------------------------------------------
@@ -195,9 +174,9 @@ and consequences of alternative decay distributions.
 
 \begin{block}{Uncertainty Analysis}
 \begin{itemize}
-\item Error sources and distributions were defined previously by the USFS and introduced using the WOODCARB3 package
-\item These included error in production and stock reporting, carbon conversion factors, percentage subject to decay, etc
-\item Uncertainty was modeled using a Monte Carlo simulation with one thousand repetitions
+\item Sources of error and uncertainty were defined previously by the USFS (Skog 2008)
+\item These sources include solid wood and paper production and time series, factor to convert solid wood and paper products to carbon, fractions of solid wood and paper products subject to decay in landfills, and decay rate for solid wood and paper in SWDS
+\item Projection and imputation methods are currently under development
 \end{itemize}
 \end{block}
 
@@ -236,7 +215,7 @@ and consequences of alternative decay distributions.
 \begin{center}
 \begin{figure}
     {\includegraphics[width=1\linewidth,height=15cm]{UncertaintyPlot.pdf}}
-    \caption{Default carbon contribution produced by WOODCARB3 (red) surrounded by results from Monte Carlo simulation (blue)}
+    \caption{Reported HWP and SWDS carbon stock produced by WOODCARB3 (red) surrounded by simulations including reported uncertainties (blue)}
 \end{figure}
 \end{center}
 \end{alertblock} 
@@ -324,13 +303,10 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 \setbeamercolor{block body}{fg=black,bg=white} % Change the alert block body colors
 \setbeamercolor{item}{fg=lgold, bg=black}
 
-\begin{block}{Sensitivity Analysis}
+\begin{block}{Half-life Sensitivity Analysis}
 \begin{itemize}
-\item Halflife role in final carbon contribution calculation.
-\item Error is assumed to be N(1,.2). 
-\item Assume how well halflifes hold with applied error.
-\item Results can be used to improve half-lives.
-\item Results can also show which half-lives are concerete.
+\item Error is assumed to be N(1,.2) 
+\item Results show influence of small changes in half-life on HWP stock
 \end{itemize}
 \vspace{0ex}
 
@@ -344,8 +320,8 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 \vspace{-2cm}
 \begin{figure}
     {\includegraphics[width=1\linewidth,height=15cm]{CopyOfHLSensitivityGraph.pdf}}
-    \caption{Figure New.Nonres.Rties and New.Nonres.Rcar.Repair have the least variance.}
 \end{figure}
+{\bf Figure 5.} Sensitivity of total HWP stock to end use distribution
 \end{center}
 \end{block}
 
@@ -354,11 +330,11 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 %----------------------------------------------------------------------------------------
 \begin{block}{Half-life Sensitivity Effect}
 \begin{center}
-
+\vspace{-2cm}
 \begin{figure}
-    {\includegraphics[width=1\linewidth, height = 15cm]{CopyOfTSPlot.pdf}}
-    \caption{Standard paper half-life (orange) compared to a 50-percent increase (blue)}
+    {\includegraphics[width=1\linewidth, height = 13cm]{CopyOfTSPlot.pdf}}
 \end{figure}
+{\bf Figure 5.} Targeted increase in half-life of paper (orange) by 50-percent (blue)
 \end{center}
 \end{block}
 
@@ -389,7 +365,7 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 
 \begin{block}{Acknowledgements}
 
-This work was funded by a Research Joint Venture Agreements with the USDA Forest Service, Northern Research Station and the USDA Forest Service, Southern Research Station.
+{\small This work was funded by a Research Joint Venture Agreements with the USDA Forest Service, Northern Research Station and the USDA Forest Service, Southern Research Station.}
 
 \end{block}
 
@@ -409,9 +385,10 @@ This work was funded by a Research Joint Venture Agreements with the USDA Forest
 \end{itemize}
 \vspace{0ex}
 \begin{center}
+\vspace{-1cm}
 \begin{tikzpicture}
 \node[anchor=south west] at ([shift={(0cm,0cm)}]current page.south west)
-  {\includegraphics[width=8cm]{qrcode.jpg}};
+  {\includegraphics[width=6cm]{qrcode.jpg}};
 \end{tikzpicture}
 \end{center}
 
