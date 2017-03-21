@@ -23,14 +23,13 @@ k10[years] <- finalCarbonContribution(Years = years,
                                       plot = FALSE)
 
 ## plots
-par(mar=c(4,6,4,1)+0.1)
+par(mar=c(4,5,0,.5)+0.1) #save as 3x9, par = bottom,left,top,right
 plot(exp,
      type = "l",
      col = "red",
      lwd = 3,
      xlim = c(1900,2012),
      ylim = c(min(exp,k2,k10,na.rm=TRUE), max(exp,k2,k10,na.rm=TRUE)),
-     main = "Effect of Decay Function on Carbon Sequestration",
      ylab = "Carbon Contribution\n (Thousand Metric Tons CO2)",
      xlab = "Year")
 lines(k2,
@@ -48,7 +47,7 @@ par(mar=c(4,5,4,4)+0.1)
 ## decay example plot
 ## year and half-life data
 years <- c(1:300)
-halflife <- 49
+halflife <- 50
 
 ## function setup
 g <- function(x)
@@ -105,11 +104,11 @@ product <- 1
 decayexp <- product * exp
 decayk2 <- product * k2
 decayk10 <- product * k10
+par(mar=c(4,4,0,.5)+0.1) #bottom, left, top, right
 plot(decayexp,
      type = "l",
      lwd = 3,
      col = "red",
-     main = "Decay of Hardwood in Multifamily Housing Built in 1950",
      ylab = "Percentage Remaining",
      xlab = "Year",
      ylim = c(min(decayexp,decayk2,decayk10,na.rm=TRUE), max(decayexp,decayk2,decayk10,na.rm=TRUE)),
@@ -122,3 +121,4 @@ lines(decayk10,
       type = "l",
       lwd = 3,
       col = "green")
+par(mar=c(4,5,4,4)+0.1)

@@ -204,15 +204,11 @@ from domestic harvest
 \setbeamercolor{block title}{fg=fgreen,bg=white}
 \begin{block}{Methodology}
 \begin{itemize}
-\item Most analysis done with the Production approach.
-\vspace{.5ex}
-\item The Production approach focuses on carbon stocks in wood harvested in the US.
-\vspace{.5ex}
+\item Most analysis done using the Production approach
+\item The Production approach focuses on carbon stocks in wood harvested in the US
 \item Analysis is conducted of sensitivity of input parameters, uncertainty of estimates
 and consequences of alternative decay distributions. 
 \end{itemize}
-\vspace{.3ex}
-\vfill
 \end{block}
 %----------------------------------------------------------------------------------------
 
@@ -237,9 +233,9 @@ and consequences of alternative decay distributions.
 
 \begin{block}{Uncertainty Analysis}
 \begin{itemize}
-\item Information is intended to aid in international discussions and any agreements about managing greenhouse gas emissions and sinks.
-\item Also provides national level methods and estimates of carbon sinks and emissions associated with HWP.
-\item The package provides quick accessibility, allowing data to be updated, modified, and manipulated with ease.
+\item Error sources and distributions were defined previously by the USFS and introduced using the WOODCARB3 package
+\item These included error in production and stock reporting, carbon conversion factors, percentage subject to decay, etc
+\item Uncertainty was modeled using a Monte Carlo simulation with one thousand repetitions
 \end{itemize}
 \end{block}
 
@@ -259,8 +255,8 @@ and consequences of alternative decay distributions.
 \begin{block}{Projected Carbon Contribution}
 \vspace{-2cm}
 \begin{figure}
-    {\includegraphics[width=1\linewidth, height=13cm]{ProjectionPlot.pdf}}
-    \caption{projections based on 5-year (orange) and 10-year (blue) simple linear regression}
+    {\includegraphics[width=1\linewidth, height=15cm]{ProjectionPlot.pdf}}
+    \caption{Projections based on 5-year (orange) and 10-year (blue) simple linear regression}
 \end{figure}
 \end{block}
 
@@ -276,11 +272,9 @@ and consequences of alternative decay distributions.
 
 \begin{alertblock}{Total HWP Carbon Stocks with Uncertainty}
 \begin{center}
-
 \begin{figure}
-    {\includegraphics[width=1\linewidth,height=10cm]{Uncertainty_Plot.png}};
-    \caption{this is the caption that shows what is in the figure that explains the plot of HWP stocks and provides and envelope of uncertainty around it
-    this is the caption that shows what is in the figure that explains the plot of HWP stocks and provides and envelope of uncertainty around it}
+    {\includegraphics[width=1\linewidth,height=15cm]{UncertaintyPlot.pdf}}
+    \caption{Default carbon contribution produced by WOODCARB3 (red) surrounded by results from Monte Carlo simulation (blue)}
 \end{figure}
 \end{center}
 \end{alertblock} 
@@ -304,12 +298,12 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 \end{itemize}
 \end{block}
 %----------------------------------------------------------------------------------------
-\begin{block}{Decay of Hardwood in Multifamily housing}
+\begin{block}{Shape of Decay Functions}
 \begin{center}
 \vspace{-2cm}
 \begin{figure}
-    {\includegraphics[width=1\linewidth, height=9cm]{DecayPlotExample.pdf}}
-    \caption{This figure shows the over effect of the decay function on multifamily housing built in 1960}
+    {\includegraphics[width=1\linewidth, height=15cm]{DecayPlotExample.pdf}}
+    \caption{Decay of a product with 50-year half-life using exponential (red), $k=2$ (blue), and $k=10$ (green) functions}
 \end{figure}
 \end{center}
 
@@ -330,22 +324,22 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 %Half Life Table
 %-----------------------------------------------------------------------------
 
-\begin{block}{Halflife Table}
+\begin{block}{Half-lives of End Products}
 \begin{center}
 \begin{figure}
 {\includegraphics[width=1\linewidth, height=17cm]{CopyOfHLTable.pdf}}
-      \caption{Figure caption}
+      \caption{End product half-lives and their total product}
   \end{figure}
   \end{center}
   \end{block}
 
 %----------------------------------------------------------------------------------------
-\begin{block}{Overall Decay}
+\begin{block}{Effect of Decay Functions}
 \begin{center}
 \vspace{-2cm}
 \begin{figure}
-    {\includegraphics[width=1\linewidth, height=9cm]{DecayPlotOverall.pdf}}
-    \caption{This figure shows the over effect of the decay function on Carbon Sequestration}
+    {\includegraphics[width=1\linewidth, height=15cm]{DecayPlotOverall.pdf}}
+    \caption{Overall carbon storage of harvested wood products using exponential (red), $k=2$ (blue), and $k=10$ (green) decay functions}
 \end{figure}
 \end{center}
 
@@ -387,7 +381,7 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 \begin{center}
 \vspace{-2cm}
 \begin{figure}
-    {\includegraphics[width=1\linewidth,height=10cm]{CopyOfHLSensitivityGraph.pdf}}
+    {\includegraphics[width=1\linewidth,height=15cm]{CopyOfHLSensitivityGraph.pdf}}
     \caption{Figure New.Nonres.Rties and New.Nonres.Rcar.Repair have the least variance.}
 \end{figure}
 \end{center}
@@ -396,12 +390,12 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 %----------------------------------------------------------------------------------------
 %Sensitivity Plot Example
 %----------------------------------------------------------------------------------------
-\begin{block}{Sensitivity Affect}
+\begin{block}{Half-life Sensitivity Effect}
 \begin{center}
 
 \begin{figure}
-    {\includegraphics[width=1\linewidth, height = 13cm]{CopyOfTSPlot.pdf}}
-    \caption{This is a comparison between Paper half-life and a 50 percent increase.}
+    {\includegraphics[width=1\linewidth, height = 15cm]{CopyOfTSPlot.pdf}}
+    \caption{Standard paper half-life (orange) compared to a 50-percent increase (blue)}
 \end{figure}
 \end{center}
 \end{block}

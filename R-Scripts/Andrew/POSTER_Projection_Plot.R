@@ -33,15 +33,15 @@ up_last5_plot <- c(rep(NA, each = 2012), as.numeric(last5_pred[,3]))
 ## plot
 plot_years <- length(c(1901:2020))
 plot_years_seq <- c(1:2020)
+par(mar=c(4,5,.0,.5)+0.1) #bottom, left, top, right, save as 3x9 (or some 1:3 ratio) pdf
 plot(finalplot, 
      type = "l", 
      col = "red", 
      lwd = 3,
      ylim = c(min(final, low_last10_plot, low_last5_plot, na.rm = TRUE), max(final, up_last10_plot, up_last5_plot, na.rm = TRUE)),
      xlim = c(1901,2020),
-     main = "Projected Carbon Contribution", 
      xlab = "Year", 
-     ylab = "Carbon Contribution (Thousand Metric Tons CO2)")
+     ylab = "Carbon Contribution\n (Thousand Metric Tons CO2)")
 polygon(c(plot_years_seq, rev(plot_years_seq)),
         c(up_last5_plot, rev(low_last5_plot)),
         col = "orange",
@@ -56,3 +56,4 @@ lines(pred_last5_plot,
 lines(pred_last10_plot,
       col = "blue",
       lwd = 3)
+par(mar=c(4,5,4,4)+0.1)

@@ -17,3 +17,15 @@ output: html_document
 $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 * WOODCARB2 used an exponential decay where $k=1$ in the gamma distribution
 * Two alternate decay functions, $k=2$ and $k=10$, were calculated by altering $k$ in the gamma distribution and introduced in the WOODCARB3R package
+
+
+
+
+
+## Titles
+
+Effect of Decay Function on Overall Sequestration
+
+Decay Functions with 50-year Half-life
+
+Projected Carbon Contribution

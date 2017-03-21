@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.7)  19 MAR 2017 16:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.7)  20 MAR 2017 23:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2196,16 +2196,16 @@ Overfull \hbox (735.7883pt too wide) detected at line 111
 <usfs.png, id=13, 214.8025pt x 235.88126pt>
 File: usfs.png Graphic file (type png)
  <use usfs.png>
-Package pdftex.def Info: usfs.png used on input line 472.
+Package pdftex.def Info: usfs.png used on input line 466.
 (pdftex.def)             Requested size: 241.84842pt x 265.58531pt.
 
 <app.png, id=14, 446.66875pt x 113.42375pt>
 File: app.png Graphic file (type png)
  <use app.png>
-Package pdftex.def Info: app.png used on input line 472.
+Package pdftex.def Info: app.png used on input line 466.
 (pdftex.def)             Requested size: 512.1496pt x 130.06245pt.
-LaTeX Font Info:    Calculating math sizes for size <37.32> on input line 472.
-LaTeX Font Info:    Try loading font information for TS1+pxss on input line 472
+LaTeX Font Info:    Calculating math sizes for size <37.32> on input line 466.
+LaTeX Font Info:    Try loading font information for TS1+pxss on input line 466
 .
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pxfonts/ts1pxss.fd
@@ -2214,64 +2214,60 @@ File: ts1pxss.fd 2000/12/14 v1.0
 <ProjectionPlot.pdf, id=17, 650.43pt x 216.81pt>
 File: ProjectionPlot.pdf Graphic file (type pdf)
  <use ProjectionPlot.pdf>
-Package pdftex.def Info: ProjectionPlot.pdf used on input line 472.
-(pdftex.def)             Requested size: 801.88008pt x 369.93181pt.
+Package pdftex.def Info: ProjectionPlot.pdf used on input line 466.
+(pdftex.def)             Requested size: 801.88008pt x 426.84363pt.
 
-<Uncertainty_Plot.png, id=18, 658.71094pt x 376.40625pt>
-File: Uncertainty_Plot.png Graphic file (type png)
-
-<use Uncertainty_Plot.png>
-Package pdftex.def Info: Uncertainty_Plot.png used on input line 472.
-(pdftex.def)             Requested size: 1658.45268pt x 284.54968pt.
-
-Overfull \hbox (10.58194pt too wide) in paragraph at lines 472--472
- []\T1/pxss/m/n/37.32 ; 
- []
+<UncertaintyPlot.pdf, id=18, 1300.86pt x 216.81pt>
+File: UncertaintyPlot.pdf Graphic file (type pdf)
+ <use UncertaintyPlot.pdf>
+Package pdftex.def Info: UncertaintyPlot.pdf used on input line 466.
+(pdftex.def)             Requested size: 1658.36618pt x 426.84363pt.
 
 <DecayPlotExample.pdf, id=19, 650.43pt x 216.81pt>
 File: DecayPlotExample.pdf Graphic file (type pdf)
  <use DecayPlotExample.pdf>
-Package pdftex.def Info: DecayPlotExample.pdf used on input line 472.
-(pdftex.def)             Requested size: 801.88008pt x 256.10484pt.
+Package pdftex.def Info: DecayPlotExample.pdf used on input line 466.
+(pdftex.def)             Requested size: 801.88008pt x 426.84363pt.
+LaTeX Font Info:    Calculating math sizes for size <31.11> on input line 466.
 
 <CopyOfHLTable.pdf, id=20, 368.37625pt x 216.81pt>
 File: CopyOfHLTable.pdf Graphic file (type pdf)
  <use CopyOfHLTable.pdf>
-Package pdftex.def Info: CopyOfHLTable.pdf used on input line 472.
+Package pdftex.def Info: CopyOfHLTable.pdf used on input line 466.
 (pdftex.def)             Requested size: 801.8133pt x 483.75876pt.
 
 <DecayPlotOverall.pdf, id=21, 650.43pt x 216.81pt>
 File: DecayPlotOverall.pdf Graphic file (type pdf)
  <use DecayPlotOverall.pdf>
-Package pdftex.def Info: DecayPlotOverall.pdf used on input line 472.
-(pdftex.def)             Requested size: 801.88008pt x 256.10484pt.
+Package pdftex.def Info: DecayPlotOverall.pdf used on input line 466.
+(pdftex.def)             Requested size: 801.88008pt x 426.84363pt.
 
 <CopyOfHLSensitivityGraph.pdf, id=22, 433.62pt x 144.54pt>
 File: CopyOfHLSensitivityGraph.pdf Graphic file (type pdf)
 
 <use CopyOfHLSensitivityGraph.pdf>
-Package pdftex.def Info: CopyOfHLSensitivityGraph.pdf used on input line 472.
-(pdftex.def)             Requested size: 801.91978pt x 284.54253pt.
+Package pdftex.def Info: CopyOfHLSensitivityGraph.pdf used on input line 466.
+(pdftex.def)             Requested size: 801.91978pt x 426.81491pt.
 
 <CopyOfTSPlot.pdf, id=23, 433.62pt x 165.61874pt>
 File: CopyOfTSPlot.pdf Graphic file (type pdf)
  <use CopyOfTSPlot.pdf>
-Package pdftex.def Info: CopyOfTSPlot.pdf used on input line 472.
-(pdftex.def)             Requested size: 801.91978pt x 369.93973pt.
+Package pdftex.def Info: CopyOfTSPlot.pdf used on input line 466.
+(pdftex.def)             Requested size: 801.91978pt x 426.85335pt.
 
 <qrcode.jpg, id=26, 371.3875pt x 371.3875pt>
 File: qrcode.jpg Graphic file (type jpg)
  <use qrcode.jpg>
-Package pdftex.def Info: qrcode.jpg used on input line 472.
+Package pdftex.def Info: qrcode.jpg used on input line 466.
 (pdftex.def)             Requested size: 227.62204pt x 227.62842pt.
 
-Overfull \vbox (300.94894pt too high) detected at line 472
+Overfull \vbox (500.13495pt too high) detected at line 466
  []
 
 <background.jpg, id=27, 3139.73pt x 2354.7975pt>
 File: background.jpg Graphic file (type jpg)
  <use background.jpg>
-Package pdftex.def Info: background.jpg used on input line 472.
+Package pdftex.def Info: background.jpg used on input line 466.
 (pdftex.def)             Requested size: 3471.43987pt x 3035.36598pt.
 
 Overfull \hbox (735.7883pt too wide) has occurred while \output is active
@@ -2286,9 +2282,8 @@ Overfull \hbox (36.135pt too wide) has occurred while \output is active
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
  <./background.jpg> <./usfs.png> <./app.png> <./ProjectionPlot.pdf> <./Uncertai
-nty_Plot.png (PNG copy)> <./DecayPlotExample.pdf> <./CopyOfHLTable.pdf> <./Deca
-yPlotOverall.pdf> <./CopyOfHLSensitivityGraph.pdf> <./CopyOfTSPlot.pdf> <./qrco
-de.jpg>]
+ntyPlot.pdf> <./DecayPlotExample.pdf> <./CopyOfHLTable.pdf> <./DecayPlotOverall
+.pdf> <./CopyOfHLSensitivityGraph.pdf> <./CopyOfTSPlot.pdf> <./qrcode.jpg>]
 \tf@nav=\write7
 \openout7 = `ConfPoster.nav'.
 
@@ -2298,19 +2293,20 @@ de.jpg>]
 \tf@snm=\write9
 \openout9 = `ConfPoster.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 474.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 474.
- (./ConfPoster.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 474.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 474.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 474.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 468.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 468.
+
+(./ConfPoster.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 468.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 468.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 468.
  ) 
 Here is how much of TeX's memory you used:
- 31167 strings out of 493093
- 622923 string characters out of 6134996
- 806486 words of memory out of 5000000
- 33961 multiletter control sequences out of 15000+600000
- 60166 words of font info for 121 fonts, out of 8000000 for 9000
+ 31205 strings out of 493093
+ 623495 string characters out of 6134996
+ 806686 words of memory out of 5000000
+ 33991 multiletter control sequences out of 15000+600000
+ 73251 words of font info for 158 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,17n,89p,10420b,1730s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -2322,10 +2318,10 @@ exlive/2015/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local
 al/texlive/2015/texmf-dist/fonts/type1/public/txfonts/rtcxss.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2
 015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on ConfPoster.pdf (1 page, 5811878 bytes).
+Output written on ConfPoster.pdf (1 page, 6222623 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 114 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  4 named destinations out of 1000 (max. 500000)
  104 words of extra memory for PDF output out of 10000 (max. 10000000)
 
