@@ -146,9 +146,8 @@ The amount of carbon in \textbf{HWP} and \textbf{SWDS} depend on how much wood i
 \item Input data comes from USFS reports as used in WOODCARB2.
 \item The following results use the production approach to carbon accounting. This assumes that a party is responsible for emissions from any produced HWP or SWDS, which includes exports but not imports.
 \item Stock change and atmospheric flow approach results are also available.
-\item Analysis is conducted of sensitivity of input parameters, uncertainty of estimates
-and consequences of alternative decay distributions. 
-\item Sensitivity and uncertainty calculations using Monte Carlo simulations.
+\item Analysis is conducted on sensitivity of input parameters, uncertainty of estimates, and consequences of alternative decay distributions. 
+\item Sensitivity and uncertainty calculations use Monte Carlo simulations.
 \end{itemize}
 \end{block}
 %----------------------------------------------------------------------------------------
@@ -174,9 +173,9 @@ and consequences of alternative decay distributions.
 
 \begin{block}{Uncertainty Analysis}
 \begin{itemize}
-\item Sources of error and uncertainty were defined previously by the USFS (Skog 2008)
-\item These sources include solid wood and paper production and time series, factor to convert solid wood and paper products to carbon, fractions of solid wood and paper products subject to decay in landfills, and decay rate for solid wood and paper in SWDS
-\item Projection and imputation methods are currently under development
+\item Sources of error and uncertainty were defined previously by the USFS (Skog 2008).
+\item These sources include solid wood and paper production and time series, factor to convert solid wood and paper products to carbon, fractions of solid wood and paper products subject to decay in landfills, and decay rate for solid wood and paper in SWDS.
+\item Projection and imputation methods are currently under development.
 \end{itemize}
 \end{block}
 
@@ -194,11 +193,13 @@ and consequences of alternative decay distributions.
 \setbeamercolor{block title}{fg=black,bg=white}
 \setbeamercolor{block body}{fg=black,bg=white}
 \begin{block}{Projected Carbon Contribution}
+\begin{center}
 \vspace{-2cm}
 \begin{figure}
     {\includegraphics[width=1\linewidth, height=15cm]{ProjectionPlot.pdf}}
-    \caption{Projections based on 5-year (orange) and 10-year (blue) simple linear regression}
 \end{figure}
+{\bf Figure 1.} Projections based on 5-year (orange) and 10-year (blue) simple linear regression
+\end{center}
 \end{block}
 
 %----------------------------------------------------------------------------------------
@@ -215,8 +216,8 @@ and consequences of alternative decay distributions.
 \begin{center}
 \begin{figure}
     {\includegraphics[width=1\linewidth,height=15cm]{UncertaintyPlot.pdf}}
-    \caption{Reported HWP and SWDS carbon stock produced by WOODCARB3 (red) surrounded by simulations including reported uncertainties (blue)}
 \end{figure}
+{\bf Figure 2.} Reported HWP and SWDS carbon stock produced by WOODCARB3 (red) surrounded by simulations including reported uncertainties (blue)
 \end{center}
 \end{alertblock} 
 
@@ -230,12 +231,13 @@ and consequences of alternative decay distributions.
 \setbeamercolor{block body}{fg=black,bg=white} % Change the alert block body colors
 \setbeamercolor{item}{fg=lgold, bg=black}
 
+\vspace{-1.5cm}
 \begin{block}{Decay of Wood Products}
 \begin{itemize}
 \item Decay functions are based on the gamma distribution:
 $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
-\item WOODCARB2 used an exponential decay where $k=1$ in the gamma distribution
-\item Two alternate decay functions, $k=2$ and $k=10$, were calculated by altering $k$ in the gamma distribution and introduced in the WOODCARB3R package
+\item WOODCARB2 used an exponential decay where $k=1$ in the gamma distribution.
+\item Two alternate decay functions, $k=2$ and $k=10$, were calculated by altering $k$ in the gamma distribution and introduced in the WOODCARB3R package.
 \end{itemize}
 \end{block}
 %----------------------------------------------------------------------------------------
@@ -244,8 +246,8 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 \vspace{-2cm}
 \begin{figure}
     {\includegraphics[width=1\linewidth, height=15cm]{DecayPlotExample.pdf}}
-    \caption{Decay of a product with 50-year half-life using exponential (red), $k=2$ (blue), and $k=10$ (green) functions}
 \end{figure}
+{\bf Figure 3.} Decay of a product with 50-year half-life using exponential (red), $k=2$ (blue), and $k=10$ (green) functions
 \end{center}
 
 \end{block}
@@ -264,12 +266,11 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 
 %Half Life Table
 %-----------------------------------------------------------------------------
-
+\vspace{-1.5cm}
 \begin{block}{Half-lives of End Products}
 \begin{center}
 \begin{figure}
 {\includegraphics[width=1\linewidth, height=17cm]{CopyOfHLTable.pdf}}
-      \caption{End product half-lives and their total product}
   \end{figure}
   \end{center}
   \end{block}
@@ -280,8 +281,8 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 \vspace{-2cm}
 \begin{figure}
     {\includegraphics[width=1\linewidth, height=15cm]{DecayPlotOverall.pdf}}
-    \caption{Overall carbon storage of harvested wood products using exponential (red), $k=2$ (blue), and $k=10$ (green) decay functions}
 \end{figure}
+{\bf Figure 4.} Carbon stock of HWP using exponential (red), $k=2$ (blue), and $k=10$ (green) decay functions
 \end{center}
 
 \end{block}
@@ -305,8 +306,8 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 
 \begin{block}{Half-life Sensitivity Analysis}
 \begin{itemize}
-\item Error is assumed to be N(1,.2) 
-\item Results show influence of small changes in half-life on HWP stock
+\item Error is assumed to be N(1,.2). 
+\item Results show influence of small changes in half-life on HWP stock.
 \end{itemize}
 \vspace{0ex}
 
@@ -321,7 +322,7 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 \begin{figure}
     {\includegraphics[width=1\linewidth,height=15cm]{CopyOfHLSensitivityGraph.pdf}}
 \end{figure}
-{\bf Figure 5.} Sensitivity of total HWP stock to end use distribution
+{\bf Figure 5.} Sensitivity of total HWP stock to changes in half-life
 \end{center}
 \end{block}
 
