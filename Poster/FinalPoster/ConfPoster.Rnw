@@ -113,7 +113,7 @@ library(WOODCARB3R)
       (0,0) rectangle (\textwidth,0.4cm);
     \end{tikzpicture}
 
-WOODCARB3 expands the capabilities of the WOODCARB2 spreadsheet model by changing to an R package platform. The conversion brings increased capability for data manipulation, analysis, and reporting. It also increases the ease of integration with other datasets. This poster describes some of the results and demonstrates some of the potential for the WOODCARB3 model. Examples of the types of analysis possible include uncertainty analysis, sensitivity analysis, alternate model dynamics, alternate pathways.
+WOODCARB3 expands the capabilities of the WOODCARB2 spreadsheet model by changing to an R package platform. The conversion brings increased capability for data manipulation, analysis, and reporting. It also increases the ease of integration with other datasets. This poster describes some of the results and demonstrates some of the potential for the WOODCARB3 package. Examples of the types of analysis possible include uncertainty analysis, sensitivity analysis, alternate model dynamics, and alternate pathways.
 
 \vspace{0ex}
 
@@ -125,10 +125,10 @@ WOODCARB3 expands the capabilities of the WOODCARB2 spreadsheet model by changin
 WOODCARB2 is used to document and calculate the total carbon stocks from harvested wood products (HWP). The statistics package R offers a wide variety of tools and interfaces with other software packages.
 \vspace{1ex}
 
-Sequestration of carbon in forests accounts for 87\% of total \textbf{CO$_{2}$} removals in 2014. Carbon mitigation efforts have thus focused much attention on reforestation, forest management,and forest based products. According to the most recent report to the \textbf{UNFCCC}, an estimated 18.7\% of the total carbon in woody materials is contained in harvested wood \textbf{(HWP and SWDS).}
+Sequestration of carbon in forests accounts for 87\% of total CO$_{2}$ removals in 2014. Carbon mitigation efforts have thus focused much attention on reforestation, forest management, and forest based products. According to the most recent report to the UNFCCC, an estimated 18.7\% of the total carbon in woody materials is contained in harvested wood (HWP and solid waste disposal sites (SWDS)).
 \vspace{1ex}  
 
-The amount of carbon in \textbf{HWP} and \textbf{SWDS} depend on how much wood is harvested, what types of products are produced, how the products are use, the lifetime of the wood products, and how the wood is processed at the end of its primary product lifetime.
+The amount of carbon in HWP and SWDS depend on how much wood is harvested, what types of products are produced, how the products are use, the lifetime of the wood products, and how the wood is processed at the end of its primary product lifetime.
 
 
 
@@ -174,7 +174,7 @@ The amount of carbon in \textbf{HWP} and \textbf{SWDS} depend on how much wood i
 \begin{block}{Uncertainty Analysis}
 \begin{itemize}
 \item Sources of error and uncertainty were defined previously by the USFS (Skog 2008).
-\item These sources include solid wood and paper production and time series, factor to convert solid wood and paper products to carbon, fractions of solid wood and paper products subject to decay in landfills, and decay rate for solid wood and paper in SWDS.
+\item These sources include solid wood and paper production and trade time series, factor to convert solid wood and paper products to carbon, fractions of solid wood and paper products subject to decay in landfills, and decay rate for solid wood and paper in SWDS.
 \item Projection and imputation methods are currently under development.
 \end{itemize}
 \end{block}
@@ -198,7 +198,7 @@ The amount of carbon in \textbf{HWP} and \textbf{SWDS} depend on how much wood i
 \begin{figure}
     {\includegraphics[width=1\linewidth, height=15cm]{ProjectionPlot.pdf}}
 \end{figure}
-{\bf Figure 1.} Projections based on 5-year (orange) and 10-year (blue) simple linear regression
+{\bf Figure 3.} Projections based on 5-year (orange) and 10-year (blue) simple linear regression
 \end{center}
 \end{block}
 
@@ -217,7 +217,7 @@ The amount of carbon in \textbf{HWP} and \textbf{SWDS} depend on how much wood i
 \begin{figure}
     {\includegraphics[width=1\linewidth,height=15cm]{UncertaintyPlot.pdf}}
 \end{figure}
-{\bf Figure 2.} Reported HWP and SWDS carbon stock produced by WOODCARB3 (red) surrounded by simulations including reported uncertainties (blue)
+{\bf Figure 1.} Reported HWP and SWDS carbon stock produced by WOODCARB3 (red) surrounded by simulations including reported uncertainties (blue)
 \end{center}
 \end{alertblock} 
 
@@ -247,7 +247,7 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 \begin{figure}
     {\includegraphics[width=1\linewidth, height=15cm]{DecayPlotExample.pdf}}
 \end{figure}
-{\bf Figure 3.} Decay of a product with 50-year half-life using exponential (red), $k=2$ (blue), and $k=10$ (green) functions
+{\bf Figure 2.} Decay of a product with 50-year half-life using exponential (red), $k=2$ (blue), and $k=10$ (green) functions
 \end{center}
 
 \end{block}
@@ -322,7 +322,7 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 \begin{figure}
     {\includegraphics[width=1\linewidth,height=15cm]{CopyOfHLSensitivityGraph.pdf}}
 \end{figure}
-{\bf Figure 5.} Sensitivity of total HWP stock to changes in half-life
+{\bf Figure 6.} Sensitivity of total HWP stock to changes in half-life
 \end{center}
 \end{block}
 
@@ -335,7 +335,7 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 \begin{figure}
     {\includegraphics[width=1\linewidth, height = 13cm]{CopyOfTSPlot.pdf}}
 \end{figure}
-{\bf Figure 5.} Targeted increase in half-life of paper (orange) by 50-percent (blue)
+{\bf Figure 5.} Targeted increase in half-life of paper (blue) by 50-percent (orange)
 \end{center}
 \end{block}
 
@@ -349,7 +349,7 @@ $$\int_{0}^{n}\frac{1}{\Gamma(k)\theta(k)}x^{k-1}e^{-x/k}dx$$
 \begin{block}{Discussion}
 
 \begin{itemize}
-\item Targeted changes in average half life can increase total stocks.
+\item Targeted changes in average half-life can increase total stocks.
 \item End of life dynamics make a big difference in stock size.
 \item Sensitivities help channel reductions in uncertainty.
 \end{itemize}
