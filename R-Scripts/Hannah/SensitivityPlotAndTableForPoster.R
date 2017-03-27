@@ -125,6 +125,8 @@ colnames(VarianceTable)<-c("Half Life",1990,2000,2010)
 
 VarianceTable<-round(VarianceTable,2)
 
+vartab<-VarianceTable
+
 VarianceTable<-VarianceTable[-c(3,5,6,7,10),]
 rownames(VarianceTable)<-c("Single Family", "Multi Family", "Resid Upkeep", "House Furn", "Comm. Furn", "Shipping", "Other", "Industrial", "Paper")
 
@@ -147,7 +149,8 @@ par(mar=c(2.8,2.7,0.8,0.1)+0.1)
 plot(density(as.numeric(Histdf6b)), main = NA, ylim=c(0,.029), xlim=c(-113500,-112500), xlab = "", ylab = "", cex.lab = 0.7, cex.axis = 0.7)
 title(xlab="Carbon Contribution", line=2, cex.lab=0.7)
 title(ylab="Density", line=2, cex.lab=0.7)
-
+# legend("topright", legend = rownames(vartab),col = c("black", "red", "orange", "yellow", "green", "blue", "purple", "pink", 
+#                                                      "brown", "chocolate3", "skyblue", "tan2", "seagreen","rosybrown"), cex=.8, pch=8, pt.cex = 1)
 
 lines(density(as.numeric(Histdfb)), col="black")
 lines(density(as.numeric(Histdf2b)), col="red")
